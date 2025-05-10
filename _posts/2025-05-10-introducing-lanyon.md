@@ -1,0 +1,28 @@
+---
+layout: post
+title: Hi, I'm David Everly
+---
+
+<div class="message">
+I'm based out of Franklin County, Pennsylvania, and work as a Nurse Practitioner.  I study Computer Science, AI/ML, and Computer Security while dreaming of ways to integrate my passions with my experiences.
+
+Welcome to my page!
+</div>
+
+### Background
+
+I have practiced as an Adult-Gerontology Acute Care Nurse Practitioner in Emergency, Pulmonology, and Critical Care Medicine since 2017. I have proven skills in the management of critically-ill adults, but I take pride in learning something new every day. 
+
+Amidst the COVID pandemic, I took to learning new ways to contribute to society and found a new passion in Artificial Intelligence.  I am currently studying Artfifical Intelligence and Machine Learning at Drexel University and have strong interest in the use of technology to improve healthcare quality, optimize workflows, and protect sensititve data through development of fast, reliable, and secure software solutions. *add link - read more
+
+### Recent Projects
+
+**Include projects here  *add link
+
+### Data Structures and Algorithms Library
+
+** searchable code snipets and algorithms **
+
+### Contact Me
+
+** contact info **
