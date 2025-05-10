@@ -1,7 +1,7 @@
 # Setup
 title:               David M. Everly
-tagline:             'Healthcare & Computer Science Portfolio'
-description:         'Nurse Practitioner and Graduate student in Computational AI at Drexel University. Passionate about deep learning, system security, and building things from scratch.'
+tagline:             'Nurse Practitioner and Student of Machine Learning'
+description:         'I am a Nurse Practitioner with interest in solving problems with Machine Learning. Feel free to explore some of my recent work'
 url:                 https://dmeverly.github.io
 baseurl:             ''
 paginate:            5
