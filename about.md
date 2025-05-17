@@ -8,28 +8,33 @@ I have worked as an Acute Care Nurse Practitioner since 2017, specializing in ca
 ## Procedural Skills
 
 I've had the privilage to regularly perform a number of bedside procedures, including:
+
 Endotracheal Intubation
+
 Central Lines
+
 Hemodialysis Catheters
+
 Arterial Lines
+
 Chest Tubes
+
 Thoracentesis
+
 Paracentesis
-
-## Other Skills
-
-BLS
-ACLS
-NIHSS
 
 ## Programming Languages
 
-I enjoy creating software solutions in the following languages and platforms:
+I enjoy learning to create software solutions in any language and platform but have the most experience using:
 
 Epic
+
 Java
+
 Python
+
 C
+
 R
 
 ## Education
