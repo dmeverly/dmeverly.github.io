@@ -1,5 +1,5 @@
 ---
-layout: other
+layout: page
 title: Example content
 ---
 
