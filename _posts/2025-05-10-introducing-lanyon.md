@@ -3,7 +3,7 @@ layout: post
 title: Hi, I'm David Everly
 ---
 
-<div class="message">
+<div class="message-green">
 I'm based out of Franklin County, Pennsylvania, and work as a Nurse Practitioner.  I study Computer Science, AI/ML, and Computer Security while dreaming of ways to integrate my passions with my experiences.
 
 Welcome to my page!
