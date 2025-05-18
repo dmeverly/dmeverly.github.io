@@ -281,8 +281,8 @@ tbody tr:nth-child(odd) th {
 .message-green {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #7ec29ae7;
-  background-color: #f9f9f9;
+  color: #717171;
+  background-color: #7ec29ae7;
 }
 
 /*
