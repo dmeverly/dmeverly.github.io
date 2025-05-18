@@ -13,7 +13,7 @@ Welcome to my page!
 
 I have practiced as an Adult-Gerontology Acute Care Nurse Practitioner in Emergency, Pulmonology, and Critical Care Medicine since 2017. I have proven skills in the management of critically-ill adults, but I take pride in learning something new every day. 
 
-Amidst the COVID pandemic, I took to learning new ways to contribute to society and found a new passion in Artificial Intelligence.  I am currently studying Artfifical Intelligence and Machine Learning at Drexel University and have strong interest in the use of technology to improve healthcare quality, optimize workflows, and protect sensititve data through development of fast, reliable, and secure software solutions. - read more(https://www.dmeverly.com/about/)
+Amidst the COVID pandemic, I took to learning new ways to contribute to society and found a new passion in Artificial Intelligence.  I am currently studying Artfifical Intelligence and Machine Learning at Drexel University and have strong interest in the use of technology to improve healthcare quality, optimize workflows, and protect sensititve data through development of fast, reliable, and secure software solutions. [tell me more](https://www.dmeverly.com/about/)
 
 ### Recent Projects
 
