@@ -9,19 +9,23 @@ I have worked as an Acute Care Nurse Practitioner since 2017, specializing in ca
 
 I've had the privilage to regularly perform a number of bedside procedures, including:
 
-Endotracheal Intubation
-
-Central Lines
-
-Hemodialysis Catheters
-
-Arterial Lines
-
-Chest Tubes
-
-Thoracentesis
-
-Paracentesis
+<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  <div style="flex: 1;">
+    <ul>
+      <li>Endotracheal Intubation</li>
+      <li>Central Lines</li>
+      <li>Hemodialysis Catheters</li>
+      <li>Arterial Lines</li>
+    </ul>
+  </div>
+  <div style="flex: 1;">
+    <ul>
+      <li>Chest Tubes</li>
+      <li>Thoracentesis</li>
+      <li>Paracentesis</li>
+    </ul>
+  </div>
+</div>
 
 ## Programming Languages
 
