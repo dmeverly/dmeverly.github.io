@@ -42,6 +42,7 @@ R
 I'm proud to have earned degrees from major institutions, including:
 
 Drexel University
+
 Master of Science in Artificial Intelligence and Machine Learning
 Options in:
 Computational AI
@@ -51,71 +52,67 @@ Computer Security & Privacy
 Post-Baccalaureate Certificate in Computer Science
 
 Penn State University
+
 Master of Science in Nursing, Adult-Gerontology Acute Care Nurse Practitioner
 Bachelor of Science in Nursing
 
 Hagerstown Community College
+
 Associate of Science in Nursing
 
 ## Experience
 
 I gained practical experience working with:
 
-WellSpan Pulmonology & Critical Care Medicine (May 2019 – Current)
-Nurse Practitioner – Pulmonary and Critical Care Medicine - Chambersburg Hospital
+As a Nurse Practitioner
 
+WellSpan Pulmonology & Critical Care Medicine 
+(May 2019 – Current)
 
-Hershey Medical Center (August 2017 – September 2019)
-Nurse Practitioner - Emergency Department (December 2017- September 2019)
-Nurse Practitioner - Medical Intensive Care (August 2017- December 2017)
+Hershey Medical Center 
+(August 2017 – September 2019)
+
+As a Registered Nurse
 
 Pennsylvania College of Health Sciences (September 2016 – June 2017)
-Adjunct Nursing Clinical Instructor - Medical/Surgical Nursing; LPN-RN Advanced Placement
 
-Medical Staffing Network (March 2016- June 2016)
-Temporary Agency Nurse - Good Samaritan Hospital- Progressive Care Unit
+Medical Staffing Network 
+(March 2016- June 2016)
 
-Hershey Medical Center (January 2016 – March 2016)
-Registered Nurse - Medical Intermediate Care Unit
+Hershey Medical Center 
+(January 2016 – March 2016)
 
-Meritus Medical Center (May 2011 – January 2016)
-Registered Nurse - Emergency Department (12/2014-01/2016)
-Registered Nurse - Cardiopulmonary Step-Down Unit (08/2013-12/2014)
-Unit Clerk/Clinical Observer - Medical/Surgical/Oncology Unit (05/2011-08/2013)
+Meritus Medical Center 
+(May 2011 – January 2016)
 
-## Profession Certifications
+## Professional Certifications
 
-Adult-Gerontology Acute Care Nurse Practitioner 07/2017 - Present
-Registered Nurse 05/2013 - Present Advanced Cardiac Life Support
+Adult-Gerontology Acute Care Nurse Practitioner
+
+Registered Nurse
+
+Advanced Cardiac Life Support
+
 Basic Life Support
+
 NIHSS Certified
-Continuing Epic Physician Builder 2024
-Education CHEST Difficult Airway Course 2019 3rd Rock Critical Care Ultrasound Course 2019
-Fundamental Critical Care Support 2017
+
+Continuing Epic Physician Builder
+
+CHEST Difficult Airway Course 
+
+3rd Rock Critical Care Ultrasound Course
 
 ## Recognition
+
 Graduate Fellowship - The Pennsylvania State University 2023
+
 Advanced Practice Provider of the Year - HMC Emergency Department 2019
+
 Most “Great Catches” - HMC Emergency Department 2019
+
 Award of Academic Excellence - Hagerstown Community College 2013
-Rose Award Scholarship 2013
-HCC Alumni Association Scholarship Award 2012
-HCC Foundation Scholarship Award 2012
+
 HRSA Nursing Scholarship Program Recipient 2012
+
 HSCRC Nursing Scholarship Program Recipient 2011
-
-## Memberships
-
-Some current and past affiliations:
-
-WellSpan Physician Builders Workgroup 2023
-WellSpan Chambersburg Critical Care Committee 2023
-Penn State PhD Doctoral Student Association 2023
-American Medical Informatics Association 2023
-American Association of Nurse Practitioners 2019
-American College of Chest Physicians 2019
-Pennsylvania Coalition of Nurse Practitioners 2016
-Sigma Theta Tau International Honor Society of Nursing 2016
-Golden Key International Honour Society 2015
-Society of Critical Care Medicine – Pennsylvania Chapter 2015
-Phi Theta Kappa Honor Society 2013
