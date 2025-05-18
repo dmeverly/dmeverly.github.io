@@ -31,44 +31,45 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
 
 I enjoy learning to create software solutions in any language and platform but have the most experience using:
 
-Epic
-
-Java
-
-Python
-
-C
-
-R
+<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  <div style="flex: 1;">
+    <ul>
+        <li>Epic</li>
+        <li>Java</li>
+        <li>Python</li>
+    </ul>
+  </div>
+  <div style="flex:1;">
+    <ul>
+        <li>C</li>
+        <li>R</li>
+    </ul>
+</div>
+</div>
 
 ## Education
 
 I'm proud to have earned degrees from major institutions, including:
 
-Drexel University
-
+<u>Drexel University</u>
+<b>– In Progress, Anticipated Graduation March 2026! -</b>
 Master of Science in Artificial Intelligence and Machine Learning
-Options in:
-Computational AI
-Computer Science Theory & Practice
-Computer Security & Privacy
-– In Progress, Anticipated Graduation March 2026! -
-Post-Baccalaureate Certificate in Computer Science
+with certifications in:
+<li>Computational AI</li>
+<li>Computer Science Theory & Practice</li>
+<li>Computer Security & Privacy</li>
+<li>Post-Baccalaureate Certificate in Computer Science</li>
 
-Penn State University
-
-Master of Science in Nursing, Adult-Gerontology Acute Care Nurse Practitioner
+<u>Penn State University</u>
+Master of Science in Nursing, Adult-Gerontology Acute Care Nurse Practitioner option
 Bachelor of Science in Nursing
 
-Hagerstown Community College
-
+<u>Hagerstown Community College</u>
 Associate of Science in Nursing
 
 ## Experience
 
-I gained practical experience working with:
-
-As a Nurse Practitioner
+<u>Nurse Practitioner</u>
 
 WellSpan Pulmonology & Critical Care Medicine 
 (May 2019 – Current)
@@ -76,7 +77,7 @@ WellSpan Pulmonology & Critical Care Medicine
 Hershey Medical Center 
 (August 2017 – September 2019)
 
-As a Registered Nurse
+<u>Registered Nurse</u>
 
 Pennsylvania College of Health Sciences (September 2016 – June 2017)
 
@@ -91,21 +92,17 @@ Meritus Medical Center
 
 ## Professional Certifications
 
-Adult-Gerontology Acute Care Nurse Practitioner
+<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  <div style="flex: 1;">
+    <ul>
+    <li>Adult-Gerontology Acute Care Nurse Practitioner</li>
+    <li>Registered Nurse</li>
+    <li>Advanced Cardiac Life Support</li>
+    <li>Epic Physician Builder</li>
+    </ul>
+  </div>
+</div>
 
-Registered Nurse
-
-Advanced Cardiac Life Support
-
-Basic Life Support
-
-NIHSS Certified
-
-Continuing Epic Physician Builder
-
-CHEST Difficult Airway Course 
-
-3rd Rock Critical Care Ultrasound Course
 
 ## Recognition
 
