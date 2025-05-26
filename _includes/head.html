@@ -6,7 +6,7 @@
 
   <title>
     {% if page.title == "Home" %}
-      <p align = "center">{{ site.title }}</p>
+      {{ site.title }}
     {% else %}
       {{ page.title }} &middot; {{ site.title }}
     {% endif %}
