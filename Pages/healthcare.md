@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Healthcare
+title: Advanced Practice Nursing
 sidebar_category: What I've Done
+order: 2
 ---
 
 I have worked as an Acute Care Nurse Practitioner since 2017, specializing in care of criticall-ill adults in Emergency, Pulmonology, and Critical Care Medicine.  I enjoy teaching new students and providers and maintain an ongoing relationship with local NP schools.

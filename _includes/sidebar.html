@@ -39,7 +39,7 @@
   
   {% for category in categories %}
     <h4 class="sidebar-category">{{ category }}</h4>
-    {% assign pages_in_category = pages_by_category | where: "sidebar_category", category | sort: "title" %}
+      {% assign pages_in_category = pages_by_category | where: "sidebar_category", category | sort: "order" %}
     {% for node in pages_in_category %}
       <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | absolute_url }}">{{ node.title }}</a>
     {% endfor %}
