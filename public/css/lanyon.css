@@ -567,3 +567,29 @@ a.pagination-item:hover {
   line-height: 1.6;
 }
 
+.sidebar-category {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: normal;
+}
+
+
+.sidebar-nav-item {
+  color: #f0f0f0;                // Lighter link text
+  text-decoration: none;         // No underline
+  display: block;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: #444;      // Subtle hover background
+    color: #fff;                 // Slightly brighter text on hover
+  }
+
+  &.active {
+    background-color: #555;      // Highlight active page
+    font-weight: bold;
+  }
+}

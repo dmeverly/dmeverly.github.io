@@ -1,10 +1,10 @@
 ---
 layout: page
-title: About Me
+title: Healthcare
 sidebar_category: What I've Done
 ---
 
-I have worked as an Acute Care Nurse Practitioner since 2017, specializing in care of criticall-ill adults in Emergency, Pulmonology, and Critical Care Medicine.  I enjoy teaching new students and providers and maintain an ongoing relationship with local NP schools.  I've also worked on a number of process improvement projects as an EPIC Certified Physician Builder.
+I have worked as an Acute Care Nurse Practitioner since 2017, specializing in care of criticall-ill adults in Emergency, Pulmonology, and Critical Care Medicine.  I enjoy teaching new students and providers and maintain an ongoing relationship with local NP schools.
 
 ## Procedural Skills
 
@@ -28,38 +28,7 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
   </div>
 </div>
 
-## Programming Languages
-
-I enjoy learning to create software solutions in any language and platform but have the most experience using:
-
-<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-  <div style="flex: 1;">
-    <ul>
-        <li>Epic</li>
-        <li>Java</li>
-        <li>Python</li>
-    </ul>
-  </div>
-  <div style="flex:1;">
-    <ul>
-        <li>C</li>
-        <li>R</li>
-    </ul>
-</div>
-</div>
-
-## Education
-
-I'm proud to have earned degrees from major institutions, including:
-
-<u>Drexel University</u>
-<b>– In Progress, Anticipated Graduation March 2026! -</b>
-Master of Science in Artificial Intelligence and Machine Learning
-with certifications in:
-<li>Computational AI</li>
-<li>Computer Science Theory & Practice</li>
-<li>Computer Security & Privacy</li>
-<li>Post-Baccalaureate Certificate in Computer Science</li>
+## Nursing Education
 
 <u>Penn State University</u>
 Master of Science in Nursing, Adult-Gerontology Acute Care Nurse Practitioner option
@@ -68,7 +37,7 @@ Bachelor of Science in Nursing
 <u>Hagerstown Community College</u>
 Associate of Science in Nursing
 
-## Experience
+## Nursing Experience
 
 <u>Nurse Practitioner</u>
 
@@ -98,8 +67,7 @@ Meritus Medical Center
     <ul>
     <li>Adult-Gerontology Acute Care Nurse Practitioner</li>
     <li>Registered Nurse</li>
-    <li>Advanced Cardiac Life Support</li>
-    <li>Epic Physician Builder</li>
+    <li>Basic/Advanced Cardiac Life Support</li>
     </ul>
   </div>
 </div>

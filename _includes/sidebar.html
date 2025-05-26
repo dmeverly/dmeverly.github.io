@@ -8,7 +8,7 @@
     <p>{{ site.description }}</p>
   </div>
 
-  <nav class="sidebar-nav">
+  <!-- <nav class="sidebar-nav">
     <a class="sidebar-nav-item{% if page.title == 'Home' %} active{% endif %}" href="{{ '/' | absolute_url }}">Home</a>
 
     {% comment %}
@@ -28,7 +28,27 @@
     <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
     <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
     <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
-  </nav>
+  </nav> -->
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item{% if page.title == 'Home' %} active{% endif %}" href="{{ '/' | absolute_url }}">Home</a>
+
+  {% assign categories = "What I've Done|What I'm Working On|Where I'm Headed" | split: "|" %}
+
+  {% assign pages_by_category = site.pages | where: "layout", "page" %}
+  
+  {% for category in categories %}
+    <h4 class="sidebar-category">{{ category }}</h4>
+    {% assign pages_in_category = pages_by_category | where: "sidebar_category", category | sort: "title" %}
+    {% for node in pages_in_category %}
+      <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | absolute_url }}">{{ node.title }}</a>
+    {% endfor %}
+  {% endfor %}
+
+  <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
+  <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
+  <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+</nav>
 
   <div class="sidebar-item">
     <p>

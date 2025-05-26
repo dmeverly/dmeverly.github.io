@@ -1,10 +1,12 @@
 ---
 layout: page
-title: About Me
+title: AI and Security
 sidebar_category: What I've Done
 ---
 
-I have worked as an Acute Care Nurse Practitioner since 2017, specializing in care of criticall-ill adults in Emergency, Pulmonology, and Critical Care Medicine.  I enjoy teaching new students and providers and maintain an ongoing relationship with local NP schools.  I've also worked on a number of process improvement projects as an EPIC Certified Physician Builder.
+I began self-study of mathematics and computer science during COVID using free online resources on EdX and Coursera.  While it all started as a hobby, I felt inspired by the work and sought formal study at Drexel University.
+
+I've also worked on a number of process improvement projects as an EPIC Certified Physician Builder.
 
 ## Procedural Skills
 

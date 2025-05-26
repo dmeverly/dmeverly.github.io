@@ -26,13 +26,12 @@ title: Home
 
 I have practiced as an Adult-Gerontology Acute Care Nurse Practitioner in Emergency, Pulmonology, and Critical Care Medicine since 2017. 
 I have proven skills in the management of critically-ill adults, but I strive to learn something new every day.
-
 I was originally a Computer Science major who transitioned to Nursing many years ago. 
-Amidst the COVID pandemic, I took to learning new ways to contribute to society and found a new passion in Artificial Intelligence. 
+Amidst the COVID pandemic, I was inspired by innovation all around me and wanted to develop new ways to help
+people on a broader scale.  I revisited Computer Science and found a new passion in Artificial Intelligence. 
 I am currently studying Artificial Intelligence and Machine Learning at Drexel University and 
-have strong interest in the use of technology to improve healthcare quality, optimize workflows, 
-and protect sensitive data through the development of fast, reliable, and secure software solutions. 
-<a href="https://www.dmeverly.com/Pages/about/">Tell Me More</a>
+have strong interest in projects that leverage the power of modern technology to improve healthcare quality, optimize workflows, 
+and protect sensitive data. <a href="https://www.dmeverly.com/Pages/about/">Tell Me More</a>
 
 <hr>
 
@@ -52,8 +51,9 @@ and protect sensitive data through the development of fast, reliable, and secure
 
 <hr>
 
-<h2 class="post-title" style="text-align: center;">Latest Blog Posts</h2>
-
+{% if paginator.posts %}
+<h2 class="post-title" style="text-align: center;">Latest Activity</h2>
+{% endif %}
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
@@ -70,7 +70,7 @@ and protect sensitive data through the development of fast, reliable, and secure
   {% endfor %}
 </div>
 
-<div class="pagination">
+<!-- <div class="pagination">
   {% if paginator.next_page %}
     <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
   {% else %}
@@ -85,4 +85,4 @@ and protect sensitive data through the development of fast, reliable, and secure
   {% else %}
     <span class="pagination-item newer">Newer</span>
   {% endif %}
-</div>
+</div> -->
