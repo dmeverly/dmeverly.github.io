@@ -3,18 +3,67 @@ layout: default
 title: Home
 ---
 
+<div class="welcome" style="text-align: center;">
+  <img src="assets/profilePicture.png" alt="My Photo" style="width: 300px; border-radius: 50%; margin: 20px auto;">
+  
+  <h1>Hi, I'm David Everly</h1>
+
+  <div class="purpose-block">
+  I'm based out of Franklin County, Pennsylvania, and work as a Nurse Practitioner. 
+  I enjoy studying Computer Science, Machine Learning, and Cybersecurity. 
+  I am always looking for ways to integrate my diverse interests and experiences.
+
+  Welcome to my page!
+</div>
+
+</div>
+
+<hr>
+
+<h3>Background</h3>
+
+I have practiced as an Adult-Gerontology Acute Care Nurse Practitioner in Emergency, Pulmonology, and Critical Care Medicine since 2017. 
+I have proven skills in the management of critically-ill adults, but I strive to learn something new every day.
+
+I was originally a Computer Science major who transitioned to Nursing many years ago. 
+Amidst the COVID pandemic, I took to learning new ways to contribute to society and found a new passion in Artificial Intelligence. 
+I am currently studying Artificial Intelligence and Machine Learning at Drexel University and 
+have strong interest in the use of technology to improve healthcare quality, optimize workflows, 
+and protect sensitive data through the development of fast, reliable, and secure software solutions. 
+<a href="https://www.dmeverly.com/pages/about/">Tell Me More</a>
+
+<hr>
+
+<h3>Recent Projects</h3>
+**Include projects here.** *(Add links)*
+
+---
+
+<h3>Data Structures and Algorithms Library</h3>
+**Searchable code snippets and algorithms.** *(Coming soon)*
+
+---
+
+<h3>Contact Me</h3>
+**Email:** dmeverly@hotmail.com  
+**GitHub:** [dmeverly](https://github.com/dmeverly)
+
+<hr>
+
+<h2 class="post-title" style="text-align: center;">Latest Blog Posts</h2>
+
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
-    <h1 class="post-title">
-      <!-- <a href="{{ post.url | absolute_url }}"> -->
+    <h3 class="post-title">
+      <a href="{{ post.url | absolute_url }}">
         {{ post.title }}
       </a>
-    </h1>
+    </h3>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {{ post.content }}
+    {{ post.excerpt }}
   </div>
   {% endfor %}
 </div>

@@ -316,7 +316,6 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title {
   margin-top: 0;
-  text-align: center;
 }
 
 /* Meta data line below post title */
@@ -557,3 +556,14 @@ a.pagination-item:hover {
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
 }
+
+.purpose-block {
+  background-color: #e6f7e9; /* Light green */
+  border-left: 5px solid #6ccf77; /* A stronger green accent */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
