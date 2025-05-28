@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Advanced Practice Nursing
-sidebar_category: What I've Done
+sidebar_category: Background
 order: 2
 ---
 

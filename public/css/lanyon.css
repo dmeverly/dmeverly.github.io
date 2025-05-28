@@ -150,7 +150,8 @@ h1, h2, h3, h4, h5, h6 {
   overflow-y: auto;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 15px */
-  color: rgba(255,255,255,.6);
+  /* color: rgba(255,255,255,.6); */
+  color: #5BA386;
   background-color: #202020;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
@@ -559,7 +560,7 @@ a.pagination-item:hover {
 
 .purpose-block {
   background-color: #e6f7e9; /* Light green */
-  border-left: 5px solid #6ccf77; /* A stronger green accent */
+  border-left: 5px solid #5BA386; */
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
@@ -567,29 +568,70 @@ a.pagination-item:hover {
   line-height: 1.6;
 }
 
+/* Sidebar category headings */
 .sidebar-category {
-  font-family: monospace;
-  font-size: 0.9rem;
-  color: #ccc;
-  text-align: center;
-  margin: 1rem 0 0.5rem 0;
-  font-weight: normal;
+  font-size: 0.85em;         
+  color: #5BA386;            
+  font-weight: bold;
+  margin-top: 1.5rem;        
+  margin-bottom: 0.75rem;
+  margin-left: 0.4rem;    
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;    
+  border-bottom: 1px solid #5BA386; 
+  padding-bottom: 0.3rem;    
 }
 
 
 .sidebar-nav-item {
-  color: #f0f0f0;                // Lighter link text
-  text-decoration: none;         // No underline
+  color: #f0f0f0;                
+  text-decoration: none;         
   display: block;
   padding: 0.5rem 1rem;
 
   &:hover {
-    background-color: #444;      // Subtle hover background
-    color: #fff;                 // Slightly brighter text on hover
+    background-color: #444;      
+    color: #fff;                 
   }
 
   &.active {
-    background-color: #555;      // Highlight active page
+    background-color: #555;      
     font-weight: bold;
   }
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #202020; /* Dark background for coding theme */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #5BA386; /* Neon blue for hover effect */
+  color: #fff;
+}
+
+a {
+  color: #5BA386;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5BA386; /* Bright green on hover for emphasis */
+  text-decoration: underline;
+}
+
+/* Icons for GitHub and LinkedIn */
+a i.fab {
+  color: #5BA386;
+  transition: color 0.3s ease;
+}
+
+a i.fab:hover {
+  color: #5BA386;
 }

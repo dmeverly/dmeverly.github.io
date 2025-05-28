@@ -1,7 +1,7 @@
 ---
 layout: page
 title: AI and Security
-sidebar_category: What I've Done
+sidebar_category: Background
 order: 3
 ---
 
@@ -49,6 +49,7 @@ Problem List Initiative
 <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
   <div style="flex: 1;">
     <ul>
+    <li>ISC2 Certified in Cybersecurity (CC) </li>
     <li>Epic Physician Builder</li>
     </ul>
   </div>
