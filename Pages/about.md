@@ -14,9 +14,9 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 
 ---
 
-## 🔧 Technical Focus
+## Technical Focus
 
-### 🚧 Recent Projects  
+### Recent Projects  
 
 As an EPIC Certified Physician Builder, I've contributed to several clinical optimization initiatives:
 
@@ -26,7 +26,7 @@ As an EPIC Certified Physician Builder, I've contributed to several clinical opt
 
 ---
 
-## 🎓 Technical Education
+## Technical Education
 
 **Drexel University**  
 **M.S. in Artificial Intelligence & Machine Learning**  
@@ -41,7 +41,7 @@ With post-baccalaureate certifications in:
 
 ---
 
-## 💻 Programming Languages
+## Programming Languages
 
 I enjoy solving problems across platforms and languages, with the most experience in:
 
@@ -63,7 +63,7 @@ I enjoy solving problems across platforms and languages, with the most experienc
 
 ---
 
-## 🧾 Certifications
+## Certifications
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
   <div style="flex: 1;">
