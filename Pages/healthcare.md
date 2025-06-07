@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Advanced Practice Nursing
+title: Clinical Background
 sidebar_category: Background
 order: 2
 ---

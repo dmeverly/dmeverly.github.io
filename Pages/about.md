@@ -14,9 +14,7 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 
 ---
 
-## Technical Focus
-
-### Recent Projects  
+## Recent Projects
 
 As an EPIC Certified Physician Builder, I've contributed to several clinical optimization initiatives:
 
@@ -76,6 +74,4 @@ I enjoy solving problems across platforms and languages, with the most experienc
 
 ---
 
-Driven by real-world challenges and powered by technical training, I’m passionate about using AI/ML to design smarter, safer systems — and excited to apply these skills across industries.
-
-<div style="text-align:right;"><a href="/Pages/tech/">More on AI & Security →</a></div>
+Driven by real-world clinical experience and powered by technical training, I’m passionate about using AI/ML to design smarter, safer systems — and excited to apply these skills across industries.
