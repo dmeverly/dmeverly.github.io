@@ -25,7 +25,7 @@ I enjoy learning to create software solutions in any language and platform but h
 </div>
 </div>
 
-## Education
+## Technical Education
 
 <u>Drexel University</u>
 <b>– In Progress, Anticipated Graduation March 2026! -</b>
