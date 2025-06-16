@@ -33,16 +33,18 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
 
 ## Nursing Education
 
-<u>Penn State University</u>
-Master of Science in Nursing, Adult-Gerontology Acute Care Nurse Practitioner option
-Bachelor of Science in Nursing
+**Penn State University**  
+**Master of Science in Nursing**  
+- Adult-Gerontology Acute Care Nurse Practitioner option  
 
-<u>Hagerstown Community College</u>
-Associate of Science in Nursing
+**Bachelor of Science in Nursing**
+
+**Hagerstown Community College**  
+**Associate of Science in Nursing**  
 
 ## Nursing Experience
 
-<u>Nurse Practitioner</u>
+**Nurse Practitioner**
 
 WellSpan Pulmonology & Critical Care Medicine 
 (May 2019 – Current)
@@ -50,7 +52,7 @@ WellSpan Pulmonology & Critical Care Medicine
 Hershey Medical Center 
 (August 2017 – September 2019)
 
-<u>Registered Nurse</u>
+**Registered Nurse**
 
 Pennsylvania College of Health Sciences (September 2016 – June 2017)
 

@@ -5,7 +5,8 @@ sidebar_category: Background
 order: 1
 ---
 
-As an ICU Nurse Practitioner shaped by the COVID-19 surge, I saw firsthand how rigid processes strain care teams and compromise outcomes.  
+As an ICU Nurse Practitioner, I have seen firsthand how rigid processes strain care teams and compromise outcomes.  
+During the COVID pandemic, I saw how antiquated systems processes were a hindrence to patient care and an added burden to already stressed healthcare providers.  
 Determined to find a better way, I returned to my roots in computer science and dove into AI and machine learning.  
 
 Today, I combine frontline clinical insight with a growing technical toolkit to design intelligent systems that streamline workflows and solve complex problems — in healthcare and beyond.
@@ -41,14 +42,14 @@ With post-baccalaureate certifications in:
 
 ## Programming Languages
 
-I enjoy solving problems across platforms and languages, with the most experience in:
+I enjoy solving problems across platforms and languages, with a preference for creating solutions in Python.  I have the most experience using:
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
   <div style="flex: 1;">
     <ul>
       <li>Python</li>
       <li>Java</li>
-      <li>Epic (EHR)</li>
+      <li>Epic EHR</li>
     </ul>
   </div>
   <div style="flex: 1;">
