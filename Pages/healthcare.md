@@ -34,17 +34,24 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
 ## Nursing Education
 
 **Penn State University**  
+
 **Master of Science in Nursing**  
+
 - Adult-Gerontology Acute Care Nurse Practitioner option  
 
-**Bachelor of Science in Nursing**
+**Bachelor of Science in Nursing**  
+
 
 **Hagerstown Community College**  
+
 **Associate of Science in Nursing**  
 
 ## Nursing Experience
 
 **Nurse Practitioner**
+
+WellSpan Thoracic Surgery
+(September 2025 – Current)  
 
 WellSpan Pulmonology & Critical Care Medicine 
 (May 2019 – Current)
