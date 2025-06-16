@@ -35,16 +35,13 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
 
 **Penn State University**  
 
-**Master of Science in Nursing**  
-
+**M.S. in Nursing**  
 - Adult-Gerontology Acute Care Nurse Practitioner option  
-
-**Bachelor of Science in Nursing**  
-
+**B.S. in Nursing**  
 
 **Hagerstown Community College**  
 
-**Associate of Science in Nursing**  
+**A.S. in Nursing**  
 
 ## Nursing Experience
 
