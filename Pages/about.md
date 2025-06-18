@@ -5,7 +5,7 @@ sidebar_category: Background
 order: 1
 ---
 
-As an ICU Nurse Practitioner, I have seen firsthand how rigid processes strain care teams and compromise outcomes. During the COVID pandemic, I saw how antiquated systems processes were a hindrence to patient care and an added burden to already stressed healthcare providers. Determined to find a better way, I returned to study of computer science and dove into AI and machine learning.  
+As an ICU Nurse Practitioner during the COVID pandemic, I saw how antiquated systems processes were a hindrence to patient care and an added burden to already stressed healthcare providers. Determined to find a better way, I returned to study of computer science and dove into AI and machine learning.  
 
 Today, I combine frontline clinical insight with a growing technical toolkit to design customized, intelligent systems for solving modern problems.
 
