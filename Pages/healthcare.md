@@ -37,37 +37,28 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
 
 **M.S. in Nursing**  
 - Adult-Gerontology Acute Care Nurse Practitioner option  
-**B.S. in Nursing**  
 
-**Hagerstown Community College**  
+## Nursing Experience  
 
-**A.S. in Nursing**  
-
-## Nursing Experience
+I have experienced healthcare from many perspectives as my clinical practice evolved from Unit Clerk to Registered Nurse to Nurse Practitioner and from community hospitals to academic medical centers.  
 
 **Nurse Practitioner**
 
-WellSpan Thoracic Surgery
-(September 2025 – Current)  
+WellSpan Thoracic Surgery (September 2025 – Current)  
 
-WellSpan Pulmonology & Critical Care Medicine 
-(May 2019 – Current)
+WellSpan Pulmonology & Critical Care Medicine (May 2019 – Current)
 
-Hershey Medical Center 
-(August 2017 – September 2019)
+Hershey Medical Center (August 2017 – September 2019)
 
 **Registered Nurse**
 
 Pennsylvania College of Health Sciences (September 2016 – June 2017)
 
-Medical Staffing Network 
-(March 2016- June 2016)
+Medical Staffing Network (March 2016- June 2016)
 
-Hershey Medical Center 
-(January 2016 – March 2016)
+Hershey Medical Center (January 2016 – March 2016)
 
-Meritus Medical Center 
-(May 2011 – January 2016)
+Meritus Medical Center (May 2011 – January 2016)
 
 ## Professional Certifications
 
