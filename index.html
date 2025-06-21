@@ -51,9 +51,7 @@ workflows in healthcare and beyond.
       </a> -->
     </h3>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.excerpt }}
+    <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
   </div>
   {% endfor %}
 </div>
