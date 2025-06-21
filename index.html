@@ -29,25 +29,43 @@ excited to apply these skills across industries.
 
 <hr>
 
-{% if paginator.posts %}
+{% if paginator.CompletedProjects %}
 <div class="purpose-block">
-<h2 class="post-title" style="text-align: center;">Recent Projects</h2>
+<h2 class="post-title" style="text-align: center;">Completed Projects</h2>
 {% endif %}
 <div class="posts">
-  {% for post in paginator.posts %}
+  {% for post in paginator.CompletedProjects %}
   <div class="post">
     <h3 class="post-title">
       <!-- <a href="{{ post.url | absolute_url }}">
         {{ post.title }}
       </a> -->
     </h3>
-    <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
+    <!-- <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }} -->
   </div>
   {% endfor %}
 </div>
 </div>
 <hr>
 
+{% if paginator.IncompleteProjects %}
+<div class="purpose-block">
+<h2 class="post-title" style="text-align: center;">Works in Progress</h2>
+{% endif %}
+<div class="posts">
+  {% for post in paginator.IncompleteProjects %}
+  <div class="post">
+    <h3 class="post-title">
+      <!-- <a href="{{ post.url | absolute_url }}">
+        {{ post.title }}
+      </a> -->
+    </h3>
+    <!-- <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }} -->
+  </div>
+  {% endfor %}
+</div>
+</div>
+<hr>
 
 <div style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
