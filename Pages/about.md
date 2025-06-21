@@ -40,8 +40,8 @@ My course of study is weighted heavily in topics such as:
 
 - Applied and Computational Machine Learning  
 - Computer Vision  
-- Deep Learning
-- Optimization of Neural Networks 
+- Deep Learning  
+- Optimization of Neural Networks  
 ---
 
 ## Languages and Tools
@@ -75,7 +75,8 @@ Developer Tools
       <li>VS Code</li>
       <li>Git</li>
     </ul>
-  </div>
+  </div>  
+</div>
 ---
 
 ## Certifications
