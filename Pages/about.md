@@ -13,7 +13,7 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 
 ---
 
-## Recent Projects
+## Workflow Optimization  
 
 As an EPIC Certified Physician Builder, I've contributed to several clinical optimization initiatives:
 
@@ -41,7 +41,7 @@ My course of study is weighted heavily in topics such as:
 - Applied and Computational Machine Learning  
 - Computer Vision  
 - Deep Learning  
-- Optimization of Neural Networks  
+
 ---
 
 ## Languages and Tools
