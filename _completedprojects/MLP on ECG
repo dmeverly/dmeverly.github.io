@@ -3,7 +3,7 @@ layout: post
 title: MLP on ECG
 date: 2025-06-10
 summary: >
-    Training and performance review of several Multi-layer Perceptrons at varying degrees of complexity tasked with classifying single lead ECG data as normal vs. abnormal
+    Training and performance review of several Multilayer Perceptrons at varying degrees of complexity tasked with classifying single lead ECG data as normal vs. abnormal
 ---
 
 Project Complete, writeup pending. Full Description Here <a href="https://github.com/dmeverly/MLP-on-ECG" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>
