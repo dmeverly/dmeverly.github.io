@@ -15,7 +15,26 @@ author:
 
 # Gems
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
+
+collections:
+  completedprojects:
+    output: true
+  incompleteprojects:
+    output: true
+
+pagination:
+  enabled: true
+  per_page: 5
+  paginators:
+    - collection: CompletedProjects
+      title: "Completed Projects"
+      name: Completed_Projects  # this becomes `paginator.completed_projects`
+      permalink: '/page/:num/'
+    - collection: IncompleteProjects
+      title: "Works in Progress"
+      name: Incomplete_Projects
+      permalink: '/in-progress/page/:num/'
 
 # Custom vars
 version:             1.1.0
