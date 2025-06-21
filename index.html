@@ -29,33 +29,33 @@ excited to apply these skills across industries.
 
 <hr>
 
-{% if paginator.Completed_Projects.pages %}
-  <h2 class="post-title text-center">{{ paginator.Completed_Projects.title }}</h2>
+{% if paginator.completed_projects.pages %}
+  <h2 class="post-title text-center">{{ paginator.completed_projects.title }}</h2>
   <div class="posts">
-    {% for project in paginator.Completed_Projects.docs %}
+    {% for project in paginator.completed_projects.docs %}
       <div class="post">
         <h3><a href="{{ project.url | relative_url }}">{{ project.data.title }}</a></h3>
         <p>{{ project.content | strip_html | truncatewords: 30 }}</p>
       </div>
     {% endfor %}
   </div>
-  {% include pagination.html paginator=paginator.Completed_Projects %}
+  {% include pagination.html paginator=paginator.completed_projects %}
 {% endif %}
 </div>
 </div>
 <hr>
 
-{% if paginator.Incomplete_Projects.pages %}
-  <h2 class="post-title text-center">{{ paginator.Incomplete_Projects.title }}</h2>
+{% if paginator.incomplete_projects.pages %}
+  <h2 class="post-title text-center">{{ paginator.incomplete_projects.title }}</h2>
   <div class="posts">
-    {% for project in paginator.Incomplete_Projects.docs %}
+    {% for project in paginator.incomplete_projects.docs %}
       <div class="post">
         <h3><a href="{{ project.url | relative_url }}">{{ project.data.title }}</a></h3>
         <p>{{ project.content | strip_html | truncatewords: 30 }}</p>
       </div>
     {% endfor %}
   </div>
-  {% include pagination.html paginator=paginator.Incomplete_Projects %}
+  {% include pagination.html paginator=paginator.incomplete_projects %}
 {% endif %}
 </div>
 </div>

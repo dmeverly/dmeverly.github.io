@@ -27,13 +27,13 @@ pagination:
   enabled: true
   per_page: 5
   paginators:
-    - collection: CompletedProjects
+    - collection: completedprojects
       title: "Completed Projects"
-      name: Completed_Projects  # this becomes `paginator.completed_projects`
-      permalink: '/page/:num/'
-    - collection: IncompleteProjects
+      name: completed_projects
+      permalink: '/completed/page/:num/'
+    - collection: incompleteprojects
       title: "Works in Progress"
-      name: Incomplete_Projects
+      name: incomplete_projects
       permalink: '/in-progress/page/:num/'
 
 # Custom vars
