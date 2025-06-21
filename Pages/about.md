@@ -34,30 +34,48 @@ With post-baccalaureate certifications in:
 - Computational AI  
 - Computer Science Theory & Practice  
 - Computer Security & Privacy  
-- Computer Science
+- Computer Science  
+  
+My course of study is weighted heavily in topics such as:  
 
+- Applied and Computational Machine Learning  
+- Computer Vision  
+- Deep Learning
+- Optimization of Neural Networks 
 ---
 
-## Programming Languages
+## Languages and Tools
 
-I enjoy solving problems across platforms and languages, with a preference for creating solutions in Python.  I have the most experience using:
-
+I enjoy solving problems across platforms and languages, with a preference for creating solutions in Python.  
+  
+Programming Languages  
 <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
   <div style="flex: 1;">
     <ul>
       <li>Python</li>
       <li>Java</li>
       <li>Epic EHR</li>
+      <li>R</li>
     </ul>
   </div>
   <div style="flex: 1;">
     <ul>
       <li>C</li>
-      <li>R</li>
+      <li>Html</li>
+      <li>Javascript</li>
+      <li>CSS</li>
     </ul>
   </div>
-</div>
+</div>  
 
+Developer Tools  
+<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  <div style="flex: 1;">
+    <ul>
+      <li>VS Code</li>
+      <li>Git</li>
+    </ul>
+  </div>
 ---
 
 ## Certifications
@@ -72,5 +90,3 @@ I enjoy solving problems across platforms and languages, with a preference for c
 </div>
 
 ---
-
-Driven by real-world clinical experience and powered by technical training, I’m passionate about using AI/ML to design smarter, safer systems — and excited to apply these skills across industries.
