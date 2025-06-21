@@ -50,7 +50,7 @@ excited to apply these skills across industries.
 <hr>
 
 {% comment %}— Completed Projects —{% endcomment %}
-{% assign recent_completed = site.completedprojects 
+{% assign recent_completed = site._completedprojects 
      | sort: "date" 
      | reverse %}
 {% if recent_completed.size > 0 %}
@@ -72,7 +72,7 @@ excited to apply these skills across industries.
 <hr>
 
 {% comment %}— Works in Progress —{% endcomment %}
-{% assign recent_incomplete = site.incompleteprojects 
+{% assign recent_incomplete = site._incompleteprojects 
      | sort: "date" 
      | reverse %}
 {% if recent_incomplete.size > 0 %}
