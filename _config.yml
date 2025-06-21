@@ -4,6 +4,7 @@ tagline:             ''
 description:         'David Everly'
 url:                 https://www.dmeverly.com
 baseurl:             ''
+paginate:            5
 permalink:           pretty
 
 # About/contact
@@ -14,26 +15,7 @@ author:
 
 # Gems
 plugins:
-  - jekyll-paginate-v2
-
-collections:
-  completedprojects:
-    output: true
-  incompleteprojects:
-    output: true
-
-pagination:
-  enabled: true
-  per_page: 5
-  paginators:
-    - collection: completedprojects
-      title: "Completed Projects"
-      name: completed_projects
-      permalink: '/completed/page/:num/'
-    - collection: incompleteprojects
-      title: "Works in Progress"
-      name: incomplete_projects
-      permalink: '/in-progress/page/:num/'
+  - jekyll-paginate
 
 # Custom vars
 version:             1.1.0

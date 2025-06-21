@@ -1,9 +1,6 @@
 ---
 layout: default
 title: Home
-
-pagination:
-  enabled: true
 ---
 
 <div class="welcome" style="text-align: center;">
@@ -32,37 +29,25 @@ excited to apply these skills across industries.
 
 <hr>
 
-{% if paginator.completed_projects.pages %}
-  <h2 class="post-title text-center">{{ paginator.completed_projects.title }}</h2>
-  <div class="posts">
-    {% for project in paginator.completed_projects.docs %}
-      <div class="post">
-        <h3><a href="{{ project.url | relative_url }}">{{ project.data.title }}</a></h3>
-        <p>{{ project.content | strip_html | truncatewords: 30 }}</p>
-      </div>
-    {% endfor %}
-  </div>
-  {% include pagination.html paginator=paginator.completed_projects %}
+{% if paginator.posts %}
+<div class="purpose-block">
+<h2 class="post-title" style="text-align: center;">Recent Projects</h2>
 {% endif %}
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h3 class="post-title">
+      <!-- <a href="{{ post.url | absolute_url }}">
+        {{ post.title }}
+      </a> -->
+    </h3>
+    <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
+  </div>
+  {% endfor %}
 </div>
 </div>
 <hr>
 
-{% if paginator.incomplete_projects.pages %}
-  <h2 class="post-title text-center">{{ paginator.incomplete_projects.title }}</h2>
-  <div class="posts">
-    {% for project in paginator.incomplete_projects.docs %}
-      <div class="post">
-        <h3><a href="{{ project.url | relative_url }}">{{ project.data.title }}</a></h3>
-        <p>{{ project.content | strip_html | truncatewords: 30 }}</p>
-      </div>
-    {% endfor %}
-  </div>
-  {% include pagination.html paginator=paginator.incomplete_projects %}
-{% endif %}
-</div>
-</div>
-<hr>
 
 <div style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
