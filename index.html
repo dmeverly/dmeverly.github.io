@@ -21,7 +21,7 @@ title: Home
 
 <h3>About Me</h3>
 
-I'm a Nurse Practitioner turned aspiring ML engineer, who leverages AI/ML to transform complex 
+I'm a Nurse Practitioner and aspiring ML engineer, who leverages AI/ML to transform complex 
 workflows in healthcare and beyond.
 <br><a href="https://www.dmeverly.com/Pages/about/" style="display: block; text-align:right;">  Read more -> </a>
 
@@ -40,15 +40,15 @@ workflows in healthcare and beyond.
 <hr>
 
 {% if paginator.posts %}
-<h2 class="post-title" style="text-align: center;">Latest Activity</h2>
+<h2 class="post-title" style="text-align: center;">Recent Projects</h2>
 {% endif %}
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h3 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
+      <!-- <a href="{{ post.url | absolute_url }}">
         {{ post.title }}
-      </a>
+      </a> -->
     </h3>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>

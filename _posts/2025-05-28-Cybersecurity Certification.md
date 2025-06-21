@@ -3,4 +3,5 @@ layout: post
 title: Certification
 ---
 
-I'm happy to announce that I've completed ISC2 Certified in Cybersecurity exam!
+Schedule Creator 
+<br><a href="https://github.com/dmeverly/schedule-creator" style="display: block; text-align:right;">  View on Github -> </a>
