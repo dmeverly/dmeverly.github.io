@@ -2,6 +2,8 @@
 layout: post
 title: Schedule Creator
 date: 2025-02-06
+summary : >
+    Basic read and write application for employee scheduling which uses a predefined CSV template to create a monthly calendar
 ---
 
-Basic read and write application for employee scheduling which uses a predefined CSV template to create a monthly calendar <a href="https://github.com/dmeverly/schedule-creator" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
+Full Description Here <a href="https://github.com/dmeverly/schedule-creator" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
