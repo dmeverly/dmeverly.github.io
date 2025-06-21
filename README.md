@@ -1,3 +1,3 @@
 # My Digital Portfolio Website  
 
-This repository runs my digital portfolio on <a href = "https://www.dmeverly.com/"> dmeverly.com. </a> The site features a detailed description of my <a href = "https://www.dmeverly.com/Pages/healthcare/">clinical experience</a>, <a href = "https://www.dmeverly.com/Pages/about/">technical training</a>, and <a href = "https://www.dmeverly.com/Pages/Overview/">recent projects</a>. 
+This repository runs my digital portfolio on <a href = "https://www.dmeverly.com/" target = "_blank"> dmeverly.com. </a> The site features a detailed description of my <a href = "https://www.dmeverly.com/Pages/healthcare/" target = "_blank">clinical experience</a>, <a href = "https://www.dmeverly.com/Pages/about/" target = "_blank">technical training</a>, and <a href = "https://www.dmeverly.com/Pages/Overview/" target = "_blank">recent projects</a>. 
