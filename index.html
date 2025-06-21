@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+permalink: /
 ---
 
 <div class="welcome" style="text-align: center;">
@@ -46,6 +47,50 @@ excited to apply these skills across industries.
   {% endfor %}
 </div>
 </div>
+<hr>
+
+{% comment %}— Completed Projects —{% endcomment %}
+{% assign recent_completed = site.completedprojects 
+     | sort: "date" 
+     | reverse %}
+{% if recent_completed.size > 0 %}
+  <h2 class="text-center">Completed Projects</h2>
+  <div class="posts">
+    {% for project in recent_completed limit:3 %}
+      <div class="post">
+        <h3>
+          <a href="{{ project.url | relative_url }}">
+            {{ project.title }}
+          </a>
+        </h3>
+        <p>{{ project.excerpt }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<hr>
+
+{% comment %}— Works in Progress —{% endcomment %}
+{% assign recent_incomplete = site.incompleteprojects 
+     | sort: "date" 
+     | reverse %}
+{% if recent_incomplete.size > 0 %}
+  <h2 class="text-center">Works in Progress</h2>
+  <div class="posts">
+    {% for project in recent_incomplete limit:3 %}
+      <div class="post">
+        <h3>
+          <a href="{{ project.url | relative_url }}">
+            {{ project.title }}
+          </a>
+        </h3>
+        <p>{{ project.excerpt }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <hr>
 
 
