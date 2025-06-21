@@ -38,9 +38,6 @@ excited to apply these skills across industries.
   {% for post in paginator.posts %}
   <div class="post">
     <h3 class="post-title">
-      <!-- <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a> -->
     </h3>
     <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
   </div>
@@ -49,47 +46,43 @@ excited to apply these skills across industries.
 </div>
 <hr>
 
-{% comment %}— Completed Projects —{% endcomment %}
-{% assign recent_completed = site.completedprojects 
-     | sort: "date" 
-     | reverse %}
-{% if recent_completed.size > 0 %}
-  <h2 class="text-center">Completed Projects</h2>
-  <div class="posts">
-    {% for project in recent_completed limit:3 %}
-      <div class="post">
-        <h3>
-          <a href="{{ project.url | relative_url }}">
-            {{ project.title }}
-          </a>
-        </h3>
-        <p>{{ project.excerpt }}</p>
-      </div>
-    {% endfor %}
-  </div>
-{% endif %}
+{%- comment -%} Completed Projects — show up to 3 newest {%- endcomment -%}
+<div class="projects-section" style="text-align: center; margin: 0 auto; max-width: 800px;">
+  {% assign recent = site.completedprojects | sort: "date" | reverse %}
+  {% if recent.size > 0 %}
+    <h2>Completed Projects</h2>
+    <div class="posts">
+      {% for project in recent limit:3 %}
+        <div class="post">
+          <h3>
+            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+          </h3>
+          <p>{{ project.excerpt }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
 
 <hr>
 
-{% comment %}— Works in Progress —{% endcomment %}
-{% assign recent_incomplete = site.incompleteprojects 
-     | sort: "date" 
-     | reverse %}
-{% if recent_incomplete.size > 0 %}
-  <h2 class="text-center">Works in Progress</h2>
-  <div class="posts">
-    {% for project in recent_incomplete limit:3 %}
-      <div class="post">
-        <h3>
-          <a href="{{ project.url | relative_url }}">
-            {{ project.title }}
-          </a>
-        </h3>
-        <p>{{ project.excerpt }}</p>
-      </div>
-    {% endfor %}
-  </div>
-{% endif %}
+{%- comment -%} Works in Progress — show up to 3 newest {%- endcomment -%}
+<div class="projects-section" style="text-align: center; margin: 0 auto; max-width: 800px;">
+  {% assign recent = site.incompleteprojects | sort: "date" | reverse %}
+  {% if recent.size > 0 %}
+    <h2>Works in Progress</h2>
+    <div class="posts">
+      {% for project in recent limit:3 %}
+        <div class="post">
+          <h3>
+            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+          </h3>
+          <p>{{ project.excerpt }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
 
 <hr>
 

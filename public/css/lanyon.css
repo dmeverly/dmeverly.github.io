@@ -635,3 +635,9 @@ a i.fab {
 a i.fab:hover {
   color: #5BA386;
 }
+
+.projects-section {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
