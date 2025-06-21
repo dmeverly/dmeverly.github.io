@@ -4,7 +4,6 @@ tagline:             ''
 description:         'David Everly'
 url:                 https://www.dmeverly.com
 baseurl:             ''
-paginate:            5
 permalink:           pretty
 
 # About/contact
