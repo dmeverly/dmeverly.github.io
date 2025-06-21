@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Certification
+title: Schedule Creator
 ---
 
 Schedule Creator 
