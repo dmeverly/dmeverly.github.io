@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Schedule Templater
+date: 2025-06-25
 summary: >
     Builds a schedule template using Greedy algorithm with simulated annealing
 ---
