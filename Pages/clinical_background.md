@@ -67,11 +67,12 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
 
 **Nurse Practitioner**
 
-WellSpan Thoracic Surgery (September 2025 – Current)  
+*WellSpan* 
+- Thoracic Surgery
+- Pulmonology & Critical Care Medicine
 
-WellSpan Pulmonology & Critical Care Medicine (May 2019 – Current)
-
-Hershey Medical Center (August 2017 – September 2019)
+*Hershey Medical Center*
+- Emergency Medicine
 
 **Registered Nurse**
 
