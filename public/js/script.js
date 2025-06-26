@@ -15,13 +15,20 @@
 
 
   // 👇 NEW: Auto-expand sidebar if screen is wide enough
-  document.addEventListener('DOMContentLoaded', function () {
-    const emToPx = em => em * 16; // assuming base font-size = 16px
-    if (window.innerWidth >= emToPx(48)) { // 48em = ~768px
-      checkbox.checked = true;
-    } else {
-      checkbox.checked = false;
-    }
+  window.addEventListener('load', function () {
+    const sections = document.querySelectorAll(".section");
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
   });
 
 })(document);
