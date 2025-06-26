@@ -10,26 +10,26 @@ As an ICU Nurse Practitioner during the COVID pandemic, I saw how antiquated sys
 Today, I combine frontline clinical insight with a growing technical toolkit to design customized, intelligent systems for solving modern problems.
 
 <div style="text-align:right;"><a href="/Pages/clinical_background/">Explore My Clinical Background →</a></div>
-
----  
-
+---
 <div class="section">
   <blockquote style="line-height: 1.6; font-style: italic; margin: 1em auto; padding: 1.5em 2em; background-color: rgba(91, 163, 134, 0.1); border-left: 4px solid #5BA386; border-radius: 8px; max-width: 800px;">
     “Within WellSpan, we view the transition of care from the ICU to the hospitalist team as a critical time 
     when problems can be missed and patient safety can be at risk.  
     David created a standardized transfer note which improved communications and relationships with our hospitalist group and which supports our patient safety goals.  
     This tool is now adopted systemwide in WellSpan.”
-  </blockquote>
-
-  <p style="margin-top: 1.25em; font-weight: bold;">
-    — Peter Jablin, MD<br>
-    <span style="font-weight: normal;">
+    
+    <br><br>
+    <span style="display: block; margin-top: 1em; font-weight: bold;">
+      — Peter Jablin, MD
+    </span>
+    <span style="display: block; font-weight: normal;">
       Manager, WellSpan Pulmonary and Sleep Medicine<br>
       Franklin and Cumberland County
     </span>
-  </p>
+  </blockquote>
 </div>
 
+---  
 
 ## Workflow Optimization  
 
