@@ -13,22 +13,17 @@
     checkbox.checked = false;
   }, false);
 
+  document.addEventListener("DOMContentLoaded", function () {
+  const checkbox = document.getElementById("sidebar-checkbox");
+  const emToPx = em => em * 16;
 
-  // 👇 NEW: Auto-expand sidebar if screen is wide enough
-  window.addEventListener('load', function () {
-    const sections = document.querySelectorAll(".section");
-    if (!sections.length) return;
+  // Only auto-check (open) sidebar if viewport wider than 30em (480px)
+  if (window.innerWidth >= emToPx(30)) {
+    checkbox.checked = true;
+  } else {
+    checkbox.checked = false;
+  }
+});
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => observer.observe(section));
-  });
 
 })(document);
