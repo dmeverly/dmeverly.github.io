@@ -70,6 +70,7 @@ Blending clinical expertise with digital innovation, David streamlines care thro
 {% endif %}
 
 ---  
+
 <div class="section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
@@ -82,5 +83,6 @@ Blending clinical expertise with digital innovation, David streamlines care thro
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>
+</div>  
+
 ---  

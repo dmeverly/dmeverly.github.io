@@ -89,6 +89,7 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
 - Medical and Surgical Floor Nursing
 
 ---  
+
 <div class="section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
@@ -101,5 +102,6 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>
+</div>  
+
 ---  

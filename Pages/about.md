@@ -95,6 +95,7 @@ My course of study is weighted heavily in:
 </div>
 
 ---  
+
 <div class="section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
@@ -107,5 +108,6 @@ My course of study is weighted heavily in:
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>
----
+</div>  
+
+---  
