@@ -13,6 +13,19 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 
 ---
 
+<div class = "section">
+<blockquote>
+Within WellSpan, we view the transition of care from the ICU to the hospitalist team as a critical time when problems can be missed and patient safety can be at risk. David created a standardized transfer note which improved communications and relationships with our hospitalist group and which supports our patient safety goals.  This tool is now adopted systemwide in WellSpan.
+</blockquote>
+
+<p>
+  — Peter Jablin, MD  
+  <br><span>Manager, WellSpan Pulmonary and Sleep Medicine<br>
+  Franklin and Cumberland County</span>
+</p>
+
+</div>
+
 ## Workflow Optimization  
 
 As an EPIC Certified Physician Builder, I've contributed to several clinical optimization initiatives:
@@ -21,7 +34,46 @@ As an EPIC Certified Physician Builder, I've contributed to several clinical opt
 - **Standardized Progress Note Template**  
 - **Problem List Initiative**
 
----
+---  
+
+<div class = "section"></div>
+
+<div class = "section>  
+
+## Languages and Tools
+
+<h2>Programming Languages</h2>  
+<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  <div style="flex: 1;">
+    <ul>
+      <li><b>Python<b></li>
+      <li>Java</li>
+      <li>Epic EHR</li>
+      <li>R</li>
+    </ul>
+  </div>
+  <div style="flex: 1;">
+    <ul>
+      <li>C</li>
+      <li>Html</li>
+      <li>Javascript</li>
+      <li>CSS</li>
+    </ul>
+  </div>
+</div>  
+
+<h2>Developer Tools</h2>  
+<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  <div style="flex: 1;">
+    <ul>
+      <li>VS Code</li>
+      <li>Git</li>
+    </ul>
+  </div>  
+</div>
+---  
+
+</div>
 
 ## Technical Education
 
@@ -42,41 +94,6 @@ My course of study is weighted heavily in topics such as:
 - Computer Vision  
 - Deep Learning  
 
----
-
-## Languages and Tools
-
-I enjoy solving problems across platforms and languages, with a preference for creating solutions in Python.  
-  
-Programming Languages  
-<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-  <div style="flex: 1;">
-    <ul>
-      <li>Python</li>
-      <li>Java</li>
-      <li>Epic EHR</li>
-      <li>R</li>
-    </ul>
-  </div>
-  <div style="flex: 1;">
-    <ul>
-      <li>C</li>
-      <li>Html</li>
-      <li>Javascript</li>
-      <li>CSS</li>
-    </ul>
-  </div>
-</div>  
-
-Developer Tools  
-<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-  <div style="flex: 1;">
-    <ul>
-      <li>VS Code</li>
-      <li>Git</li>
-    </ul>
-  </div>  
-</div>
 ---
 
 ## Certifications

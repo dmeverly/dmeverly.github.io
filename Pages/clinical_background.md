@@ -4,11 +4,10 @@ title: Clinical Background
 sidebar_category: Background
 order: 2
 ---
-<div class="section">
+
 Since 2017, I have practiced as an Acute Care Nurse Practitioner in Emergency Medicine, Pulmonology/Critical Care Medicine, and 
 Thoracic Surgery.  I have developed and maintained hard-earned clinical skills and enjoy mentoring new providers and students 
-as they transition to the NP role.
-</div>  
+as they transition to the NP role. 
 
 <div class="section">
 
@@ -23,9 +22,6 @@ as they transition to the NP role.
 </p>
 
 </div>
-
-
-<div class="section">
 
 ## Procedural Skills
 
@@ -48,7 +44,8 @@ I've had the privilege to regularly perform a number of bedside procedures, incl
     </ul>
   </div>
 </div>
-</div>  
+
+---  
 
 ## Nursing Education
 
@@ -56,6 +53,8 @@ I've had the privilege to regularly perform a number of bedside procedures, incl
 
 **M.S. in Nursing**  
 - Adult-Gerontology Acute Care Nurse Practitioner option  
+
+---  
 
 ## Nursing Experience  
 
@@ -79,21 +78,14 @@ Hershey Medical Center (January 2016 – March 2016)
 
 Meritus Medical Center (May 2011 – January 2016)
 
-## Professional Certifications
+---  
 
-<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-  <div style="flex: 1;">
-    <ul>
-    <li>Adult-Gerontology Acute Care Nurse Practitioner</li>
-    <li>Registered Nurse</li>
-    <li>Basic/Advanced Cardiac Life Support</li>
-    </ul>
-  </div>
-</div>
+<div class = "section"></div>  
 
+<div class = "section">  
 
-## Recognition
-
+<h2> Recognition </h2>
+ 
 Graduate Fellowship - The Pennsylvania State University 2023
 
 Advanced Practice Provider of the Year - HMC Emergency Department 2019
@@ -105,3 +97,5 @@ Award of Academic Excellence - Hagerstown Community College 2013
 HRSA Nursing Scholarship Program Recipient 2012
 
 HSCRC Nursing Scholarship Program Recipient 2011
+
+</div>
