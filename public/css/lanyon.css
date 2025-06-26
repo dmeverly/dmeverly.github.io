@@ -312,11 +312,11 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  text-align: center;
   color: #303030;
 }
 .page-title,
 .post-title {
+  text-align: center;
   margin-top: 0;
 }
 
