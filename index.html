@@ -6,11 +6,11 @@ permalink: /
 
 <style>
   :root {
-    --bg: #ffffff;
-    --text: #1a1a1a;
-    --link: #007acc;
-    --link-hover: #005999;
-    --accent: #ccc;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --link: #5BA386;
+  --link-hover: #4a8c72;
+  --accent: #cccccc;
   }
 
   body {
@@ -47,15 +47,6 @@ permalink: /
   .contact-button:hover {
     background-color: var(--link);
     color: white;
-  }
-
-  /* Dark Mode override */
-  body.dark-mode {
-    --bg: #1a1a1a;
-    --text: #f0f0f0;
-    --link: #66bfff;
-    --link-hover: #99ccff;
-    --accent: #444;
   }
 </style>
 
@@ -148,9 +139,6 @@ permalink: /
     <a href="https://www.linkedin.com/in/david-everly-a4aa7528a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
-    <button id="darkToggle" class="contact-button" style="margin-top: 1em;">
-      Toggle Dark Mode
-    </button>
   </span>
 </div>
 
@@ -168,23 +156,5 @@ permalink: /
 
     sections.forEach(section => observer.observe(section));
   });
-
 </script>
-
-<script>
-  const toggle = document.getElementById('darkToggle');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-  });
-
-  // Remember preference
-  window.addEventListener('DOMContentLoaded', () => {
-    const darkPref = localStorage.getItem('dark-mode') === 'true';
-    if (darkPref) {
-      document.body.classList.add('dark-mode');
-    }
-  });
-</script>
-
 </body>
