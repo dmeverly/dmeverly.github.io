@@ -50,8 +50,8 @@ Repair state  -> 5
 Fill state    -> 13  
 Final Sweep   -> 13  
 
-![Score by Epoch chart showing improvement over training](.assets/templater_Score_by_Epoch.png)  
-![Final Template preview](.assets/templater_template.png)  
+![Score by Epoch chart showing improvement over training](/assets/templater_Score_by_Epoch.png)  
+![Final Template preview](/assets/templater_template.png)  
 
 [View the final template in Google Sheets](https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing)  
 
