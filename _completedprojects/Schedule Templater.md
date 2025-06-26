@@ -55,7 +55,9 @@ Final Sweep   -> 13
   <figcaption><strong>Figure 1.</strong> Score by Epoch over the course of training.</figcaption>
 </figure>  
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQxLQTOiOTLzzNsYAucwM9Viz4T1p1xftTfgd4nAkoKkbAAfXicVC4KvkHHQ-Sz2shk3b7LqDguAW7R/pubhtml?widget=true&amp;headers=false"></iframe>
+<div style = "max-width: 100%; overflow-x:auto;">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQxLQTOiOTLzzNsYAucwM9Viz4T1p1xftTfgd4nAkoKkbAAfXicVC4KvkHHQ-Sz2shk3b7LqDguAW7R/pubhtml?widget=true&amp;headers=false"></iframe>
+</div>
 
 # Conclusion  
 - **Greedy + SA + local repair** reliably produces schedules satisfying all absolute and most relative constraints.  
