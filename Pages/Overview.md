@@ -23,13 +23,14 @@ Blending clinical expertise with digital innovation, David streamlines care thro
   </blockquote>
 </div>
 
-## Workflow Optimization  
-
-As an EPIC Certified Physician Builder, I've contributed to several clinical optimization initiatives:
-
-- **Critical Care Transfer Template**  
-- **Standardized Progress Note Template**  
-- **Problem List Initiative**
+<div class="section">
+  <h2>Workflow Optimization Projects</h2>
+  <ul>
+    <li><strong>Critical Care Transfer Template</strong></li>
+    <li><strong>Standardized Progress Note Template</strong></li>
+    <li><strong>Problem List Initiative</strong></li>
+  </ul>
+</div>
 
 <div class="section">
   <div class="section-divider"></div>

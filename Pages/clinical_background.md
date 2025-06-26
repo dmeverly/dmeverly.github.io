@@ -63,7 +63,7 @@ as they transition to the NP role.
 
 ## Nursing Experience  
 
-I draw on diverse experience healthcare from many perspectives as my clinical practice evolved from Unit Clerk to Registered Nurse to Nurse Practitioner and from community hospitals to academic medical centers.  
+I draw on diverse experience healthcare from many perspectives as my clinical practice evolved since 2011 from Unit Clerk to Registered Nurse to Nurse Practitioner and from community hospitals to academic medical centers.  
 
 **Nurse Practitioner**
 
@@ -72,6 +72,7 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
 - Pulmonology & Critical Care Medicine
 
 *Hershey Medical Center*
+- Pulmonology & Critical Care Medicine
 - Emergency Medicine
 
 **Registered Nurse**
