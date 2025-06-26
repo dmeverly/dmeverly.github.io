@@ -12,4 +12,16 @@
 
     checkbox.checked = false;
   }, false);
+
+
+  // 👇 NEW: Auto-expand sidebar if screen is wide enough
+  document.addEventListener('DOMContentLoaded', function () {
+    const emToPx = em => em * 16; // assuming base font-size = 16px
+    if (window.innerWidth >= emToPx(48)) { // 48em = ~768px
+      checkbox.checked = true;
+    } else {
+      checkbox.checked = false;
+    }
+  });
+
 })(document);
