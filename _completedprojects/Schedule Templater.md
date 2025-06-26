@@ -15,63 +15,55 @@ Scheduling is a classic constraint satisfaction problem. Many algorithms can be 
 Greedy search offers a faster alternative by selecting the best local option at each step. However, it risks getting stuck in local minima. Simulated Annealing (SA) addresses this by occasionally accepting worse states to escape these local optima. My approach combines both methods, followed by local search and repair, to thoroughly analyze and satisfy constraints.  
 
 # Methods  
-The project sponser and individual employees were queried with regard to their scheduling needs and preferences.  Common themes were analyzed and defined as constraints, further divided into global or employee-specific constraints.  
-<br></br>
+I interviewed the sponsor and individual employees to gather requirements. Constraints fell into two groups (not-exhaustive):
 
-Employee-specific constraints included concepts such as:  
+**Employee-specific constraints**  
 - Maximum hours per pay period  
-- Specific days of the week an employee cannot work
-- Preferred shift time
-- Preferred number of consecutive shifts
-<br></br>
+- Days each person cannot work  
+- Preferred shift times  
+- Maximum consecutive shifts  
 
-While global constraint concepts included:  
-- Shift filling priorities for extra coverage (Thursday -> Monday -> Wednesday -> other days only if needed)  
-- All critical shifts filled (All nightshifts and at least 1 dayshift every day)
+**Global constraints**  
+- Priority order for filling day shifts: Thursday → Monday → Wednesday  
+- Only 1 day shift every other weekend  
+- Only 1 day shift on Tuesday and Friday unless needed to achieve minimum hours    
+- All night shifts must be filled, and at least one day shift every weekday  
+- Employees work at least 80% of their FTE hours  
 
-After constraints were defined, boolean satisfaction logic was created, and used as a foundation for creation of the model. SA hyperparameters were explored iteravely and found to be optimal with initial temperature 1000 and cooling rate 0.9995. To avoid wasted epochs on unsolveable states, best-state restart was initiated if the state had not changed for over 300 epochs.
+Once defined, each constraint was encoded as a boolean check. I experimented with SA hyperparameters and found an initial temperature of **100** and a cooling rate of **0.9995** worked well. To avoid wasted epochs on unchanging states, I implemented a “best-state restart” after 300 stagnant iterations.  
+
 
 # Results 
-As expected, due to the stochastic nature of greedy search and simulated annealing, model performance varied between runs.  Despite variation is final results, the model typically found a workable solution which satisfies all absolute constraints and substantially minimized relative constraint violations.  Typical solutions involved approximately 0-20 relative constraint violations. Analysis of violations on a series of runs found that most violations were minimum rest (ie: time between stretches of shifts) violations, often satisfied early and then violated during the hour-filling step.  Removing this constraint found the model producing a globally-optimal solution with 0 violations.
+Because of the stochastic nature of greedy+SA, each run varies. However, nearly all runs met **all absolute** constraints and minimized **relative** violations (typically 0–20). Analysis showed most remaining violations were “minimum rest” (time between shifts) issues—removing that constraint yielded 0 total violations.
 
-A typical run without min-rest constraint:  
+**Example run _without_ min-rest**  
 Initial state -> 280,004  
 Greedy state  -> 70,009  
 Repair state  -> 10,005  
 Fill state    -> 10,000  
 Final Sweep   -> 0  
 
-A typical run with min-rest constraint and absolute max days per week:  
-
+**Example run _with_ min-rest & hard-max days/week**  
 Initial state -> 1,640,011  
 Greedy state  -> 70,013  
 Repair state  -> 5   
 Fill state    -> 13  
 Final Sweep   -> 13  
 
+![Score by Epoch chart showing improvement over training](.assets/templater_Score_by_Epoch.png)  
+![Final Template preview](.assets/templater_template.png)  
 
-![Score by Epoch chart showing improvement over training](.assets/templater_Score_by_Epoch.png) 
+[View the final template in Google Sheets](https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing)  
 
-![Final Template](.assets/templater_template.xlsx) 
+# Conclusion  
+- **Greedy + SA + local repair** reliably produces schedules satisfying all absolute and most relative constraints.  
+- No fully constraint-free solution was possible without staffing extra hours on “underserved” days—indicating the organization has more staffing capacity than demand.  
+- The automation reduces manual effort dramatically compared to hand-crafting templates.  
 
-<a href="https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing"
-   target="_blank" rel="noopener noreferrer">View Final Template (Google Sheets)
-</a>
-
-# Conclusion
-Two major observations were made about this solution:  
-- The model reliably generates a solution that satisfy the majority of global and employee-level constraints
-- No solution was found which satisfies all constraints and does not include employees working on days the organization desired to leave understaffed 
-
-These observations lead me to conclude:  
-- Greedy Search with Simulated Annealing followed by Local Search and Repair is a valid model to solve this problem  
-- The model significantly reduces the effort compared to manual schedule creation  
-- The constraints of employees working their minimum number of hours per pay and the organization's desire to understaff certain shifts are in conflict. The organization appears to have more employees than their work demands.  
-
-# Future Work and Extension  
-This solution addresses one half of the sponsor’s problem—template creation. The other half involved mapping the template to an annual calendar. I have already created a separate solution for that task (see "Scheduler"). A natural next step would be to integrate both tools into a unified workflow.  
+# Future Work  
+This tool automates template creation; a companion “Scheduler” maps that template to an annual calendar. Integrating both into a single workflow would be a natural next step.  
 
 # References  
-No external sources were used. However, LLM queries assisted with architectural design and debugging.  
+No external publications were used, though LLM queries aided architecture and debugging.  
 
-<a href="https://github.com/dmeverly/ScheduleTemplater" style="display: block; text-align:right;" target = "_blank">  Readme -> </a>
+[🔗 GitHub repo →](https://github.com/dmeverly/ScheduleTemplater)  
