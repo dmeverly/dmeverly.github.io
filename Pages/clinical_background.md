@@ -10,7 +10,6 @@ Thoracic Surgery.  I have developed and maintained hard-earned clinical skills a
 as they transition to the NP role. 
 
 <div class="section">
-
 <blockquote>
   “David Everly CRNP has deep insights into both critical care practice and medical informatics.”
 </blockquote>
@@ -20,7 +19,6 @@ as they transition to the NP role.
   <br><span>Manager, WellSpan Pulmonary and Sleep Medicine<br>
   Franklin and Cumberland County</span>
 </p>
-
 </div>
 
 ## Procedural Skills
@@ -79,8 +77,6 @@ Hershey Medical Center (January 2016 – March 2016)
 Meritus Medical Center (May 2011 – January 2016)
 
 ---  
-
-<div class = "section"></div>  
 
 <div class = "section">  
 

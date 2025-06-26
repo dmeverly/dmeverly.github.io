@@ -139,7 +139,6 @@ permalink: /
 </div>
 
 {% assign recent = site.incompleteprojects | sort: "date" | reverse %}
-{% if recent.size > 0%}
 <div class="section">
   <div class="section-divider"></div>
   <h2 style="text-align: center;">Works in Progress</h2>
@@ -153,8 +152,23 @@ permalink: /
       {% endfor %}
     </div>
   {% endif %}
+  {% else %}
+  Coming Soon!
 </div>
 {% endif %}
+
+<div class = "section">
+<blockquote>
+Blending clinical expertise with digital innovation, David streamlines care through smarter documentation and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to supporting system-wide initiatives in problem list refinement and inpatient optimization as a certified physician builder.
+</blockquote>
+
+<p>
+  — Manjot Gill, MD  
+  <br><span>Associate Chief Medical Information Officer<br>
+  WellSpan Health</span>
+</p>
+
+</div>
 
 <div class="section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
@@ -171,19 +185,6 @@ permalink: /
 </div>
 
 <hr>
-
-<div class = "section">
-<blockquote>
-Blending clinical expertise with digital innovation, David streamlines care through smarter documentation and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to supporting system-wide initiatives in problem list refinement and inpatient optimization as a certified physician builder.
-</blockquote>
-
-<p>
-  — Manjot Gill, MD  
-  <br><span>Associate Chief Medical Information Officer<br>
-  WellSpan Health</span>
-</p>
-
-</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
