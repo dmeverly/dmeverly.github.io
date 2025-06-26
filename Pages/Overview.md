@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Projects Overview
-sidebar_category: Current Projects
+sidebar_category: Projects
 order: 3
 ---
 
