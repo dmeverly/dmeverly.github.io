@@ -50,12 +50,12 @@ Repair state  -> 5
 Fill state    -> 13  
 Final Sweep   -> 13  
 
+[View the final template in Google Sheets ->](https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing)  
+
 <figure>
   <img src="/assets/templater_Score_by_Epoch.png" alt="Score by Epoch chart showing improvement over training" />
   <figcaption><strong>Figure 1.</strong> Score by Epoch over the course of training.</figcaption>
 </figure>  
- 
-[View the final template in Google Sheets ->](https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing)  
 
 # Conclusion  
 - **Greedy + SA + local repair** reliably produces schedules satisfying all absolute and most relative constraints.  
