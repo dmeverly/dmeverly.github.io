@@ -6,11 +6,12 @@ permalink: /
 
 <style>
   :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --link: #5BA386;
-  --link-hover: #4a8c72;
-  --accent: #cccccc;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --link: #5BA386;
+    --link-hover: #4a8c72;
+    --accent: #5BA386; /* used for borders or buttons */
+    --section-green: rgba(91, 163, 134, 0.1); /* soft green */
   }
 
   body {
@@ -19,27 +20,34 @@ permalink: /
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  .section-divider {
-    background-color: var(--accent);
-  }
-
-  .section:nth-of-type(even) {
-  background-color: #f3f3f3;
-  }
-
-  .section:nth-of-type(odd) {
-  background-color: rgba(91, 163, 134, 0.1);
-  }
-
   .section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    padding: 3em 1em;
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
 
   .section.in-view {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .section:nth-of-type(odd) {
+    background-color: var(--bg); /* white */
+  }
+
+  .section:nth-of-type(even) {
+    background-color: var(--section-green); /* soft green */
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent);
+    margin: 2em auto;
+    border-radius: 4px;
   }
 
   a {
@@ -69,17 +77,18 @@ permalink: /
   }
 </style>
 
-<body>
-<div class="welcome section" style="text-align: center;">
-  <img src="assets/profilePicture.png" alt="My Photo" style="width: 300px; border-radius: 50%; margin: 20px auto;">
-  
-  <h1>Hi, I'm David Everly</h1>
 
-  <div class="purpose-block">
-    I enjoy helping people solve complex problems with technology
+<body>
+<div class="section" style="text-align: center;">
+  <img src="assets/profilePicture.png" alt="My Photo"
+       style="width: 300px; border-radius: 50%; margin: 0 auto 20px; display: block;">
+  
+  <h1 style="margin-bottom: 0.5em;">Hi, I'm David Everly</h1>
+  <p style="max-width: 600px; margin: 0 auto; font-size: 1.2em;">
+    I enjoy helping people solve complex problems with technology.
     <br><br>
     Welcome to my page!
-  </div>
+  </p>
 </div>
 
 <div class="section">
