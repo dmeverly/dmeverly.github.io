@@ -12,13 +12,15 @@ as they transition to the NP role.
 <div class="section">
 <blockquote>
   “David Everly CRNP has deep insights into both critical care practice and medical informatics.”
-</blockquote>
-
-<p>
-  — Peter Jablin, MD  
-  <br><span>Manager, WellSpan Pulmonary and Sleep Medicine<br>
-  Franklin and Cumberland County</span>
-</p>
+<br>
+    <span style="display: block; margin-top: 1em; font-weight: bold;">
+      — Peter Jablin, MD
+    </span>
+    <span style="display: block; font-weight: normal;">
+      Manager, WellSpan Pulmonary and Sleep Medicine<br>
+      Franklin and Cumberland County
+    </span>
+  </blockquote>
 </div>
 
 ## Procedural Skills

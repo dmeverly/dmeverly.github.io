@@ -17,8 +17,7 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
     when problems can be missed and patient safety can be at risk.  
     David created a standardized transfer note which improved communications and relationships with our hospitalist group and which supports our patient safety goals.  
     This tool is now adopted systemwide in WellSpan.”
-    
-    <br><br>
+    <br>
     <span style="display: block; margin-top: 1em; font-weight: bold;">
       — Peter Jablin, MD
     </span>
