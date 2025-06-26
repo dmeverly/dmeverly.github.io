@@ -14,19 +14,22 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 ---  
 
 <div class="section">
-  <blockquote>
+  <blockquote style="line-height: 1.6; font-style: italic; margin: 1em auto; padding: 1.5em 2em; background-color: rgba(91, 163, 134, 0.1); border-left: 4px solid #5BA386; border-radius: 8px; max-width: 800px;">
     “Within WellSpan, we view the transition of care from the ICU to the hospitalist team as a critical time 
-    when problems can be missed and patient safety can be at risk. 
+    when problems can be missed and patient safety can be at risk.  
     David created a standardized transfer note which improved communications and relationships with our hospitalist group and which supports our patient safety goals.  
     This tool is now adopted systemwide in WellSpan.”
   </blockquote>
-  <p style = "margin-top: 1em; font-weight:bold;">
+
+  <p style="margin-top: 1.25em; font-weight: bold;">
     — Peter Jablin, MD<br>
-    <span style = "font-weight:normal">Manager, WellSpan Pulmonary and Sleep Medicine<br>
-    Franklin and Cumberland County
+    <span style="font-weight: normal;">
+      Manager, WellSpan Pulmonary and Sleep Medicine<br>
+      Franklin and Cumberland County
     </span>
   </p>
 </div>
+
 
 ## Workflow Optimization  
 
@@ -36,9 +39,7 @@ As an EPIC Certified Physician Builder, I've contributed to several clinical opt
 - **Standardized Progress Note Template**  
 - **Problem List Initiative**
 
-<hr>
-
-<div class="section">
+---  
 
 ## Languages and Tools
 
@@ -72,9 +73,7 @@ As an EPIC Certified Physician Builder, I've contributed to several clinical opt
   </div>
 </div>
 
-</div>
-
-<hr>
+---
 
 ## Technical Education
 
