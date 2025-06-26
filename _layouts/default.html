@@ -45,3 +45,22 @@
     <script src='{{ site.baseurl }}/public/js/script.js'></script>
   </body>
 </html>
+
+<script>
+  window.addEventListener('load', () => {
+    const checkbox = document.getElementById('sidebar-checkbox');
+    if (window.innerWidth >= 960) {
+      checkbox.checked = true; // Open sidebar if screen is wide
+    } else {
+      checkbox.checked = false; // Closed by default on smaller screens
+    }
+  });
+
+  // Optional: Close sidebar when resizing to mobile
+  window.addEventListener('resize', () => {
+    const checkbox = document.getElementById('sidebar-checkbox');
+    if (window.innerWidth < 960 && checkbox.checked) {
+      checkbox.checked = false;
+    }
+  });
+</script>
