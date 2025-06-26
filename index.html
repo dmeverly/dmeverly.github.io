@@ -14,8 +14,7 @@ permalink: /
   <br><br>
 
   Welcome to my page!
-</div>
-
+  </div>
 </div>
 
 <hr>
@@ -29,7 +28,6 @@ excited to apply these skills across industries.
 <br><a href="https://www.dmeverly.com/Pages/about/" style="display: block; text-align:right;">  Read more -> </a>
 
 <hr>
-
 {% if paginator.posts %}
 <div class="purpose-block">
 <h2 class="post-title" style="text-align: center;">Notice</h2>
@@ -46,11 +44,12 @@ excited to apply these skills across industries.
 </div>
 <hr>
 
+<hr>
 {%- comment -%} Completed Projects — show up to 5 newest {%- endcomment -%}
 <div class="projects-section" style="text-align: center; margin: 0 auto; max-width: 800px;">
   {% assign recent = site.completedprojects | sort: "date" | reverse %}
   {% if recent.size > 0 %}
-    <h2>Completed Projects</h2>
+    <h2>Recently Completed Projects</h2>
     <div class="posts">
       {% for project in recent limit:5 %}
         <div class="post">
@@ -63,9 +62,9 @@ excited to apply these skills across industries.
     </div>
   {% endif %}
 </div>
-
 <hr>
 
+<hr>
 {%- comment -%} Works in Progress — show up to 3 newest {%- endcomment -%}
 <div class="projects-section" style="text-align: center; margin: 0 auto; max-width: 800px;">
   {% assign recent = site.incompleteprojects | sort: "date" | reverse %}
@@ -83,10 +82,9 @@ excited to apply these skills across industries.
     </div>
   {% endif %}
 </div>
-
 <hr>
 
-
+<hr>
 <div style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
@@ -100,6 +98,5 @@ excited to apply these skills across industries.
     </a>
   </span>
 </div>
-
 <br>
 <hr>
