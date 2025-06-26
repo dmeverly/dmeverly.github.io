@@ -6,4 +6,4 @@ summary : >
     Read and write application for employee scheduling which uses a predefined template to create a monthly employee work schedule
 ---
 
-Full Description Here <a href="https://github.com/dmeverly/Scheduler" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
+Project Complete, writeup pending <a href="https://github.com/dmeverly/Scheduler" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  

@@ -6,4 +6,4 @@ summary: >
     Training and performance review of several Multilayer Perceptrons at varying degrees of complexity tasked with classifying single lead ECG data as normal vs. abnormal
 ---
 
-Project Complete, writeup pending. Full Description Here <a href="https://github.com/dmeverly/MLP-on-ECG" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>
+Project Complete, writeup pending <a href="https://github.com/dmeverly/MLP-on-ECG" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>
