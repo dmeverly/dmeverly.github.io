@@ -9,7 +9,7 @@ As an ICU Nurse Practitioner during the COVID pandemic, I saw how antiquated sys
 
 Today, I combine frontline clinical insight with a growing technical toolkit to design customized, intelligent systems for solving modern problems.
 
-<div style="text-align:right;"><a href="/Pages/healthcare/">Explore My Clinical Background →</a></div>
+<div style="text-align:right;"><a href="/Pages/healthcare/">Explore My Clinical Background -></a></div>
 
 ---
 

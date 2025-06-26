@@ -315,17 +315,12 @@ a.sidebar-nav-item:focus {
   color: #303030;
 }
 
-/* .page-title,
-.post-title {
-  text-align: center;
-  margin-top: 0;
-} */
-
 .page-title,
 .post-title {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
+  color: #5BA386;
   letter-spacing: 1px;
   text-transform: uppercase;
   border-bottom: 3px solid #5BA386;
@@ -574,7 +569,7 @@ a.pagination-item:hover {
 
 .purpose-block {
   background-color: #e6f7e9; /* Light green */
-  border-left: 5px solid #5BA386; */
+  border-left: 5px solid #5BA386;
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
