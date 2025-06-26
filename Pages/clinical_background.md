@@ -23,8 +23,6 @@ as they transition to the NP role.
 
 ## Procedural Skills
 
-I've had the privilege to regularly perform a number of bedside procedures, including:
-
 <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
   <div style="flex: 1;">
     <ul>
@@ -45,18 +43,25 @@ I've had the privilege to regularly perform a number of bedside procedures, incl
 
 ---  
 
-## Nursing Education
+<div class = "section">  
 
-**Penn State University**  
-
-**M.S. in Nursing**  
-- Adult-Gerontology Acute Care Nurse Practitioner option  
-
----  
+<h2> Recognition </h2>
+ 
+ <div style="flex: 1;">
+    <ul>
+  <li>Graduate Fellowship - The Pennsylvania State University 2023</li>
+  <li>Advanced Practice Provider of the Year - HMC Emergency Department 2019</li>
+  <li>Most “Great Catches” - HMC Emergency Department 2019</li>
+  <li>Award of Academic Excellence - Hagerstown Community College 2013</li>
+  <li>HRSA Nursing Scholarship Program Recipient 2012</li>
+  <li>HSCRC Nursing Scholarship Program Recipient 2011</li>
+    </ul>
+  </div>
+</div>
 
 ## Nursing Experience  
 
-I have experienced healthcare from many perspectives as my clinical practice evolved from Unit Clerk to Registered Nurse to Nurse Practitioner and from community hospitals to academic medical centers.  
+I draw on diverse experience healthcare from many perspectives as my clinical practice evolved from Unit Clerk to Registered Nurse to Nurse Practitioner and from community hospitals to academic medical centers.  
 
 **Nurse Practitioner**
 
@@ -77,19 +82,3 @@ Hershey Medical Center (January 2016 – March 2016)
 Meritus Medical Center (May 2011 – January 2016)
 
 ---  
-
-<div class = "section">  
-
-<h2> Recognition </h2>
- 
- <div style="flex: 1;">
-    <ul>
-  <li>Graduate Fellowship - The Pennsylvania State University 2023</li>
-  <li>Advanced Practice Provider of the Year - HMC Emergency Department 2019</li>
-  <li>Most “Great Catches” - HMC Emergency Department 2019</li>
-  <li>Award of Academic Excellence - Hagerstown Community College 2013</li>
-  <li>HRSA Nursing Scholarship Program Recipient 2012</li>
-  <li>HSCRC Nursing Scholarship Program Recipient 2011</li>
-    </ul>
-  </div>
-</div>

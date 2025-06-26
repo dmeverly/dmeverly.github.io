@@ -11,7 +11,7 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 
 <div style="text-align:right;"><a href="/Pages/clinical_background/">Explore My Clinical Background →</a></div>
 
-<hr>
+---  
 
 <div class="section">
   <blockquote>
@@ -20,10 +20,11 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
     David created a standardized transfer note which improved communications and relationships with our hospitalist group and which supports our patient safety goals.  
     This tool is now adopted systemwide in WellSpan.”
   </blockquote>
-  <p>
-    — Peter Jablin, MD  
-    <br><span>Manager, WellSpan Pulmonary and Sleep Medicine<br>
-    Franklin and Cumberland County</span>
+  <p style = "margin-top: 1em; font-weight:bold;">
+    — Peter Jablin, MD<br>
+    <span style = "font-weight:normal">Manager, WellSpan Pulmonary and Sleep Medicine<br>
+    Franklin and Cumberland County
+    </span>
   </p>
 </div>
 
