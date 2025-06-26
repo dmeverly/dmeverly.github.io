@@ -41,4 +41,70 @@
     ga('send', 'pageview');
   </script>
   {% endif %}
+
+  <style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --link: #5BA386;
+    --link-hover: #4a8c72;
+    --accent: #5BA386;
+    --section-green: rgba(91, 163, 134, 0.1);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .section {
+    padding: 3em 1em;
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section:nth-of-type(even) {
+    background-color: var(--bg); /* white */
+  }
+
+  .section:nth-of-type(odd) {
+    background-color: var(--section-green); /* soft green */
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+
+  .contact-button {
+    padding: 0.5em 1em;
+    border: 1px solid var(--link);
+    border-radius: 4px;
+    color: var(--link);
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .contact-button:hover {
+    background-color: var(--link);
+    color: white;
+  }
+</style>
+
 </head>

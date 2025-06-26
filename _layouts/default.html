@@ -25,6 +25,22 @@
     </div>
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll(".section");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 
     <script src='{{ site.baseurl }}/public/js/script.js'></script>
   </body>

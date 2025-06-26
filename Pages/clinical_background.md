@@ -4,14 +4,32 @@ title: Clinical Background
 sidebar_category: Background
 order: 2
 ---
-
+<div class="section">
 Since 2017, I have practiced as an Acute Care Nurse Practitioner in Emergency Medicine, Pulmonology/Critical Care Medicine, and 
 Thoracic Surgery.  I have developed and maintained hard-earned clinical skills and enjoy mentoring new providers and students 
 as they transition to the NP role.
+</div>  
+
+<div class="section">
+
+<blockquote>
+  “David Everly CRNP has deep insights into both critical care practice and medical informatics.”
+</blockquote>
+
+<p>
+  — Peter Jablin, MD  
+  <br><span>Manager, WellSpan Pulmonary and Sleep Medicine<br>
+  Franklin and Cumberland County</span>
+</p>
+
+</div>
+
+
+<div class="section">
 
 ## Procedural Skills
 
-I've had the privilage to regularly perform a number of bedside procedures, including:
+I've had the privilege to regularly perform a number of bedside procedures, including:
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
   <div style="flex: 1;">
@@ -30,6 +48,7 @@ I've had the privilage to regularly perform a number of bedside procedures, incl
     </ul>
   </div>
 </div>
+</div>  
 
 ## Nursing Education
 

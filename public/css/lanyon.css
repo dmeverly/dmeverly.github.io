@@ -650,3 +650,12 @@ a i.fab:hover {
   margin: 0 auto;
   max-width: 800px;
 }
+
+blockquote {
+  font-style: italic;
+  color: #333;
+  line-height: 1.6;
+  border-left: 4px solid var(--accent);
+  padding-left: 1em;
+  margin: 1em auto;
+}
