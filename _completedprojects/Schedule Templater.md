@@ -66,4 +66,4 @@ This tool automates template creation; a companion “Scheduler” maps that tem
 # References  
 No external publications were used, though LLM queries aided architecture and debugging.  
 
-[🔗 GitHub repo →](https://github.com/dmeverly/ScheduleTemplater)  
+<a href="https://github.com/dmeverly/ScheduleTemplater?tab=readme-ov-file" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
