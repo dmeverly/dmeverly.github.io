@@ -38,8 +38,6 @@ As an EPIC Certified Physician Builder, I've contributed to several clinical opt
 
 ---  
 
-<div class = "section"></div>
-
 <div class = "section>  
 
 ## Languages and Tools

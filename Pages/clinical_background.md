@@ -82,16 +82,14 @@ Meritus Medical Center (May 2011 – January 2016)
 
 <h2> Recognition </h2>
  
-Graduate Fellowship - The Pennsylvania State University 2023
-
-Advanced Practice Provider of the Year - HMC Emergency Department 2019
-
-Most “Great Catches” - HMC Emergency Department 2019
-
-Award of Academic Excellence - Hagerstown Community College 2013
-
-HRSA Nursing Scholarship Program Recipient 2012
-
-HSCRC Nursing Scholarship Program Recipient 2011
-
+ <div style="flex: 1;">
+    <ul>
+  <li>Graduate Fellowship - The Pennsylvania State University 2023</li>
+  <li>Advanced Practice Provider of the Year - HMC Emergency Department 2019</li>
+  <li>Most “Great Catches” - HMC Emergency Department 2019</li>
+  <li>Award of Academic Excellence - Hagerstown Community College 2013</li>
+  <li>HRSA Nursing Scholarship Program Recipient 2012</li>
+  <li>HSCRC Nursing Scholarship Program Recipient 2011</li>
+    </ul>
+  </div>
 </div>
