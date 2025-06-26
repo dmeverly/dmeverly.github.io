@@ -54,10 +54,8 @@ Final Sweep   -> 13
   <img src="/assets/templater_Score_by_Epoch.png" alt="Score by Epoch chart showing improvement over training" />
   <figcaption><strong>Figure 1.</strong> Score by Epoch over the course of training.</figcaption>
 </figure>  
-
-<div style = "max-width: 100%; overflow-x:auto;">
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQxLQTOiOTLzzNsYAucwM9Viz4T1p1xftTfgd4nAkoKkbAAfXicVC4KvkHHQ-Sz2shk3b7LqDguAW7R/pubhtml?widget=true&amp;headers=false"></iframe>
-</div>
+ 
+[View the final template in Google Sheets](https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing)  
 
 # Conclusion  
 - **Greedy + SA + local repair** reliably produces schedules satisfying all absolute and most relative constraints.  
