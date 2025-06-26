@@ -4,88 +4,105 @@ title: Home
 permalink: /
 ---
 
-<div class="welcome" style="text-align: center;">
+<style>
+  .section {
+    padding: 3em 1em;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .section:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background-color: #ccc;
+    margin: 2em auto;
+    border-radius: 4px;
+  }
+</style>
+
+<div class="welcome section" style="text-align: center;">
   <img src="assets/profilePicture.png" alt="My Photo" style="width: 300px; border-radius: 50%; margin: 20px auto;">
   
   <h1>Hi, I'm David Everly</h1>
 
   <div class="purpose-block">
-  I enjoy helping people solve complex problems with technology
-  <br><br>
-
-  Welcome to my page!
+    I enjoy helping people solve complex problems with technology
+    <br><br>
+    Welcome to my page!
   </div>
 </div>
 
-<hr>
+<div class="section">
+  <div class="section-divider"></div>
 
-<h3>About Me</h3>
+  <h3>About Me</h3>
 
-I'm a Nurse Practitioner and aspiring ML engineer, who leverages AI/ML to transform complex 
-workflows in healthcare and beyond. Driven by real-world clinical experience and powered by 
-technical training, I’m passionate about using AI/ML to design smarter, safer systems — and 
-excited to apply these skills across industries.
-<br><a href="https://www.dmeverly.com/Pages/about/" style="display: block; text-align:right;">  Read more -> </a>
+  <p>
+    I'm a Nurse Practitioner and aspiring ML engineer, who leverages AI/ML to transform complex 
+    workflows in healthcare and beyond. Driven by real-world clinical experience and powered by 
+    technical training, I’m passionate about using AI/ML to design smarter, safer systems — and 
+    excited to apply these skills across industries.
+  </p>
+  <a href="https://www.dmeverly.com/Pages/about/" style="display: block; text-align:right;">Read more →</a>
+</div>
 
-<hr>
 {% if paginator.posts %}
-<div class="purpose-block">
-<h2 class="post-title" style="text-align: center;">Notice</h2>
-{% endif %}
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h3 class="post-title">
-    </h3>
-    <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
-  </div>
-  {% endfor %}
-</div>
-</div>
-<hr>
+<div class="section">
+  <div class="section-divider"></div>
 
-<hr>
-{%- comment -%} Completed Projects — show up to 5 newest {%- endcomment -%}
-<div class="projects-section" style="text-align: center; margin: 0 auto; max-width: 800px;">
+  <h2 class="post-title" style="text-align: center;">Notice</h2>
+  <div class="posts">
+    {% for post in paginator.posts %}
+      <div class="post">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<div class="section">
+  <div class="section-divider"></div>
+
+  <h2 style="text-align: center;">Recently Completed Projects</h2>
   {% assign recent = site.completedprojects | sort: "date" | reverse %}
   {% if recent.size > 0 %}
-    <h2>Recently Completed Projects</h2>
     <div class="posts">
       {% for project in recent limit:5 %}
         <div class="post">
-          <h3>
-            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-          </h3>
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
           <p>{{ project.summary }}</p>
         </div>
       {% endfor %}
     </div>
   {% endif %}
 </div>
-<hr>
 
-<hr>
-{%- comment -%} Works in Progress — show up to 3 newest {%- endcomment -%}
-<div class="projects-section" style="text-align: center; margin: 0 auto; max-width: 800px;">
+<div class="section">
+  <div class="section-divider"></div>
+
+  <h2 style="text-align: center;">Works in Progress</h2>
   {% assign recent = site.incompleteprojects | sort: "date" | reverse %}
   {% if recent.size > 0 %}
-    <h2>Works in Progress</h2>
     <div class="posts">
       {% for project in recent limit:3 %}
         <div class="post">
-          <h3>
-            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-          </h3>
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
           <p>{{ project.summary }}</p>
         </div>
       {% endfor %}
     </div>
   {% endif %}
 </div>
-<hr>
 
-<hr>
-<div style="text-align: center;">
+<div class="section" style="text-align: center;">
+  <div class="section-divider"></div>
+
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
       <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contact Me
@@ -98,5 +115,3 @@ excited to apply these skills across industries.
     </a>
   </span>
 </div>
-<br>
-<hr>
