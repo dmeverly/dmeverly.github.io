@@ -73,11 +73,9 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
 With post-baccalaureate certifications in:
 
 - Computational AI  
-- Computer Science Theory & Practice  
-- Computer Security & Privacy  
-- Computer Science  
+- Computer Science
 
-My course of study is weighted heavily in topics such as:  
+My course of study is weighted heavily in:  
 
 - Applied and Computational Machine Learning  
 - Computer Vision  

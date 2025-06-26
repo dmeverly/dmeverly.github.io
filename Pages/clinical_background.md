@@ -76,12 +76,15 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
 
 **Registered Nurse**
 
-Pennsylvania College of Health Sciences (September 2016 – June 2017)
+*Pennsylvania College of Health Sciences*
+- Clinical Instruction
 
-Medical Staffing Network (March 2016- June 2016)
+*Medical Staffing Network*
+- Locums Tenens RN
 
-Hershey Medical Center (January 2016 – March 2016)
-
-Meritus Medical Center (May 2011 – January 2016)
+*Meritus Medical Center*
+- Emergency Department Nursing
+- Intermediate Care Unit Nursing
+- Medical and Surgical Floor Nursing
 
 ---  
