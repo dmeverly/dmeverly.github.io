@@ -14,6 +14,9 @@ Scheduling is a classic constraint satisfaction problem. Many algorithms can be 
 
 Greedy search offers a faster alternative by selecting the best local option at each step. However, it risks getting stuck in local minima. Simulated Annealing (SA) addresses this by occasionally accepting worse states to escape these local optima. My approach combines both methods, followed by local search and repair, to thoroughly analyze and satisfy constraints.  
 
+# Purpose  
+To create a program which automates the task of creating schedule templates using Greedy search with Simulated Annealing.  
+
 # Methods  
 I interviewed the sponsor and individual employees to gather requirements. Constraints fell into two groups (not-exhaustive):
 
@@ -31,7 +34,6 @@ I interviewed the sponsor and individual employees to gather requirements. Const
 - Employees work at least 80% of their FTE hours  
 
 Once defined, each constraint was encoded as a boolean check. I experimented with SA hyperparameters and found an initial temperature of **100** and a cooling rate of **0.9995** worked well. To avoid wasted epochs on unchanging states, I implemented a “best-state restart” after 300 stagnant iterations.  
-
 
 # Results 
 Because of the stochastic nature of greedy+SA, each run varies. However, nearly all runs met **all absolute** constraints and minimized **relative** violations (typically 0–20). Analysis showed most remaining violations were “minimum rest” (time between shifts) issues—removing that constraint yielded 0 total violations.
