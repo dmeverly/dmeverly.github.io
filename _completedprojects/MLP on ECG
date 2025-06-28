@@ -6,10 +6,11 @@ summary: >
   Comparative evaluation of shallow, deep, and residual‑enhanced multilayer perceptrons for classifying single‑lead ECG tracings as normal or ischemic.
 ---  
 
-# Problem Statement
+
+# Problem Statement  
 Acute Coronary Syndrome (ACS) demands rapid and accurate identification to improve patient outcomes. ECG interpretation remains a cornerstone of early ACS detection, but standard rule‑based algorithms and clinician review introduce delays and variability. We explore whether purely feed‑forward neural classifiers can reliably distinguish normal from ischemic single‑lead ECG cycles, with the aim of simplifying clinical workflows and reducing diagnostic latency.
 
-# Previous Work
+# Previous Work  
 - **2022 Literature Review:**
   - 59 ECG deep‑learning studies analyzed.
   - Convolutional networks (e.g., ResNet) achieved >97 % accuracy but struggle with noisy, single‑cycle data.
