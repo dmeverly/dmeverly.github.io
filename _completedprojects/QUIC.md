@@ -79,10 +79,4 @@ challenging to defeat.
 # References  
 No external sources were used. However, LLM queries assisted with architectural design and debugging.  
 
-# Contributing  
-Code architecture was built over a minimal template which was provided to me by Drexel University during Graduate studies in 2025.
-
-# Licenses  
-None
-
 <a href="https://github.com/dmeverly/quic-game-protocol" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>
