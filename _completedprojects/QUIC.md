@@ -6,14 +6,6 @@ summary: >
     A QUIC Protocol demonstration which uses a custom application layer protocol to send messages between terminals using QUIC
 ---
 
-## QUIC Game Protocol: An Application Layer Demonstration
-
-**Author**: David Everly  
-**Language**: Python  
-**Version**: 1 
-
----
-
 # Description  
 QGP.py is a script which supports a proof-of-concept (POC) implementation of the Quick Game Protocol over QUIC.
 In brief, the script defines the PDU and DFA, as well as common class definitions in pdu.py and connectionContext.py.
