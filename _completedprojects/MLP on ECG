@@ -6,10 +6,10 @@ summary: >
   Comparative evaluation of shallow, deep, and residual‑enhanced multilayer perceptrons for classifying single‑lead ECG tracings as normal or ischemic.
 ---
 
-## Problem Statement
+# Problem Statement
 Acute Coronary Syndrome (ACS) demands rapid and accurate identification to improve patient outcomes. ECG interpretation remains a cornerstone of early ACS detection, but standard rule‑based algorithms and clinician review introduce delays and variability. We explore whether purely feed‑forward neural classifiers can reliably distinguish normal from ischemic single‑lead ECG cycles, with the aim of simplifying clinical workflows and reducing diagnostic latency.
 
-## Previous Work
+# Previous Work
 - **2022 Literature Review:**
   - 59 ECG deep‑learning studies analyzed.
   - Convolutional networks (e.g., ResNet) achieved >97 % accuracy but struggle with noisy, single‑cycle data.
@@ -18,7 +18,7 @@ Acute Coronary Syndrome (ACS) demands rapid and accurate identification to impro
   - 12‑lead ECGs, 10 classical ML classifiers.
   - Random Forest achieved AUROC 0.91 (95 % CI 0.87–0.96), outperforming clinicians and commercial systems.
 
-## Theoretical Approach
+# Theoretical Approach
 We hypothesize that architectural depth and residual connections can mitigate vanishing‑gradient issues in MLPs trained on time‑series ECG signals. By comparing:
 
 1. **Shallow MLP (5 layers)**
@@ -30,26 +30,25 @@ we assess:
 - **Training stability:** Do residuals + ReLU improve convergence on noisy data?
 - **Generalization:** Which architecture transfers best across dataset scales and class imbalances?
 
-## Purpose
+# Purpose
 To systematically evaluate MLP variants on single‑cycle ECG datasets of varying scale, determining trade‑offs between complexity, stability, and predictive performance for ischemia detection.
 
-## Research Question
-> **Can an MLP—shallow, deep, or residual‑enhanced—accurately discriminate ischemic from normal single‑lead ECG tracings?**
+# Research Question
+Can an MLP—shallow, deep, or residual‑enhanced—accurately discriminate ischemic from normal single‑lead ECG tracings?  
 
-## Methods
+# Methods
 
-### Data Sources
+## Data Sources
 - **ECG200:** 200 one‑cycle tracings, normal vs. ischemic.  
 - **ECG5000:** 5 000 one‑cycle tracings, normal vs. abnormal (binary and multiclass subsets).
 
 > *Note: MIT‑BIH and 12‑lead “Full ECG” data were dropped due to poor convergence in pilot tests.*
 
-### Pre‑processing
+## Pre‑processing
 - Z‑score normalization per cycle  
-- Zero‑padding/trimming to 140 samples  
 - 80/20 stratified train/validation split  
 
-### Architectures
+## Architectures
 1. **Shallow MLP (5 layers):**
    - Input → Dense(64) → Tanh → Dense(32) → Tanh → Sigmoid
 
@@ -59,15 +58,15 @@ To systematically evaluate MLP variants on single‑cycle ECG datasets of varyin
 3. **Residual MLP (22 layers + shortcuts):**
    - Blocks of [Dense(32) → ReLU → BatchNorm] with identity shortcuts and funnel‑shaped sizes
 
-### Training & Tuning
+## Training & Tuning
 - **Optimizer:** Adam (learning rates swept over {1e‑3, 1e‑4, 1e‑5})  
 - **Hidden sizes:** {8, 16, 32, 64} via grid search  
 - Early stopping (patience = 10 epochs)
 
-### Initialization
+## Initialization
 Xavier uniform for weights; biases initialized to zero.
 
-## Results
+# Results
 
 | Dataset     | Metric          | Shallow | Deep | Residual |
 |-------------|-----------------|---------|------|----------|
@@ -78,15 +77,15 @@ Xavier uniform for weights; biases initialized to zero.
 - **ECG200:** Residual MLP led (91 %), showing depth+shortcuts help on small/noisy samples.  
 - **ECG5000:** All reached ∼98 % binary accuracy; deeper models improved multiclass by 3 %.
 
-## Conclusion
+# Conclusion
 Residual connections and ReLU activations significantly boost MLP performance on small, noisy ECG cycles. For large datasets, shallow networks suffice for binary tasks, but deep/residual models yield multiclass gains. Pure MLPs struggle with multi‑lead or long sequences, suggesting CNNs or Transformers for richer ECG representations.
 
-## Future Work
+# Future Work
 - Evaluate CNNs and Transformers on single‑cycle and full‑lead ECGs  
 - Incorporate RNNs or attention mechanisms for multi‑beat/continuous monitoring  
 - Conduct prospective clinical validation against cardiologist readings  
 
-## References
+# References
 1. Al‑Zaiti et al., 2023. Machine learning for ECG diagnosis and risk stratification… _Nature Medicine_.  
 2. Dau et al., 2019. The UCR Time Series Classification Archive. UCR.  
 3. Goldberger et al., 2000. PhysioBank, PhysioToolkit, and PhysioNet. _Circulation_.  
@@ -94,4 +93,4 @@ Residual connections and ReLU activations significantly boost MLP performance on
 5. Moody & Mark, 2001. The impact of the MIT‑BIH Arrhythmia Database. _IEEE EMBS Mag_.  
 6. Xiong et al., 2022. Deep Learning for Detecting and Locating Myocardial Infarction… _Frontiers in Cardiovascular Medicine_.  
 
-[GitHub Repo →](https://github.com/dmeverly/MLP-on-ECG){: .float-right }
+<a href="https://github.com/dmeverly/MLP-on-ECG" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
