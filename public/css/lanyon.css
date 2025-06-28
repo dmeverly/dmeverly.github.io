@@ -659,3 +659,28 @@ blockquote {
   padding-left: 1em;
   margin: 1em auto;
 }
+
+.image‐row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.image‐row figure {
+  flex: 1 1 calc(25% - 1rem);
+  margin: 0;
+}
+
+.image‐row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image‐row figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
