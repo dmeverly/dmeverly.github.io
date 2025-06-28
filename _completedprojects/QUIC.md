@@ -43,9 +43,7 @@ x.......
 ........  
 ```
 
-and 
-
-Move x to 5,3 corresponds to:  
+and Move x to 5,3 corresponds to:  
 
 ```bash
 ........  
@@ -58,72 +56,6 @@ Move x to 5,3 corresponds to:
 ........  
 ```  
 
-# Examples  
-
-<div style="display: flex; flex-direction: column; gap: 2em; align-items: center;">
-
-  <!-- Row 1 -->
-  <div style="display: flex; gap: 2em; justify-content: center; flex-wrap: wrap;">
-    <div>
-      <img src="/screenshots/c1.png" alt="Client 1" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Client - Step 1</p>
-    </div>
-    <div>
-      <img src="/screenshots/s1.png" alt="Server 1" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Server - Step 1</p>
-    </div>
-  </div>
-
-  <!-- Row 2 -->
-  <div style="display: flex; gap: 2em; justify-content: center; flex-wrap: wrap;">
-    <div>
-      <img src="/screenshots/c2.png" alt="Client 2" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Client - Step 2</p>
-    </div>
-    <div>
-      <img src="/screenshots/s2.png" alt="Server 2" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Server - Step 2</p>
-    </div>
-  </div>
-
-  <!-- Row 3 -->
-  <div style="display: flex; gap: 2em; justify-content: center; flex-wrap: wrap;">
-    <div>
-      <img src="/screenshots/c3.png" alt="Client 3" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Client - Step 3</p>
-    </div>
-    <div>
-      <img src="/screenshots/s3.png" alt="Server 3" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Server - Step 3</p>
-    </div>
-  </div>
-
-  <!-- Row 4 -->
-  <div style="display: flex; gap: 2em; justify-content: center; flex-wrap: wrap;">
-    <div>
-      <img src="/screenshots/c4.png" alt="Client 4" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Client - Step 4</p>
-    </div>
-    <div>
-      <img src="/screenshots/s4.png" alt="Server 4" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Server - Step 4</p>
-    </div>
-  </div>
-
-  <!-- Row 5 -->
-  <div style="display: flex; gap: 2em; justify-content: center; flex-wrap: wrap;">
-    <div>
-      <img src="/screenshots/c5.png" alt="Client 5" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Client - Step 5</p>
-    </div>
-    <div>
-      <img src="/screenshots/s5.png" alt="Server 5" style="width: 100%; max-width: 400px;">
-      <p style="text-align: center;">Server - Step 5</p>
-    </div>
-  </div>
-
-</div>
-
 # Results and Conclusion
 The program is a demonstration of a state-aware application layer protocol implementation over QUIC
 
@@ -133,7 +65,7 @@ implementation.  Note that login authentication, in its current state, will acce
 from the client.  Futhermore, certifications were taken from those provided by course instructor and are set to be ignored by
 QUIC TLS.  The program contains no security implementations and would be particularly vulnerable to DDOS attack unless the
 activity would be detected and mitigated via QUIC. Finally, the port number is bound to 12345 for both server and client, and 
-the gameName is hardcoded to support only the Othello game.  The server is designed to never close except by interrupt
+the protocol is hardcoded to support only the Othello game.  The server is designed to never close except by interrupt
 or killing the terminal; a deployment-ready implementation should provide a way to close the server.
 
 # Future Work and Extension  
