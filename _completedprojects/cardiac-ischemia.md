@@ -78,7 +78,7 @@ Xavier uniform for weights; biases initialized to zero.
 - **ECG5000:** All reached ∼98 % binary accuracy; deeper models improved multiclass by 3 %.
 
 # Conclusion
-Residual connections and ReLU activations significantly boost MLP performance on small, noisy ECG cycles. For large datasets, shallow networks suffice for binary tasks, but deep/residual models yield multiclass gains. Pure MLPs struggle with multi‑lead or long sequences, suggesting CNNs or Transformers for richer ECG representations.
+Residual connections significantly boost MLP performance on small, noisy ECG cycles. For large datasets, shallow networks suffice for binary tasks, but deep/residual models yield multiclass gains. Pure MLPs struggle with multi‑lead or long sequences, suggesting CNNs or Transformers for richer ECG representations.
 
 # Future Work
 - Evaluate CNNs and Transformers on single‑cycle and full‑lead ECGs  
