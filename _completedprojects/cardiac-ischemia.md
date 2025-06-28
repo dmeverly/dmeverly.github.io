@@ -81,55 +81,56 @@ Xavier uniform for weights; biases initialized to zero.
   <!-- ECG200 -->
   <figure>
     <img src="/assets/ecg200shallow.jpeg" alt="ECG200 Shallow">
-    <figcaption>ECG200 Shallow</figcaption>
+    <figcaption><a href="/assets/ecg200shallow.jpeg" target="_blank">ECG200 Shallow</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200shallowcm.jpeg" alt="ECG200 Shallow CM">
-    <figcaption>Shallow CM</figcaption>
+    <figcaption><a href="/assets/ecg200shallowcm.jpeg" target="_blank">Shallow CM</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200deep.jpeg" alt="ECG200 Deep">
-    <figcaption>ECG200 Deep</figcaption>
+    <figcaption><a href="/assets/ecg200deep.jpeg" target="_blank">ECG200 Deep</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200deepcm.jpeg" alt="ECG200 Deep CM">
-    <figcaption>Deep CM</figcaption>
+    <figcaption><a href="/assets/ecg200deepcm.jpeg" target="_blank">Deep CM</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200deepwithsr.jpeg" alt="ECG200 Deep + Skip">
-    <figcaption>Deep + Skip</figcaption>
+    <figcaption><a href="/assets/ecg200deepwithsr.jpeg" target="_blank">Deep + Skip</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200deepwithsrcm.jpeg" alt="ECG200 Deep + Skip CM">
-    <figcaption>Deep + Skip CM</figcaption>
+    <figcaption><a href="/assets/ecg200deepwithsrcm.jpeg" target="_blank">Deep + Skip CM</a></figcaption>
   </figure>
 
   <!-- ECG5000 -->
   <figure>
     <img src="/assets/ecg5000mcshallow.jpeg" alt="ECG5000 Shallow">
-    <figcaption>ECG5000 Shallow</figcaption>
+    <figcaption><a href="/assets/ecg5000mcshallow.jpeg" target="_blank">ECG5000 Shallow</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg5000mcshallowcm.jpeg" alt="ECG5000 Shallow CM">
-    <figcaption>Shallow CM</figcaption>
+    <figcaption><a href="/assets/ecg5000mcshallowcm.jpeg" target="_blank">Shallow CM</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg5000mcdeep.jpeg" alt="ECG5000 Deep">
-    <figcaption>ECG5000 Deep</figcaption>
+    <figcaption><a href="/assets/ecg5000mcdeep.jpeg" target="_blank">ECG5000 Deep</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg5000mcdeepcm.jpeg" alt="ECG5000 Deep CM">
-    <figcaption>Deep CM</figcaption>
+    <figcaption><a href="/assets/ecg5000mcdeepcm.jpeg" target="_blank">Deep CM</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg5000mcdeepsr.jpeg" alt="ECG5000 Deep + Skip">
-    <figcaption>Deep + Skip</figcaption>
+    <figcaption><a href="/assets/ecg5000mcdeepsr.jpeg" target="_blank">Deep + Skip</a></figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg5000mcdeepsrcm.jpeg" alt="ECG5000 Deep + Skip CM">
-    <figcaption>Deep + Skip CM</figcaption>
+    <figcaption><a href="/assets/ecg5000mcdeepsrcm.jpeg" target="_blank">Deep + Skip CM</a></figcaption>
   </figure>
 </div>
+
 
 
 # Conclusion
