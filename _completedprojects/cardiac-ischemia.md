@@ -122,11 +122,11 @@ Xavier uniform for weights; biases initialized to zero.
     <figcaption>Deep CM</figcaption>
   </figure>
   <figure>
-    <img src="/assets/ecg5000mcdeepwithsr.jpeg" alt="ECG5000 Deep + Skip">
+    <img src="/assets/ecg5000mcdeepsr.jpeg" alt="ECG5000 Deep + Skip">
     <figcaption>Deep + Skip</figcaption>
   </figure>
   <figure>
-    <img src="/assets/ecg5000mcdeepwithsrcm.jpeg" alt="ECG5000 Deep + Skip CM">
+    <img src="/assets/ecg5000mcdeepsrcm.jpeg" alt="ECG5000 Deep + Skip CM">
     <figcaption>Deep + Skip CM</figcaption>
   </figure>
 </div>

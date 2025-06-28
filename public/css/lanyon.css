@@ -687,14 +687,16 @@ blockquote {
 
 .image-grid {
   display: grid;
-  /* try 4 columns on desktop, auto-fill on narrower screens */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Use 4 columns of at least 150px each; adjust “4” and “150px” up or down as needed */
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .image-grid figure {
-  margin: 0;
+  /* cap each figure so images can shrink to fit the grid cell */
+  max-width: 150px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
