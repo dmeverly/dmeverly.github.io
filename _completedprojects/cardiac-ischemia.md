@@ -27,7 +27,7 @@ We hypothesize that architectural depth and residual connections can mitigate va
 
 we assess:
 - **Representational capacity:** Can deeper nets capture subtle ischemic features?
-- **Training stability:** Do residuals + ReLU improve convergence on noisy data?
+- **Training stability:** Do residuals improve convergence on noisy data?
 - **Generalization:** Which architecture transfers best across dataset scales and class imbalances?
 
 # Purpose
@@ -56,7 +56,7 @@ Can an MLP—shallow, deep, or residual‑enhanced—accurately discriminate isc
    - 9× [Dense(32) → Tanh] → Dense(16) → Sigmoid
 
 3. **Residual MLP (22 layers + shortcuts):**
-   - Blocks of [Dense(32) → ReLU → BatchNorm] with identity shortcuts and funnel‑shaped sizes
+   - Blocks of [Dense(32) → Tanh → BatchNorm] with identity shortcuts and funnel‑shaped sizes
 
 ## Training & Tuning
 - **Optimizer:** Adam (learning rates swept over {1e‑3, 1e‑4, 1e‑5})  
