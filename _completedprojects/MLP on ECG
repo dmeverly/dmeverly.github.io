@@ -3,9 +3,8 @@ layout: post
 title: Cardiac Ischemia Prediction
 date: 2025-06-10
 summary: >
-  Comparative evaluation of shallow, deep, and residual‑enhanced multilayer perceptrons for classifying single‑lead ECG tracings as normal or ischemic.
+  Comparative evaluation of shallow, deep, and residual‑enhanced multilayer perceptrons for classifying single‑lead ECG tracings as normal or ischemic.  
 ---  
-
 
 # Problem Statement  
 Acute Coronary Syndrome (ACS) demands rapid and accurate identification to improve patient outcomes. ECG interpretation remains a cornerstone of early ACS detection, but standard rule‑based algorithms and clinician review introduce delays and variability. We explore whether purely feed‑forward neural classifiers can reliably distinguish normal from ischemic single‑lead ECG cycles, with the aim of simplifying clinical workflows and reducing diagnostic latency.
