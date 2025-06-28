@@ -77,7 +77,7 @@ Xavier uniform for weights; biases initialized to zero.
 - **ECG200:** Residual MLP led (91 %), showing depth+shortcuts help on small/noisy samples.  
 - **ECG5000:** All reached ∼98 % binary accuracy; deeper models improved multiclass by 3 %.
 
-<div class="image-row">
+<div class="image-grid">
   <!-- ECG200 -->
   <figure>
     <img src="/assets/ecg200shallow.jpeg" alt="ECG200 Shallow">
@@ -85,21 +85,19 @@ Xavier uniform for weights; biases initialized to zero.
   </figure>
   <figure>
     <img src="/assets/ecg200shallowcm.jpeg" alt="ECG200 Shallow CM">
-    <figcaption>Shallow Confusion Matrix</figcaption>
+    <figcaption>Shallow CM</figcaption>
   </figure>
-
   <figure>
     <img src="/assets/ecg200deep.jpeg" alt="ECG200 Deep">
     <figcaption>ECG200 Deep</figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200deepcm.jpeg" alt="ECG200 Deep CM">
-    <figcaption>Deep Confusion Matrix</figcaption>
+    <figcaption>Deep CM</figcaption>
   </figure>
-
   <figure>
-    <img src="/assets/ecg200deepwithsr.jpeg" alt="ECG200 Deep with Skip">
-    <figcaption>ECG200 Deep + Skip</figcaption>
+    <img src="/assets/ecg200deepwithsr.jpeg" alt="ECG200 Deep + Skip">
+    <figcaption>Deep + Skip</figcaption>
   </figure>
   <figure>
     <img src="/assets/ecg200deepwithsrcm.jpeg" alt="ECG200 Deep + Skip CM">
@@ -108,29 +106,27 @@ Xavier uniform for weights; biases initialized to zero.
 
   <!-- ECG5000 -->
   <figure>
-    <img src="/assets/ecg5000shallow.jpeg" alt="ECG5000 Shallow">
+    <img src="/assets/ecg5000mcshallow.jpeg" alt="ECG5000 Shallow">
     <figcaption>ECG5000 Shallow</figcaption>
   </figure>
   <figure>
-    <img src="/assets/ecg5000shallowcm.jpeg" alt="ECG5000 Shallow CM">
-    <figcaption>Shallow Confusion Matrix</figcaption>
+    <img src="/assets/ecg5000mcshallowcm.jpeg" alt="ECG5000 Shallow CM">
+    <figcaption>Shallow CM</figcaption>
   </figure>
-
   <figure>
-    <img src="/assets/ecg5000deep.jpeg" alt="ECG5000 Deep">
+    <img src="/assets/ecg5000mcdeep.jpeg" alt="ECG5000 Deep">
     <figcaption>ECG5000 Deep</figcaption>
   </figure>
   <figure>
-    <img src="/assets/ecg5000deepcm.jpeg" alt="ECG5000 Deep CM">
-    <figcaption>Deep Confusion Matrix</figcaption>
-  </figure>
-
-  <figure>
-    <img src="/assets/ecg5000deepwithsr.jpeg" alt="ECG5000 Deep with Skip">
-    <figcaption>ECG5000 Deep + Skip</figcaption>
+    <img src="/assets/ecg5000mcdeepcm.jpeg" alt="ECG5000 Deep CM">
+    <figcaption>Deep CM</figcaption>
   </figure>
   <figure>
-    <img src="/assets/ecg5000deepwithsrcm.jpeg" alt="ECG5000 Deep + Skip CM">
+    <img src="/assets/ecg5000mcdeepwithsr.jpeg" alt="ECG5000 Deep + Skip">
+    <figcaption>Deep + Skip</figcaption>
+  </figure>
+  <figure>
+    <img src="/assets/ecg5000mcdeepwithsrcm.jpeg" alt="ECG5000 Deep + Skip CM">
     <figcaption>Deep + Skip CM</figcaption>
   </figure>
 </div>
