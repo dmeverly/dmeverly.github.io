@@ -52,6 +52,8 @@ Repair state  -> 5
 Fill state    -> 13  
 Final Sweep   -> 13  
 
+Pursuant to finding the global optimal, the soultion was fed back through the pipeline and several improvements were made.  The state was found globally optimized with score of 3.
+
 [View the final template in Google Sheets ->](https://docs.google.com/spreadsheets/d/1pQ2ikx7xCO3GEW18450oJszRIT6FUK3cu3nQw0aWBz8/edit?usp=sharing)  
 
 <figure>
