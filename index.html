@@ -127,7 +127,7 @@ permalink: /
   {% assign recent = site.completedprojects | sort: "date" | reverse %}
   {% if recent.size > 0 %}
     <div class="posts">
-      {% for project in recent limit:5 %}
+      {% for project in recent limit:3 %}
         <div class="post">
           <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
           <p>{{ project.summary }}</p>

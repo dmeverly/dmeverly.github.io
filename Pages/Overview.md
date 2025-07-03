@@ -69,6 +69,27 @@ Blending clinical expertise with digital innovation, David streamlines care thro
   </div>
 {% endif %}
 
+{% assign recent = site.workflowprojects | sort: "date" | reverse %}
+{% if recent.size >= 0 %}
+  <div class="section">
+    <div class="section-divider"></div>
+    <h2 style="text-align: center;">Workflow Optimization</h2>
+
+    {% if recent.size > 0 %}
+      <div class="posts">
+        {% for project in recent limit:3 %}
+          <div class="post">
+            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+            <p>{{ project.summary }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="text-align:center;">Coming Soon!</p>
+    {% endif %}
+  </div>
+{% endif %}
+
 ---  
 
 <div class="section" style="text-align: center;">
