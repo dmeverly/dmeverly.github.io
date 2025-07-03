@@ -48,13 +48,19 @@ The note was created in **Epic**, approved by WellSpan Senior Administration, an
 To reduce note bloat, the **EpicACT link** enabled asynchronous editing of the Hospital Course without bloating the signed note. This preserved data for future hospitalizations without increasing character count.
 
 **Figure 1.** Transfer Note During Creation – includes dynamic Hospital Course SmartLink  
-![Transfer Note](/assets/transfer1.PNG)
+<a href="/assets/transfer1.PNG" target="_blank">
+  <img src="/assets/transfer1.PNG" alt="Transfer Note" style="max-width: 100%; height: auto;" />
+</a>
 
 **Figure 2.** Separate editable Hospital Course maintained outside the note  
-![Hospital Course](/assets/hc1.PNG)
+<a href="/assets/hc1.PNG" target="_blank">
+  <img src="/assets/hc1.PNG" alt="Hospital Course" style="max-width: 100%; height: auto;" />
+</a>
 
 **Figure 3.** EpicACT link added to ICU progress note template for editable Hospital Course  
-![Progress Note](/assets/pn1.PNG)
+<a href="/assets/pn1.PNG" target="_blank">
+  <img src="/assets/pn1.PNG" alt="Progress Note" style="max-width: 100%; height: auto;" />
+</a>
 
 # Results  
 During the pilot phase, ICU and Hospitalist teams reported that the new note significantly improved communication without adding documentation burden.
