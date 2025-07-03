@@ -27,6 +27,8 @@ collections:
     output: true
   incompleteprojects:
     output: true
+  workflowprojects:
+    output: true
 
 include:
   - favicon.ico
