@@ -55,7 +55,7 @@ Final Sweep  → 13
 ---
 
 ### Final Optimization Result  
-After reprocessing the best solution through the pipeline, the **final state was globally optimized with a score of just 3** — the lowest recorded across all runs.
+After reprocessing the best solution through the pipeline, the **final state was globally optimized with a score of just 4** — the lowest recorded across all runs.
 
 ---
 
