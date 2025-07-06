@@ -36,17 +36,15 @@
         e.preventDefault();
         const url = this.dataset.url;
 
-        // Fetch the full rendered page content
         fetch(url)
           .then(response => response.text())
           .then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-
-            // You can select only the inner content if needed:
             const postContent = doc.querySelector('.post') || doc.querySelector('.page') || doc.body;
-            modalContent.innerHTML = postContent.innerHTML;
 
+            modalContent.innerHTML = postContent.innerHTML;
+            modalLink.href = url; 
             modal.style.display = "flex";
           });
       });
