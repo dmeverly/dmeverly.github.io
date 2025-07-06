@@ -1,60 +1,52 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Sidebar logic
-  const toggle = document.querySelector('.sidebar-toggle');
-  const sidebar = document.querySelector('#sidebar');
-  const checkbox = document.querySelector('#sidebar-checkbox');
-  const emToPx = em => em * 16;
+(function(document) {
+  var toggle = document.querySelector('.sidebar-toggle');
+  var sidebar = document.querySelector('#sidebar');
+  var checkbox = document.querySelector('#sidebar-checkbox');
 
-  if (checkbox && window.innerWidth >= emToPx(30)) {
-    checkbox.checked = true;
-  }
+  // Close sidebar when clicking outside of it
+  document.addEventListener('click', function(e) {
+    var target = e.target;
 
-  document.addEventListener('click', function (e) {
-    const target = e.target;
     if (!checkbox.checked ||
         sidebar.contains(target) ||
-        target === checkbox || target === toggle) return;
+        (target === checkbox || target === toggle)) return;
+
     checkbox.checked = false;
-  });
+  }, false);
 
-  // Modal logic
-  const modal = document.getElementById("modal-overlay");
-  const modalContent = document.getElementById("modal-content");
-  const modalLink = document.getElementById("modal-link");
-  const modalTitle = document.getElementById("modal-title");
-  const closeModal = document.getElementById("modal-close");
+  // DOM ready
+  document.addEventListener("DOMContentLoaded", function () {
+    const checkbox = document.getElementById("sidebar-checkbox");
+    const emToPx = em => em * 16;
 
-  document.querySelectorAll(".open-modal").forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      modal.style.display = "flex";
-      modalTitle.textContent = this.dataset.title || "";
-      modalContent.innerHTML = "<p style='text-align:center;'>Loading…</p>";
-      modalLink.href = this.dataset.url;
-
-      fetch(this.dataset.url)
-        .then(response => response.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, "text/html");
-          const content = doc.querySelector(".post, main, article");
-          modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
-        })
-        .catch(err => {
-          modalContent.innerHTML = "<p>Error loading project content.</p>";
-          console.error("Modal fetch error:", err);
-        });
-    });
-  });
-
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
+    // Auto-open sidebar only if viewport >= 30em
+    if (window.innerWidth >= emToPx(30)) {
+      checkbox.checked = true;
+    } else {
+      checkbox.checked = false;
     }
+
+    // --- Modal Logic ---
+    const modal = document.getElementById("modal-overlay");
+    const modalTitle = document.getElementById("modal-title");
+    const modalSummary = document.getElementById("modal-summary");
+    const modalLink = document.getElementById("modal-link");
+    const closeModal = document.getElementById("modal-close");
+
+    document.querySelectorAll(".open-modal").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        modalTitle.textContent = this.dataset.title;
+        modalSummary.textContent = this.dataset.summary;
+        modalLink.href = this.dataset.url;
+        modal.style.display = "flex";
+      });
+    });
+
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = e => {
+      if (e.target === modal) modal.style.display = "none";
+    };
   });
-});
+
+})(document);
