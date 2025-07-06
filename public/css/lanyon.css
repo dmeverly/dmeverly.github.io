@@ -728,12 +728,21 @@ blockquote {
 .modal-box {
   background-color: white;
   padding: 2em;
-  max-width: 600px;
-  width: 90%;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
   border-radius: 10px;
   position: relative;
   text-align: left;
   animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+#modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 1em; /* optional scrollbar buffer */
 }
 
 .modal-close {
