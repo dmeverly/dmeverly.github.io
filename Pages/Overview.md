@@ -5,14 +5,15 @@ sidebar_category: Projects
 order: 3
 ---
 
-All of my work is publically available on Github. Feel free to explore, and reach out if you have questions! <a href="https://github.com/dmeverly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-      <i class="fab fa-github" style="font-size: 24px;"></i>
-    </a>
+All of my work is publicly available on GitHub. Feel free to explore, and reach out if you have questions!  
+<a href="https://github.com/dmeverly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+  <i class="fab fa-github" style="font-size: 24px;"></i>
+</a>
 
-<div class = "section">
-<blockquote>
-Blending clinical expertise with digital innovation, David streamlines care through smarter documentation and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to supporting system-wide initiatives in problem list refinement and inpatient optimization as a certified physician builder.
-<br>
+<div class="section">
+  <blockquote>
+    Blending clinical expertise with digital innovation, David streamlines care through smarter documentation and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to supporting system-wide initiatives in problem list refinement and inpatient optimization as a certified physician builder.
+    <br>
     <span style="display: block; margin-top: 1em; font-weight: bold;">
       — Manjot Gill, MD
     </span>
@@ -33,7 +34,13 @@ Blending clinical expertise with digital innovation, David streamlines care thro
       <div class="posts">
         {% for project in recent %}
           <div class="post">
-            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+            <h3>
+              <a href="javascript:void(0)" class="open-modal"
+                 data-url="{{ project.url | relative_url }}"
+                 data-title="{{ project.title }}">
+                {{ project.title }}
+              </a>
+            </h3>
             <p>{{ project.summary }}</p>
           </div>
         {% endfor %}
@@ -52,7 +59,13 @@ Blending clinical expertise with digital innovation, David streamlines care thro
     <div class="posts">
       {% for project in recent %}
         <div class="post">
-          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+          <h3>
+            <a href="javascript:void(0)" class="open-modal"
+               data-url="{{ project.url | relative_url }}"
+               data-title="{{ project.title }}">
+              {{ project.title }}
+            </a>
+          </h3>
           <p>{{ project.summary }}</p>
         </div>
       {% endfor %}
@@ -70,7 +83,13 @@ Blending clinical expertise with digital innovation, David streamlines care thro
       <div class="posts">
         {% for project in recent limit:3 %}
           <div class="post">
-            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+            <h3>
+              <a href="javascript:void(0)" class="open-modal"
+                 data-url="{{ project.url | relative_url }}"
+                 data-title="{{ project.title }}">
+                {{ project.title }}
+              </a>
+            </h3>
             <p>{{ project.summary }}</p>
           </div>
         {% endfor %}
@@ -81,7 +100,20 @@ Blending clinical expertise with digital innovation, David streamlines care thro
   </div>
 {% endif %}
 
----  
+<!-- Modal -->
+<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
+    <h2 id="modal-title"></h2>
+    <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
+    <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
+       style="margin-top:1em; display:inline-block;">
+      Open Full Project →
+    </a>
+  </div>
+</div>
+
+---
 
 <div class="section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
@@ -95,6 +127,6 @@ Blending clinical expertise with digital innovation, David streamlines care thro
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>  
+</div>
 
----  
+---
