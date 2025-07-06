@@ -36,7 +36,7 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
             <a href="javascript:void(0)" class="open-modal"
                data-url="{{ project.url | relative_url }}"
                data-title="{{ project.title }}">
-              {{ project.title }}
+              <!-- {{ project.title }} -->
             </a>
           </h3>
           <p>{{ project.summary }}</p>
@@ -50,7 +50,7 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
 {% if recent.size > 0 %}
   <div class="section">
     <div class="section-divider"></div>
-    <h2 style="text-align: center;">Recently Completed Projects</h2>
+    <h2 style="text-align: center;">Completed Projects</h2>
     <div class="posts">
       {% for project in recent %}
         <div class="post">
@@ -58,7 +58,7 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
             <a href="javascript:void(0)" class="open-modal"
                data-url="{{ project.url | relative_url }}"
                data-title="{{ project.title }}">
-              {{ project.title }}
+              <!-- {{ project.title }} -->
             </a>
           </h3>
           <p>{{ project.summary }}</p>
@@ -74,13 +74,13 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
     <div class="section-divider"></div>
     <h2 style="text-align: center;">Workflow Optimization</h2>
     <div class="posts">
-      {% for project in recent limit:3 %}
+      {% for project in recent %}
         <div class="post">
           <h3>
             <a href="javascript:void(0)" class="open-modal"
                data-url="{{ project.url | relative_url }}"
                data-title="{{ project.title }}">
-              {{ project.title }}
+              <!-- {{ project.title }} -->
             </a>
           </h3>
           <p>{{ project.summary }}</p>
