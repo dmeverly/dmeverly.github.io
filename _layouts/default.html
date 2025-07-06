@@ -4,6 +4,7 @@
   {% include head.html %}
 
   <body>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
     {% include sidebar.html %}
 
@@ -21,23 +22,22 @@
 
       <div class="container content">
         {{ content }}
-        <!-- Modal Container -->
-<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal-box">
-    <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
-    <h2 id="modal-title"></h2>
-    <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
-    <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
-       style="margin-top:1em; display:inline-block;">
-      Open Full Project →
-    </a>
-  </div>
-</div>
+
+      <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-box">
+          <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
+          <h2 id="modal-title"></h2>
+          <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
+          <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
+            style="margin-top:1em; display:inline-block;">
+            Open Full Project →
+          </a>
+        </div>
+      </div>
 
       </div>
     </div>
-
-    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+    
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
   
   <script>
@@ -57,24 +57,23 @@
   </script>
 
     <script src='{{ site.baseurl }}/public/js/script.js?v=2'></script>
+    <script>
+      window.addEventListener('load', () => {
+        const checkbox = document.getElementById('sidebar-checkbox');
+        if (window.innerWidth >= 960) {
+          checkbox.checked = true;
+        } else {
+          checkbox.checked = false;
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        const checkbox = document.getElementById('sidebar-checkbox');
+        if (window.innerWidth < 960 && checkbox.checked) {
+          checkbox.checked = false;
+        }
+      });
+    </script>
   </body>
 </html>
 
-<script>
-  window.addEventListener('load', () => {
-    const checkbox = document.getElementById('sidebar-checkbox');
-    if (window.innerWidth >= 960) {
-      checkbox.checked = true; // Open sidebar if screen is wide
-    } else {
-      checkbox.checked = false; // Closed by default on smaller screens
-    }
-  });
-
-  // Optional: Close sidebar when resizing to mobile
-  window.addEventListener('resize', () => {
-    const checkbox = document.getElementById('sidebar-checkbox');
-    if (window.innerWidth < 960 && checkbox.checked) {
-      checkbox.checked = false;
-    }
-  });
-</script>
