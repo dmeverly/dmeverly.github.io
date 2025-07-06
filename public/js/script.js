@@ -28,18 +28,27 @@
 
     // --- Modal Logic ---
     const modal = document.getElementById("modal-overlay");
-    const modalTitle = document.getElementById("modal-title");
-    const modalSummary = document.getElementById("modal-summary");
-    const modalLink = document.getElementById("modal-link");
+    const modalContent = document.getElementById("modal-content");
     const closeModal = document.getElementById("modal-close");
 
     document.querySelectorAll(".open-modal").forEach(link => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
-        modalTitle.textContent = this.dataset.title;
-        modalSummary.textContent = this.dataset.summary;
-        modalLink.href = this.dataset.url;
-        modal.style.display = "flex";
+        const url = this.dataset.url;
+
+        // Fetch the full rendered page content
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            // You can select only the inner content if needed:
+            const postContent = doc.querySelector('.post') || doc.querySelector('.page') || doc.body;
+            modalContent.innerHTML = postContent.innerHTML;
+
+            modal.style.display = "flex";
+          });
       });
     });
 
