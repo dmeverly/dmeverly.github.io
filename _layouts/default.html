@@ -21,6 +21,19 @@
 
       <div class="container content">
         {{ content }}
+        <!-- Modal Container -->
+<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
+    <h2 id="modal-title"></h2>
+    <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
+    <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
+       style="margin-top:1em; display:inline-block;">
+      Open Full Project →
+    </a>
+  </div>
+</div>
+
       </div>
     </div>
 

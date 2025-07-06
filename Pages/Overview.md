@@ -37,7 +37,8 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
             <h3>
               <a href="javascript:void(0)" class="open-modal"
                  data-url="{{ project.url | relative_url }}"
-                 data-title="{{ project.title }}">
+                 data-title="{{ project.title }}"
+                 data-summary="{{ project.summary | escape }}">
                 {{ project.title }}
               </a>
             </h3>
@@ -62,7 +63,8 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
           <h3>
             <a href="javascript:void(0)" class="open-modal"
                data-url="{{ project.url | relative_url }}"
-               data-title="{{ project.title }}">
+               data-title="{{ project.title }}"
+               data-summary="{{ project.summary | escape }}">
               {{ project.title }}
             </a>
           </h3>
@@ -86,7 +88,8 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
             <h3>
               <a href="javascript:void(0)" class="open-modal"
                  data-url="{{ project.url | relative_url }}"
-                 data-title="{{ project.title }}">
+                 data-title="{{ project.title }}"
+                 data-summary="{{ project.summary | escape }}">
                 {{ project.title }}
               </a>
             </h3>
@@ -100,7 +103,6 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
   </div>
 {% endif %}
 
-<!-- Modal -->
 <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-box">
     <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
@@ -112,8 +114,6 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
     </a>
   </div>
 </div>
-
----
 
 <div class="section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
@@ -128,5 +128,3 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
     </a>
   </span>
 </div>
-
----
