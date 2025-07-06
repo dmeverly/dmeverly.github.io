@@ -21,18 +21,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Modal Logic ---
   const modal = document.getElementById("modal-overlay");
-  const modalTitle = document.getElementById("modal-title");
-  const modalSummary = document.getElementById("modal-summary");
+  const modalContent = document.getElementById("modal-content");
   const modalLink = document.getElementById("modal-link");
   const closeModal = document.getElementById("modal-close");
 
   document.querySelectorAll(".open-modal").forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault(); // Prevent reload
-      modalTitle.textContent = this.dataset.title;
-      modalSummary.textContent = this.dataset.summary;
+      modalContent.innerHTML = "<p style='text-align:center;'>Loading...</p>";
       modalLink.href = this.dataset.url;
       modal.style.display = "flex";
+
+      fetch(this.dataset.url)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+
+          // Try to extract .post, main, or article section
+          const content = doc.querySelector(".post, main, article");
+          modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
+        })
+        .catch(err => {
+          modalContent.innerHTML = "<p>Error loading project content.</p>";
+          console.error("Modal fetch error:", err);
+        });
     });
   });
 
