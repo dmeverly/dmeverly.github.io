@@ -39,7 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
           .then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");
-            const content = doc.querySelector(".post, main, article, .container");
+            let content =
+              doc.querySelector(".post") ||
+              doc.querySelector(".container .content") ||
+              doc.querySelector("main") ||
+              doc.querySelector("article") ||
+              doc.body;
+
             modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
           })
           .catch(err => {
