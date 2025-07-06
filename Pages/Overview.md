@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Projects Overview
+title: All Projects
 sidebar_category: Projects
 order: 3
 ---

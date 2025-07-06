@@ -123,11 +123,11 @@ permalink: /
 
 <div class="section">
   <div class="section-divider"></div>
-  <h2 style="text-align: center;">Recently Completed Projects</h2>
-  {% assign recent = site.completedprojects | sort: "date" | reverse %}
+  <h2 style="text-align: center;">Projects Spotlight</h2>
+  {% assign recent = site.spotlightprojects | sort: "date" | reverse %}
   {% if recent.size > 0 %}
     <div class="posts">
-      {% for project in recent limit:3 %}
+      {% for project in recent %}
         <div class="post">
           <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
           <p>{{ project.summary }}</p>
@@ -135,49 +135,8 @@ permalink: /
       {% endfor %}
     </div>
   {% endif %}
+  <a href="https://www.dmeverly.com/Pages/Overview/" style="display: block; text-align:right;">All Projects -></a>
 </div>
-
-{% assign recent = site.incompleteprojects | sort: "date" | reverse %}
-{% if recent.size >= 0 %}
-  <div class="section">
-    <div class="section-divider"></div>
-    <h2 style="text-align: center;">Works in Progress</h2>
-
-    {% if recent.size > 0 %}
-      <div class="posts">
-        {% for project in recent limit:3 %}
-          <div class="post">
-            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-            <p>{{ project.summary }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    {% else %}
-      <p style="text-align:center;">Coming Soon!</p>
-    {% endif %}
-  </div>
-{% endif %}
-
-{% assign recent = site.workflowprojects | sort: "date" | reverse %}
-{% if recent.size >= 0 %}
-  <div class="section">
-    <div class="section-divider"></div>
-    <h2 style="text-align: center;">Workflow Optimization</h2>
-
-    {% if recent.size > 0 %}
-      <div class="posts">
-        {% for project in recent limit:3 %}
-          <div class="post">
-            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-            <p>{{ project.summary }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    {% else %}
-      <p style="text-align:center;">Coming Soon!</p>
-    {% endif %}
-  </div>
-{% endif %}
 
 <hr>
 
