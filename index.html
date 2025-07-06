@@ -76,64 +76,9 @@ permalink: /
     color: white;
   }
 
-  .modal-overlay {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-box {
-  background-color: white;
-  padding: 2em;
-  max-width: 600px;
-  width: 90%;
-  border-radius: 10px;
-  position: relative;
-  text-align: left;
-  animation: fadeIn 0.3s ease;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px; right: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #aaa;
-}
-
-.modal-close:hover {
-  color: #333;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 600px) {
-  .modal-box {
-    max-height: 85vh;
-    overflow-y: auto;
-  }
-
-  .modal-close {
-    font-size: 26px;
-    top: 10px;
-    right: 16px;
-  }
-
-  .modal-box p {
-    line-height: 1.6;
-  }
-}
+ 
 
 </style>
-
 
 <body>
 <div class="section" style="text-align: center;">
@@ -246,7 +191,7 @@ permalink: /
   <div class="modal-box">
     <span class="modal-close" id="modal-close">&times;</span>
     <div id="modal-content" style="max-height: 70vh; overflow-y: auto;"></div>
-<a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 1em; display: inline-block;">Open Full Project</a>
+<a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 1em; display: inline-block;">Open Project Page</a>
 
   </div>
 </div>

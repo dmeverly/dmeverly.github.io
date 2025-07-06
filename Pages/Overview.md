@@ -23,31 +23,6 @@ Blending clinical expertise with digital innovation, David streamlines care thro
   </blockquote>
 </div>
 
-<div class="section">
-  <h2>Workflow Optimization Projects</h2>
-  <ul>
-    <li><strong>Critical Care Transfer Template</strong></li>
-    <li><strong>Standardized Progress Note Template</strong></li>
-    <li><strong>Problem List Initiative</strong></li>
-  </ul>
-</div>
-
-<div class="section">
-  <div class="section-divider"></div>
-  <h2 style="text-align: center;">Recently Completed Projects</h2>
-  {% assign recent = site.completedprojects | sort: "date" | reverse %}
-  {% if recent.size > 0 %}
-    <div class="posts">
-      {% for project in recent %}
-        <div class="post">
-          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-          <p>{{ project.summary }}</p>
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
-</div>
-
 {% assign recent = site.incompleteprojects | sort: "date" | reverse %}
 {% if recent.size >= 0 %}
   <div class="section">
@@ -68,6 +43,22 @@ Blending clinical expertise with digital innovation, David streamlines care thro
     {% endif %}
   </div>
 {% endif %}
+
+<div class="section">
+  <div class="section-divider"></div>
+  <h2 style="text-align: center;">Recently Completed Projects</h2>
+  {% assign recent = site.completedprojects | sort: "date" | reverse %}
+  {% if recent.size > 0 %}
+    <div class="posts">
+      {% for project in recent %}
+        <div class="post">
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+          <p>{{ project.summary }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
 
 {% assign recent = site.workflowprojects | sort: "date" | reverse %}
 {% if recent.size >= 0 %}
