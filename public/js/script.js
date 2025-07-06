@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       modalContent.innerHTML = "<p style='text-align:center;'>Loading...</p>";
       modalLink.href = this.dataset.url;
-      // document.getElementById("modal-title").textContent = this.dataset.title || "";
+      document.getElementById("modal-title").textContent = this.dataset.title || "";
       modal.style.display = "flex";
 
       fetch(this.dataset.url)
