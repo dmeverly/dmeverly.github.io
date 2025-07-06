@@ -17,33 +17,36 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- Modal Logic ---
+document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal-overlay");
-  const modalContent = document.getElementById("modal-content");
-  const modalLink = document.getElementById("modal-link");
-  const closeModal = document.getElementById("modal-close");
+  const contentEl = document.getElementById("modal-content");
+  const linkEl = document.getElementById("modal-link");
+  const closeEl = document.getElementById("modal-close");
 
-  document.querySelectorAll(".open-modal").forEach(link => {
-    link.addEventListener("click", function (e) {
+  document.querySelectorAll(".open-modal").forEach(a => {
+    a.addEventListener("click", e => {
       e.preventDefault();
-      modalContent.innerHTML = "<p style='text-align:center;'>Loading...</p>";
-      modalLink.href = this.dataset.url;
-      document.getElementById("modal-title").textContent = this.dataset.title || "";
+      const url = a.dataset.url;
+      linkEl.href = url;
       modal.style.display = "flex";
+      contentEl.innerHTML = "<p>Loading…</p>";
 
-      fetch(this.dataset.url)
-        .then(response => response.text())
+      fetch(url)
+        .then(r => r.text())
         .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, "text/html");
-          const content = doc.querySelector(".post") || doc.querySelector("main") || doc.querySelector("article");
-          modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
-        })
-        .catch(err => {
-          modalContent.innerHTML = "<p>Error loading project content.</p>";
-          console.error("Modal fetch error:", err);
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const c = doc.querySelector(".post, main, article");
+          contentEl.innerHTML = c ? c.innerHTML : "<p>Can't load content</p>";
         });
     });
   });
+
+  closeEl.addEventListener("click", () => modal.style.display = "none");
+  window.addEventListener("click", e => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+});
+
 
   closeModal.onclick = () => modal.style.display = "none";
   window.onclick = e => {

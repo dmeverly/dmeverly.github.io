@@ -103,19 +103,6 @@ All of my work is publicly available on GitHub. Feel free to explore, and reach 
   </span>
 </div>
 
-<!-- Modal Markup -->
-<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
-  <div class="modal-box">
-    <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
-    <h2 id="modal-title"></h2>
-    <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
-    <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
-       style="margin-top:1em; display:inline-block;">
-      Open Full Project →
-    </a>
-  </div>
-</div>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("modal-overlay");
