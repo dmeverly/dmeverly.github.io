@@ -4,18 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkbox = document.querySelector('#sidebar-checkbox');
   const emToPx = em => em * 16;
 
-  // Auto-open sidebar if wide enough
   if (checkbox && window.innerWidth >= emToPx(30)) {
     checkbox.checked = true;
   }
 
-  // Close sidebar on outside click
   document.addEventListener('click', function(e) {
     const target = e.target;
     if (!checkbox.checked ||
         sidebar.contains(target) ||
         (target === checkbox || target === toggle)) return;
-
     checkbox.checked = false;
   });
 
@@ -27,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".open-modal").forEach(link => {
     link.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent reload
+      e.preventDefault();
       modalContent.innerHTML = "<p style='text-align:center;'>Loading...</p>";
       modalLink.href = this.dataset.url;
       modal.style.display = "flex";
@@ -37,8 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(html => {
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, "text/html");
-
-          // Try to extract .post, main, or article section
           const content = doc.querySelector(".post, main, article");
           modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
         })
