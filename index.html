@@ -129,14 +129,24 @@ permalink: /
     <div class="posts">
       {% for project in recent %}
         <div class="post">
-          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+          <h3>
+            <a href="{{ project.url | relative_url }}" target="_blank" rel="noopener noreferrer">
+              {{ project.title }}
+            </a>
+          </h3>
           <p>{{ project.summary }}</p>
         </div>
       {% endfor %}
     </div>
   {% endif %}
-  <a href="https://www.dmeverly.com/Pages/Overview/" style="display: block; text-align:right;">All Projects -></a>
+  <a href="https://www.dmeverly.com/Pages/Overview/" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     style="display: block; text-align:right;">
+    All Projects ->
+  </a>
 </div>
+
 
 <hr>
 
