@@ -1,20 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('#sidebar');
-  const checkbox = document.getElementById("sidebar-checkbox");
+  const checkbox = document.querySelector('#sidebar-checkbox');
   const emToPx = em => em * 16;
 
-  // --- Sidebar Behavior ---
   if (checkbox && window.innerWidth >= emToPx(30)) {
     checkbox.checked = true;
   }
 
-  document.addEventListener('click', function (e) {
+  document.addEventListener('click', function(e) {
     const target = e.target;
     if (!checkbox.checked ||
-      sidebar.contains(target) ||
-      target === checkbox || target === toggle) return;
-
+        sidebar.contains(target) ||
+        (target === checkbox || target === toggle)) return;
     checkbox.checked = false;
   });
 
@@ -22,42 +20,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("modal-overlay");
   const modalContent = document.getElementById("modal-content");
   const modalLink = document.getElementById("modal-link");
-  const modalTitle = document.getElementById("modal-title");
   const closeModal = document.getElementById("modal-close");
 
-  if (modal && modalContent && modalLink && modalTitle) {
-    document.querySelectorAll(".open-modal").forEach(link => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        modalContent.innerHTML = "<p style='text-align:center;'>Loading...</p>";
-        modalLink.href = this.dataset.url;
-        modalTitle.textContent = this.dataset.title;
-        modal.style.display = "flex";
+  document.querySelectorAll(".open-modal").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      modalContent.innerHTML = "<p style='text-align:center;'>Loading...</p>";
+      modalLink.href = this.dataset.url;
+      document.getElementById("modal-title").textContent = this.dataset.title || "";
+      modal.style.display = "flex";
 
-        fetch(this.dataset.url)
-          .then(response => response.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, "text/html");
-            let content =
-              doc.querySelector(".post") ||
-              doc.querySelector(".container .content") ||
-              doc.querySelector("main") ||
-              doc.querySelector("article") ||
-              doc.body;
-
-            modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
-          })
-          .catch(err => {
-            modalContent.innerHTML = "<p>Error loading project content.</p>";
-            console.error("Modal fetch error:", err);
-          });
-      });
+      fetch(this.dataset.url)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const content = doc.querySelector(".post") || doc.querySelector("main") || doc.querySelector("article");
+          modalContent.innerHTML = content ? content.innerHTML : "<p>Could not load content.</p>";
+        })
+        .catch(err => {
+          modalContent.innerHTML = "<p>Error loading project content.</p>";
+          console.error("Modal fetch error:", err);
+        });
     });
+  });
 
-    closeModal.onclick = () => modal.style.display = "none";
-    window.onclick = e => {
-      if (e.target === modal) modal.style.display = "none";
-    };
-  }
+  closeModal.onclick = () => modal.style.display = "none";
+  window.onclick = e => {
+    if (e.target === modal) modal.style.display = "none";
+  };
 });
