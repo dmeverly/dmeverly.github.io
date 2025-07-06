@@ -168,9 +168,14 @@ permalink: /
   <h2 class="post-title" style="text-align: center;">Notice</h2>
   <div class="posts">
     {% for post in paginator.posts %}
-      <div class="post">
-        <h3 class="post-title">{{ post.title }}</h3>
-        <span class="post-date">{{ post.date | date_to_string }}</span> {{ post.excerpt }}
+      <div>
+        <h3><a href="#" class="open-modal"
+              data-title="{{ post.title }}"
+              data-summary="{{ post.summary }}"
+              data-url="{{ post.url }}">
+              {{ post.title }}
+            </a>
+        </h3>
       </div>
     {% endfor %}
   </div>
