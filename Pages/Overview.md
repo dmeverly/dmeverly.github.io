@@ -5,8 +5,7 @@ sidebar_category: Projects
 order: 3
 ---
 
-All of my work is publicly available on GitHub. Feel free to explore, and reach out if you have questions!  
-<a href="https://github.com/dmeverly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+All of my work is publicly available on GitHub. Feel free to explore, and reach out if you have questions!<a href="https://github.com/dmeverly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
   <i class="fab fa-github" style="font-size: 24px;"></i>
 </a>
 
