@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
   {% include head.html %}
 
   <body>
-
     {% include sidebar.html %}
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
     <div class="wrap">
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-          <!-- <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a> -->
+            <!-- <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a> -->
             <!-- <small>{{ site.tagline }}</small> -->
           </h3>
         </div>
@@ -21,71 +17,60 @@
 
       <div class="container content">
         {{ content }}
-
-      <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-box">
-          <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
-          <h2 id="modal-title"></h2>
-          <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
-          <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
-            style="margin-top:1em; display:inline-block;">
-            Open Full Project →
-          </a>
-        </div>
-      </div>
-
       </div>
     </div>
-    
+
+    <!-- Sidebar toggle -->
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const sections = document.querySelectorAll(".section");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
 
-      sections.forEach(section => observer.observe(section));
-    });
-  </script>
+    <!-- Modal (only one instance) -->
+    <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-box">
+        <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
+        <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
+          style="margin-top:1em; display:inline-block;">
+          Open Full Project →
+        </a>
+      </div>
+    </div>
 
-    <script src='{{ site.baseurl }}/public/js/script.js?v=2'></script>
+    <!-- Section reveal animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".section");
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        sections.forEach(section => observer.observe(section));
+      });
+    </script>
+
+    <!-- Custom script -->
+    <script src="{{ site.baseurl }}/public/js/script.js?v=2"></script>
+
+    <!-- Sidebar behavior -->
     <script>
       window.addEventListener('load', () => {
         const checkbox = document.getElementById('sidebar-checkbox');
-        if (window.innerWidth >= 960) {
-          checkbox.checked = true;
-        } else {
-          checkbox.checked = false;
+        if (checkbox) {
+          checkbox.checked = window.innerWidth >= 960;
         }
       });
 
       window.addEventListener('resize', () => {
         const checkbox = document.getElementById('sidebar-checkbox');
-        if (window.innerWidth < 960 && checkbox.checked) {
+        if (checkbox && window.innerWidth < 960 && checkbox.checked) {
           checkbox.checked = false;
         }
       });
     </script>
-
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal-box">
-    <span id="modal-close" class="modal-close" tabindex="0" aria-label="Close dialog">&times;</span>
-    <h2 id="modal-title"></h2>
-    <div id="modal-content" style="max-height:70vh; overflow-y:auto; margin-top:1em;"></div>
-    <a id="modal-link" class="contact-button" target="_blank" rel="noopener noreferrer"
-       style="margin-top:1em; display:inline-block;">
-      Open Full Project →
-    </a>
-  </div>
-</div>
-
   </body>
 </html>
-
