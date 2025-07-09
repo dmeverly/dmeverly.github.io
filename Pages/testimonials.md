@@ -5,7 +5,7 @@ sidebar_category: Projects
 order: 4
 ---
   
-<h1>Testimonials</h1>
+
 <p style="font-size: 1.1em; color: #444;">
   A few words from colleagues I've had the privilege to work with across clinical care, digital innovation, and interdisciplinary collaboration.
 </p>
