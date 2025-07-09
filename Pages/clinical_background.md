@@ -43,8 +43,6 @@ David is a deeply knowledgeable and composed clinician. His calm demeanor and cl
   </div>
 </div>
 
----  
-
 <div class = "section">  
 
 <h2> Recognition </h2>
@@ -90,7 +88,7 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
 
 ---  
 
-<div class="section" style="text-align: center;">
+<div class="contact-section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
       <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contact Me
@@ -102,6 +100,6 @@ I draw on diverse experience healthcare from many perspectives as my clinical pr
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>  
+</div>
 
 ---  

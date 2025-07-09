@@ -782,3 +782,8 @@ blockquote {
     line-height: 1.6;
   }
 }
+
+.contact-section {
+  background-color: #fff !important; /* force override if needed */
+  padding: 2em 0;
+}

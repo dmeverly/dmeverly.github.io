@@ -83,7 +83,7 @@ Greatful for David's outstanding work on our ICU transition-of-care note. His th
 
 ---  
 
-<div class="section" style="text-align: center;">
+<div class="contact-section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
       <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contact Me
@@ -95,6 +95,6 @@ Greatful for David's outstanding work on our ICU transition-of-care note. His th
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>  
+</div>
 
 ---  
