@@ -4,8 +4,11 @@ title: Testimonials
 sidebar_category: Projects
 order: 4
 ---
-
-A few thoughts from colleagues I've had the privilege to work with
+  
+<h1>Testimonials</h1>
+<p style="font-size: 1.1em; color: #444;">
+  A few words from colleagues I've had the privilege to work with across clinical care, digital innovation, and interdisciplinary collaboration.
+</p>
 
 <div class = "section">
 <blockquote>
@@ -65,3 +68,21 @@ David is a deeply knowledgeable and composed clinician. His calm demeanor and cl
     </span>
   </blockquote>
 </div>
+
+<hr>
+
+<div class="section" style="text-align: center;">
+  <span style="display: inline-flex; align-items: center; gap: 2em;">
+    <a href="mailto:dmeverly@hotmail.com" class="contact-button">
+      <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contact Me
+    </a>
+    <a href="https://github.com/dmeverly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <i class="fab fa-github" style="font-size: 24px;"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/david-everly-a4aa7528a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <i class="fab fa-linkedin" style="font-size: 24px;"></i>
+    </a>
+  </span>
+</div>  
+
+<hr>
