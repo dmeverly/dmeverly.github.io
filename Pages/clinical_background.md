@@ -9,16 +9,16 @@ Since 2017, I have practiced as an Acute Care Nurse Practitioner in Emergency Me
 Thoracic Surgery.  I have developed and maintained hard-earned clinical skills and enjoy mentoring new providers and students 
 as they transition to the NP role. 
 
-<div class="section">
+<div class = "section">
 <blockquote>
-  “David Everly CRNP has deep insights into both critical care practice and medical informatics.”
+David is a deeply knowledgeable and composed clinician. His calm demeanor and clinical insight are qualities that consistently benefit patients and colleagues alike.
 <br>
     <span style="display: block; margin-top: 1em; font-weight: bold;">
-      — Peter Jablin, MD
+      — Tarkeshwar Tiwary, MD
     </span>
     <span style="display: block; font-weight: normal;">
-      Manager, WellSpan Pulmonary and Sleep Medicine<br>
-      Franklin and Cumberland County
+      Director of Critical Care Medicine<br>
+      WellSpan Health
     </span>
   </blockquote>
 </div>

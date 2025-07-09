@@ -11,13 +11,13 @@ All of my work is publically available on Github. Feel free to explore, and reac
 
 <div class = "section">
 <blockquote>
-Blending clinical expertise with digital innovation, David streamlines care through smarter documentation and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to supporting system-wide initiatives in problem list refinement and inpatient optimization as a certified physician builder.
+Greatful for David's outstanding work on our ICU transition-of-care note. His thoughtful design improved handoff clarity and streamlined discharge summaries for our most complex patients. A brilliant clinical innovator - no doubt he'll continue to do great things
 <br>
     <span style="display: block; margin-top: 1em; font-weight: bold;">
-      — Manjot Gill, MD
+      — Julie Platt, MD, MBA, MS
     </span>
     <span style="display: block; font-weight: normal;">
-      Associate Chief Medical Information Officer<br>
+      Medical Director, Clinical Transformation<br>
       WellSpan Health
     </span>
   </blockquote>
