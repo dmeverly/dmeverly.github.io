@@ -63,7 +63,7 @@ David is a deeply knowledgeable and composed clinician. His calm demeanor and cl
       — Peter Jablin, MD
     </span>
     <span style="display: block; font-weight: normal;">
-      Manager, WellSpan Pulmonary and Sleep Medicine<br>
+      Former Director of Medical Critical Care, WellSpan Pulmonary and Sleep Medicine<br>
       Franklin and Cumberland County
     </span>
   </blockquote>

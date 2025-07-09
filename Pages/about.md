@@ -22,7 +22,7 @@ Today, I combine frontline clinical insight with a growing technical toolkit to 
       — Peter Jablin, MD
     </span>
     <span style="display: block; font-weight: normal;">
-      Manager, WellSpan Pulmonary and Sleep Medicine<br>
+      Former Director of Medical Critical Care, WellSpan Pulmonary and Sleep Medicine<br>
       Franklin and Cumberland County
     </span>
   </blockquote>
