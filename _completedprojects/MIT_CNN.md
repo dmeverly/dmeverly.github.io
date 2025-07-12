@@ -33,7 +33,7 @@ This project is my first full implementation using PyTorch and Google Colab. I u
 - **Visualization**: Loss curves, filter visualization, and confusion matrix  
 
 # Results  
-- Final validation accuracy: ~98%  
+- Final validation accuracy: ~95%  
 - Most classification errors on Supraventricular and Fusion beats classified as Normal
 - Balanced precision and recall across most classes, especially after applying weighted sampling and focal loss
 
