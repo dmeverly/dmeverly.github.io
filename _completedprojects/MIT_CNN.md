@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cardiac Rhythm Classification with CNN
+title: CNN Cardiac Rhythm Classification
 date: 2025-07-11
 summary: >
     ECG rhythm classification on the public MIT-BIH dataset using a deep residual CNN
@@ -29,6 +29,16 @@ This project is my first full implementation using PyTorch and Google Colab. I u
 # Results  
 - Final validation accuracy: ~98%  
 - Balanced precision and recall across most classes, especially after applying weighted sampling and focal loss  
+
+<figure>
+  <img src="/assets/MIT_CNN_performance.png" alt="Loss by Epoch chart showing improvement over training" />
+  <figcaption><strong>Figure 1.</strong> Loss by Epoch over the course of training.</figcaption>
+</figure> 
+
+<figure>
+  <img src="/assets/MIT_CNN_CM.png" alt="Confusion Matrix" />
+  <figcaption><strong>Figure 1.</strong> Confusion Matrix.</figcaption>
+</figure> 
 
 # Conclusion  
 This project demonstrates the effectiveness of deep residual CNNs for time-series classification on ECG data. By combining PyTorch tools like `WeightedRandomSampler`, `FocalLoss`, and modular design, this model significantly outperforms earlier MLP approaches on real-world ECG data.
