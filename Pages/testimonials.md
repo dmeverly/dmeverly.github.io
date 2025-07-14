@@ -19,7 +19,7 @@ Greatful for David's outstanding work on our ICU transition-of-care note. His th
     </span>
     <span style="display: block; font-weight: normal;">
       Medical Director, Clinical Transformation<br>
-      WellSpan Health
+      Healthcare Organization
     </span>
   </blockquote>
 </div>
@@ -33,7 +33,7 @@ Blending clinical expertise with digital innovation, David streamlines care thro
     </span>
     <span style="display: block; font-weight: normal;">
       Associate Chief Medical Information Officer<br>
-      WellSpan Health
+      Healthcare Organization
     </span>
   </blockquote>
 </div>
@@ -47,24 +47,24 @@ David is a deeply knowledgeable and composed clinician. His calm demeanor and cl
     </span>
     <span style="display: block; font-weight: normal;">
       Director of Critical Care Medicine<br>
-      WellSpan Health
+      Healthcare Organization
     </span>
   </blockquote>
 </div>
 
 <div class="section">
   <blockquote>
-    “Within WellSpan, we view the transition of care from the ICU to the hospitalist team as a critical time 
+    “Within [Healthcare Organization], we view the transition of care from the ICU to the hospitalist team as a critical time 
     when problems can be missed and patient safety can be at risk.  
     David created a standardized transfer note which improved communications and relationships with our hospitalist group and which supports our patient safety goals.  
-    This tool is now adopted systemwide in WellSpan.”
+    This tool is now adopted systemwide in [Healthcare Organization].”
     <br>
     <span style="display: block; margin-top: 1em; font-weight: bold;">
       — Peter Jablin, MD
     </span>
     <span style="display: block; font-weight: normal;">
-      Former Director of Medical Critical Care, WellSpan Pulmonary and Sleep Medicine<br>
-      Franklin and Cumberland County
+      Former Director of Medical Critical Care<br>
+      Healthcare Organization
     </span>
   </blockquote>
 </div>

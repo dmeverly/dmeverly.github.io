@@ -18,7 +18,7 @@ David is a deeply knowledgeable and composed clinician. His calm demeanor and cl
     </span>
     <span style="display: block; font-weight: normal;">
       Director of Critical Care Medicine<br>
-      WellSpan Health
+      Healthcare Organization
     </span>
   </blockquote>
 </div>

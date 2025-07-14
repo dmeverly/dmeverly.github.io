@@ -18,7 +18,7 @@ Greatful for David's outstanding work on our ICU transition-of-care note. His th
     </span>
     <span style="display: block; font-weight: normal;">
       Medical Director, Clinical Transformation<br>
-      WellSpan Health
+      Healthcare Organization
     </span>
   </blockquote>
 </div>
