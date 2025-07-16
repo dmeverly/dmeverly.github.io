@@ -93,21 +93,3 @@ My course of study is weighted heavily in:
     </ul>
   </div>
 </div>
-
----  
-
-<!-- <div class="contact-section" style="text-align: center;">
-  <span style="display: inline-flex; align-items: center; gap: 2em;">
-    <a href="mailto:dmeverly@hotmail.com" class="contact-button">
-      <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contact Me
-    </a>
-    <a href="https://github.com/dmeverly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-      <i class="fab fa-github" style="font-size: 24px;"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/david-everly-a4aa7528a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-      <i class="fab fa-linkedin" style="font-size: 24px;"></i>
-    </a>
-  </span>
-</div> -->
-
----  
