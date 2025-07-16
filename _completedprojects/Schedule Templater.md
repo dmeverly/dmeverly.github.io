@@ -7,7 +7,8 @@ summary: >
 ---
 
 # Problem Statement  
-The project sponsor described issues with the existing scheduling workflow, which involved manually creating a schedule template and mapping it onto an annual calendar. Conflicting employee and business constraints led to excessive meetings and continual revisions. I was asked to automate both the creation of the template and its mapping to the calendar.  
+Manual schedule creation is time-consuming and error-prone, particularly when managing overlapping employee preferences and business constraints. I developed this personal project to automate both the generation of a template and its mapping to a calendar. The aim was to reduce the time and coordination burden typically required during scheduling.
+
 
 # Theoretical Approach  
 Scheduling is a classic constraint satisfaction problem. Many algorithms can be applied; however, given the size of the state space, exhaustive search (DFS, BFS) is impractical. Even with weekends hardcoded, assigning three shifts per weekday over six weeks produces a search space of 7<sup>90</sup> possible states.  
@@ -18,7 +19,7 @@ Greedy search offers a faster alternative by selecting the best local choice at 
 To create a program that automates the creation of schedule templates using Greedy Search with Simulated Annealing.  
 
 # Methods  
-I interviewed the sponsor and individual employees to gather requirements. Constraints fell into two broad (non-exhaustive) categories:  
+I created a list of common workplace scheduling constraints which fell into two broad (non-exhaustive) categories:  
 
 **Employee-specific constraints**  
 - Maximum hours per pay period  
@@ -80,3 +81,5 @@ This tool automates template generation; a companion “Scheduler” maps that t
 No external publications were cited; however, LLM-assisted queries supported architectural decisions and debugging.  
 
 <a href="https://github.com/dmeverly/ScheduleTemplater?tab=readme-ov-file" style="display: block; text-align:right;" target="_blank">GitHub Repo →</a>
+
+> *Disclaimer: This project was developed independently on personal time and is not affiliated with or endorsed by any employer. It reflects personal exploration of constraint-based scheduling and was inspired by a general challenge, not a formal work assignment.*

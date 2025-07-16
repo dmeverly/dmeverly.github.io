@@ -150,3 +150,5 @@ Residual connections significantly boost MLP performance on small, noisy ECG cyc
 6. Xiong et al., 2022. Deep Learning for Detecting and Locating Myocardial Infarction… _Frontiers in Cardiovascular Medicine_.  
 
 <a href="https://github.com/dmeverly/MLP-on-ECG" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
+
+> *Disclaimer: This project was completed independently using public datasets and open-source tools. It is not affiliated with or endorsed by any employer or healthcare organization.*

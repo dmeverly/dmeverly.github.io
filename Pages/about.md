@@ -96,7 +96,7 @@ My course of study is weighted heavily in:
 
 ---  
 
-<div class="contact-section" style="text-align: center;">
+<!-- <div class="contact-section" style="text-align: center;">
   <span style="display: inline-flex; align-items: center; gap: 2em;">
     <a href="mailto:dmeverly@hotmail.com" class="contact-button">
       <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contact Me
@@ -108,6 +108,6 @@ My course of study is weighted heavily in:
       <i class="fab fa-linkedin" style="font-size: 24px;"></i>
     </a>
   </span>
-</div>
+</div> -->
 
 ---  

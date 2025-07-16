@@ -71,3 +71,5 @@ This work may be extended by train a model on multi-lead ECG data classification
 No external publications were used, though LLM queries aided architecture and debugging.
 
 <a href="https://github.com/dmeverly/MIT_CNN" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>  
+
+> *Disclaimer: This project was completed independently using public datasets and open-source tools. It is not affiliated with or endorsed by any employer or healthcare organization.*
