@@ -80,5 +80,3 @@ challenging to defeat.
 No external sources were used. However, LLM queries assisted with architectural design and debugging.  
 
 <a href="https://github.com/dmeverly/quic-game-protocol" style="display: block; text-align:right;" target = "_blank">  Github Repo -> </a>
-
-> *Disclaimer: This project was developed independently on personal time as part of a graduate-level computer networks course. It is not affiliated with or endorsed by any employer. All game assets and protocol designs are original or open-source.*
