@@ -32,7 +32,3 @@ Plans include combining this scheduler with the templating engine to allow fully
 No formal publications were used; LLM-based tools supported design, syntax learning, and debugging.
 
 <a href="https://github.com/dmeverly/Scheduler" style="display: block; text-align:right;" target="_blank">GitHub Repo →</a>
-
----
-
-> *Disclaimer: This project was developed independently using public tools on personal time. It is not affiliated with or endorsed by any employer, and no proprietary systems or resources were used in its creation.*

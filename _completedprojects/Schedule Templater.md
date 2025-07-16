@@ -81,5 +81,3 @@ This tool automates template generation; a companion “Scheduler” maps that t
 No external publications were cited; however, LLM-assisted queries supported architectural decisions and debugging.  
 
 <a href="https://github.com/dmeverly/ScheduleTemplater?tab=readme-ov-file" style="display: block; text-align:right;" target="_blank">GitHub Repo →</a>
-
-> *Disclaimer: This project was developed independently on personal time and is not affiliated with or endorsed by any employer. It reflects personal exploration of constraint-based scheduling and was inspired by a general challenge, not a formal work assignment.*
