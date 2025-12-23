@@ -1,211 +1,261 @@
----
-layout: default
-title: Home
-permalink: /
----
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>David Everly | Clinical AI Systems Engineer</title>
 
-<style>
-  :root {
-    --bg: #ffffff;
-    --text: #1a1a1a;
-    --link: #5BA386;
-    --link-hover: #4a8c72;
-    --accent: #5BA386; /* used for borders or buttons */
-    --section-green: rgba(91, 163, 134, 0.1); /* soft green */
-  }
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  .section {
-    padding: 3em 1em;
-    max-width: 900px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-
-  .section.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .section:nth-of-type(even) {
-    background-color: var(--bg); /* white */
-  }
-
-  .section:nth-of-type(odd) {
-    background-color: var(--section-green); /* soft green */
-  }
-
-  .section-divider {
-    width: 60px;
-    height: 4px;
-    background-color: var(--accent);
-    margin: 2em auto;
-    border-radius: 4px;
-  }
-
-  a {
-    color: var(--link);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
-  }
-
-  .contact-button {
-    padding: 0.5em 1em;
-    border: 1px solid var(--link);
-    border-radius: 4px;
-    color: var(--link);
-    background: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .contact-button:hover {
-    background-color: var(--link);
-    color: white;
-  }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 600px) {
-  .modal-box {
-    max-height: 85vh;
-    overflow-y: auto;
-  }
-
-  .modal-close {
-    font-size: 26px;
-    top: 10px;
-    right: 16px;
-  }
-
-  .modal-box p {
-    line-height: 1.6;
-  }
-}
-
-</style>
+    <link href="assets/css/tokens.css" rel="stylesheet"/>
+    <link href="assets/css/components.css" rel="stylesheet"/>
+</head>
 
 <body>
-<div class="section" style="text-align: center;">
-  <img src="assets/profilePicture.png" alt="My Photo"
-       style="width: 300px; border-radius: 50%; margin: 0 auto 20px; display: block;">
-  
-  <h1 style="margin-bottom: 0.5em;">Hi, I'm David Everly</h1>
-  <p style="max-width: 600px; margin: 0 auto; font-size: 1.2em;">
-    I enjoy helping people solve complex problems with technology.
-    <br><br>
-    Welcome to my page!
-  </p>
-</div>
-
-<div class="section">
-  <div class="section-divider"></div>
-
-  <h3>About Me</h3>
-
-  <p>
-    I'm a Nurse Practitioner and aspiring ML engineer, who leverages AI/ML to transform complex 
-    workflows in healthcare and beyond. Driven by real-world clinical experience and powered by 
-    technical training, I’m passionate about using AI/ML to design smarter, safer systems — and 
-    excited to apply these skills across industries.
-  </p>
-  <a href="https://www.dmeverly.com/Pages/about/" style="display: block; text-align:right;">Read more →</a>
-</div>
-
-
-
-{% if paginator.posts %}
-<div class="section">
-  <div class="section-divider"></div>
-
-  <h2 class="post-title" style="text-align: center;">Notice</h2>
-  <div class="posts">
-    {% for post in paginator.posts %}
-      <div>
-        <h3><a href="#" class="open-modal"
-              data-title="{{ post.title }}"
-              data-summary="{{ post.summary }}"
-              data-url="{{ post.url }}">
-              {{ post.title }}
-            </a>
-        </h3>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-
-<div class="section">
-  <div class="section-divider"></div>
-  <h2 style="text-align: center;">Projects Spotlight</h2>
-  {% assign recent = site.spotlightprojects | sort: "date" | reverse %}
-  {% if recent.size > 0 %}
-    <div class="posts">
-      {% for project in recent %}
-        <div class="post">
-          <h3>
-            <a href="javascript:void(0)" class="open-modal" 
-              data-title="{{ project.title }}" 
-              data-summary="{{ project.summary | escape }}" 
-              data-url="{{ project.url | relative_url }}">
-              {{ project.title }}
-            </a>
-          </h3>
-          <p>{{ project.summary }}</p>
+<header class="site-header glass">
+    <div class="container site-header__inner">
+        <div class="brand">
+            <span aria-hidden="true" class="brand__dot"></span>
+            <span class="brand__name">David Everly</span>
         </div>
-      {% endfor %}
+
+        <nav aria-label="Primary navigation" class="site-nav">
+            <a href="#about">About</a>
+            <a href="#design-principles">Principles</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a class="nav-cv"
+               href="assets/David_Everly_Clinical_AI_Systems_Engineer.pdf"
+               rel="noopener"
+               target="_blank">
+                Download CV
+            </a>
+        </nav>
+
     </div>
-  {% endif %}
-  <!-- <a href="https://www.dmeverly.com/Pages/Overview/" 
-     rel="noopener noreferrer" 
-     style="display: block; text-align:right;">
-    All Projects ->
-  </a> -->
-</div>
+</header>
 
-<div class="section">
-<blockquote>
-Blending clinical expertise with digital innovation, David streamlines care through smarter documentation and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to supporting system-wide initiatives in problem list refinement and inpatient optimization as a certified physician builder.
-<br>
-    <span style="display: block; margin-top: 1em; font-weight: bold;">
-      — Manjot Gill, MD
-    </span>
-    <span style="display: block; font-weight: normal;">
-      Associate Chief Medical Information Officer<br>
-      Healthcare Organization
-    </span>
-  </blockquote>
-</div>
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="reveal">
+            <div class="badge">
+                <span>Clinical AI Systems Engineer</span>
+                <span aria-hidden="true" class="badge__dot"></span>
+                <span>Nurse Practitioner</span>
+            </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".section");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+            <h1 class="hero__title">
+                From <span class="text-highlight">Critical Care</span>
+                <br/>to <span class="text-strong">Critical Code</span>.
+            </h1>
 
-    sections.forEach(section => observer.observe(section));
-  });
+            <p class="hero__lede muted">
+                I design intelligent systems with explicit assumptions about failure, misuse,
+                and operational risk — informed by years of critical care practice.
+            </p>
 
-</script>
+            <p class="hero__sublede muted">
+                An engineering mindset shaped by real-world system failure, time pressure,
+                and safety-critical decision-making.
+
+            </p>
+
+            <div class="hero__cta">
+                <a class="btn btn-primary" href="#projects">View Projects</a>
+                <a class="btn btn-ghost" href="#about">Clinical Background</a>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <div class="card glass card--lg">
+                <div class="status-header">
+                    <div>
+                        <div class="status-header__title">System Status</div>
+                        <div class="status-header__subtitle muted">
+                            <a class="status-link" href="/status" rel="noopener" target="_blank">View status</a>
+                        </div>
+                    </div>
+                    <div class="status-pill" id="status-pill">
+                        <span aria-hidden="true" class="status-dot" id="status-dot"></span>
+                        <span id="status-text">Checking…</span>
+                    </div>
+                </div>
+
+                <div class="status-table mono muted">
+                    <div class="status-row">
+                        <span>Current</span><span class="text-strong">SynapSys - LLM Orchestration</span>
+                    </div>
+                    <div class="status-row">
+                        <span>Focus</span><span class="text-strong">Production-Oriented AI Systems</span>
+                    </div>
+                    <div class="status-row">
+                        <span>Principles</span><span class="text-strong">Failure- & Threat-Aware Design</span>
+                    </div>
+                    <div class="status-row">
+                        <span>Clinical</span><span class="text-strong">Critical care NP · 8 years</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section section--alt" id="about">
+    <div class="container reveal">
+        <h2>About</h2>
+        <p class="muted measure">
+            I’m a critical care nurse practitioner who transitioned into systems
+            engineering after repeatedly seeing software and workflows fail under real-world stress.
+
+            During COVID, system failures weren’t theoretical — they directly impacted safety,
+            decision-making, and resource availability. That experience shaped how I design
+            software systems: I assume pressure, misuse, partial failure, and evolving requirements
+            from the start.
+
+            Healthcare is where this perspective was forged, but my engineering work spans
+            intelligent systems and security-adjacent domains where reliability, correctness,
+            and operational resilience matter.
+
+        </p>
+    </div>
+</section>
+
+<section aria-label="Testimonial" class="section testimonial">
+    <div class="container reveal">
+        <blockquote class="quote">
+            David is a deeply knowledgeable and composed clinician. His calm demeanor and clinical insight are qualities
+            that consistently benefit patients and colleagues alike.
+            <div class="blockquote-meta">
+                <strong class="text-strong">— Tarkeshwar Tiwary, MD</strong><br/>
+                Director of Critical Care Medicine<br/>
+                WellSpan Health
+            </div>
+        </blockquote>
+    </div>
+</section>
+
+
+<section class="section" id="design-principles">
+    <div class="container reveal">
+        <h2>Design Principles</h2>
+
+        <ul class="principles">
+            <li>
+                <strong>Design for non-ideal conditions</strong><br>
+                Systems will be stressed, partially unavailable, or used incorrectly.
+            </li>
+
+            <li>
+                <strong>Availability matters</strong><br>
+                When systems disappear, downstream risk increases.
+            </li>
+
+            <li>
+                <strong>Design for misuse and adversarial inputs</strong><br>
+                Correctness includes hostile and unexpected behavior.
+            </li>
+
+            <li>
+                <strong>Prefer robust abstractions over cleverness</strong><br>
+                Build for clarity, scale, and long-term evolution.
+            </li>
+
+            <li>
+                <strong>Expect requirements to change</strong><br>
+                Build boundaries that allow systems to evolve without rewrites.
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="section section--alt" id="projects">
+    <div class="container">
+        <div class="reveal section-head">
+            <h2>Project Spotlight</h2>
+            <p class="muted measure">
+                Ongoing systems focused on architecture, robustness, and failure-aware design.
+            </p>
+        </div>
+
+
+        <div class="bento reveal" id="spotlight-grid"></div>
+
+        <div class="reveal section-head section-head--spaced">
+            <h2>Engineering Portfolio</h2>
+            <p class="muted measure">
+                Additional projects spanning deep learning, optimization, and networking.
+            </p>
+        </div>
+
+        <div class="bento reveal" id="projects-grid"></div>
+    </div>
+</section>
+
+
+<section aria-label="Testimonial" class="section testimonial">
+    <div class="container reveal">
+        <blockquote class="quote">
+            Blending clinical expertise with digital innovation, David streamlines care through smarter documentation
+            and workflow solutions. His work ranges from leading departmental projects like ICU note standardization to
+            supporting system-wide initiatives in problem list refinement and inpatient optimization.
+            <div class="blockquote-meta">
+                <strong class="text-strong">— Manjot Gill, MD</strong><br/>
+                Associate Chief Medical Information Officer<br/>
+                WellSpan Health
+            </div>
+        </blockquote>
+    </div>
+</section>
+
+
+<footer class="section section--alt" id="contact">
+    <div class="container reveal footer">
+        <h2>Contact</h2>
+        <div class="footer__links">
+            <a href="mailto:contact@dmeverly.com">Email</a>
+            <a href="https://github.com/dmeverly" rel="noopener" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/david-everly-a4aa7528a" rel="noopener" target="_blank">LinkedIn</a>
+            <a href="assets/David_Everly_Clinical_AI_Systems_Engineer.pdf"
+               rel="noopener"
+               target="_blank">
+                Download CV
+            </a>
+        </div>
+        <p class="footer__meta">© 2025 David Everly</p>
+        <div class="footer__disclaimer muted">
+            <p>
+                All projects and systems presented on this site were developed independently on personal time and are
+                not
+                affiliated with, endorsed by, or representative of any current or past employer.
+            </p>
+            <p>
+                Organizational names and professional titles are included solely for factual identification; no
+                endorsement or
+                ownership of intellectual property is implied.
+            </p>
+            <p>
+                Content is provided for informational purposes only and does not constitute medical advice.
+                AI system demonstrations are experimental and shown to illustrate design concepts; outputs may be
+                incomplete or
+                intentionally constrained.
+            </p>
+        </div>
+
+
+    </div>
+</footer>
+
+<div id="chatbot-root"></div>
+<p class="muted mono" style="text-align:center; margin: 12px 0 0;">
+    Chatbot responses are constrained to public portfolio data and may be incomplete.
+</p>
+
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
+</html>
