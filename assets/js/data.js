@@ -8,7 +8,8 @@ const PROJECTS = [
             "Applied ML",
             "Failure-Aware Design"
         ],
-        span: "span-4"
+        span: "span-4",
+        github: "https://github.com/dmeverly/CNN-Cardiac-Rhythm-Classification"
     }
 
     ,
@@ -21,7 +22,8 @@ const PROJECTS = [
             "Clinical Signals",
             "Failure-Aware Design"
         ],
-        span: "span-4"
+        span: "span-4",
+        github: "https://github.com/dmeverly/ECG-Ischemia-Prediction"
     }
     ,
     {
@@ -33,7 +35,8 @@ const PROJECTS = [
             "Systems Design",
             "Failure-Aware Design"
         ],
-        span: "span-4"
+        span: "span-4",
+        github: "https://github.com/dmeverly/QUIC-Protocol-Prototype"
     }
 
     ,
@@ -46,7 +49,8 @@ const PROJECTS = [
             "Systems Design",
             "Failure-Aware Design"
         ],
-        span: "span-4"
+        span: "span-4",
+        github: "https://github.com/dmeverly/ScheduleTemplater"
     }
 
     ,
@@ -58,7 +62,8 @@ const PROJECTS = [
             "Workflow Engineering",
             "Systems Design"
         ],
-        span: "span-4"
+        span: "span-4",
+        github: "https://github.com/dmeverly/Scheduler"
     }
 
     ,
@@ -74,7 +79,7 @@ const PROJECTS = [
         ],
         span: "span-8",
         spotlight: true,
-        github: "https://github.com/dmeverly/synapsys"
+        github: "https://github.com/dmeverly/SynapSys"
     }
     ,
     {
@@ -90,7 +95,7 @@ const PROJECTS = [
         ],
         span: "span-4",
         spotlight: true,
-        github: "https://github.com/dmeverly/portfolio-chatbot-public"
+        github: "https://github.com/dmeverly/portfolio-chatbot"
     }
     ,
 ];

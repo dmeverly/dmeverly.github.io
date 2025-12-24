@@ -471,6 +471,22 @@ button:focus-visible,
     flex-wrap: wrap;
 }
 
+.project-card__links {
+    margin-top: 12px;
+}
+
+.project-card__link {
+    font-size: 0.9em;
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.project-card__link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+
 .tag {
     display: inline-flex;
     align-items: center;

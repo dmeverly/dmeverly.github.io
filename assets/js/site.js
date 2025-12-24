@@ -16,31 +16,26 @@ function renderProjects(projects, rootId) {
     if (!root) return;
 
     root.innerHTML = projects.map(p => `
-<div class="card project-card ${escapeHtml(p.span || "")} ${p.spotlight ? "project-card--spotlight" : ""}">
-  ${p.spotlight ? `
-    <div class="project-card__spotlight-badge">Spotlight</div>
-  ` : ""}
+        <div class="card project-card ${escapeHtml(p.span || "")}">
+            <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
+            <p class="project-card__summary">${escapeHtml(p.summary)}</p>
 
-  <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
-  
-      <p class="project-card__summary">${escapeHtml(p.summary)}</p>
+            <div class="project-card__tags">
+                ${renderTagPills(p.tags)}
+            </div>
 
-      <div class="project-card__tags">
-        ${renderTagPills(p.tags)}
-      </div>
-
-      ${p.github ? `
-        <div class="project-card__footer">
-          <a class="project-card__link"
-             href="${escapeHtml(p.github)}"
-             target="_blank"
-             rel="noopener">
-            View on GitHub →
-          </a>
+            ${p.github ? `
+                <div class="project-card__links">
+                    <a href="${escapeHtml(p.github)}"
+                       target="_blank"
+                       rel="noopener"
+                       class="project-card__link">
+                        View on GitHub →
+                    </a>
+                </div>
+            ` : ""}
         </div>
-      ` : ""}
-    </div>
-  `).join("");
+    `).join("");
 }
 
 
