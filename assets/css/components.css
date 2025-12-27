@@ -148,6 +148,14 @@ button:focus-visible,
     box-shadow: 0 0 18px rgba(45, 212, 191, .35);
 }
 
+.brand__emblem {
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+    display: inline-block;
+}
+
+
 .site-nav {
     display: flex;
     gap: 22px;
