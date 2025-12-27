@@ -258,13 +258,63 @@
     </div>
 </footer>
 
-<div id="chatbot-root"></div>
-<p class="muted mono" style="text-align:center; margin: 12px 0 0;">
-    Chatbot responses are constrained to public portfolio data and may be incomplete.
-</p>
+<div aria-live="polite" class="chatbot" id="chatbot">
+    <button
+            aria-controls="chatbot-panel"
+            aria-expanded="false"
+            aria-haspopup="dialog"
+            aria-label="Open chatbot"
+            class="chatbot__fab glass"
+            id="chatbot-fab"
+            type="button"
+    >
+        <img alt="" class="chatbot__fab-icon" src="assets/img/emblem-primary.svg"/>
+        <span class="chatbot__fab-label">Ask about my work</span>
+    </button>
+
+    <section aria-label="Portfolio chatbot" aria-modal="false" class="chatbot__panel glass" id="chatbot-panel"
+             role="dialog">
+        <header class="chatbot__header">
+            <div class="chatbot__header-left">
+                <img alt="" class="chatbot__mark" src="assets/img/emblem-mono-light.svg"/>
+                <div>
+                    <div class="chatbot__title">Portfolio Chatbot</div>
+                    <div class="chatbot__subtitle muted" id="chatbot-status">Offline</div>
+                </div>
+            </div>
+
+            <button aria-label="Close chatbot" class="chatbot__close" id="chatbot-close" type="button">
+                ✕
+            </button>
+        </header>
+
+        <div class="chatbot__body mono" id="chatbot-messages">
+            <div class="chatbot__msg chatbot__msg--bot">
+                <div class="chatbot__bubble">
+                    Ask me about SynapSys, the portfolio chatbot, or my clinical → engineering transition.
+                </div>
+            </div>
+        </div>
+
+        <footer class="chatbot__footer">
+            <form autocomplete="off" class="chatbot__form" id="chatbot-form">
+                <input class="chatbot__input" id="chatbot-input" minlength="1" name="message"
+                       placeholder="Ask a question…" required type="text"/>
+                <button class="btn btn-primary chatbot__send" type="submit">
+                    Send
+                </button>
+            </form>
+
+            <div class="chatbot__meta muted">
+                This demo is guarded and may refuse off-scope requests.
+            </div>
+        </footer>
+    </section>
+</div>
 
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/site.js"></script>
+<script src="assets/js/chatbot.js"></script>
 </body>
 </html>

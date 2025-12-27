@@ -1,3 +1,35 @@
+const CHATBOT_API_BASE =
+    (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+        ? "http://localhost:8080"
+        : "";
+
+const CHATBOT_CHAT_URL = `${CHATBOT_API_BASE}/api/chat`;
+const CHATBOT_HEALTH_URL = `${CHATBOT_API_BASE}/health`;
+
+async function sendChatRequest(userQuery) {
+    const r = await fetch(CHATBOT_CHAT_URL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({userQuery})
+    });
+
+    if (!r.ok) {
+        throw new Error(`Chat request failed: ${r.status}`);
+    }
+
+    return await r.json(); // { response: "..." }
+}
+
+async function checkChatbotHealth() {
+    try {
+        const r = await fetch(CHATBOT_HEALTH_URL);
+        return r.ok;
+    } catch {
+        return false;
+    }
+}
+
+
 function escapeHtml(str = "") {
     return String(str)
         .replaceAll("&", "&amp;")
@@ -64,16 +96,17 @@ async function updateStatus() {
     if (!dot || !text) return;
 
     try {
-        const res = await fetch("/health", {cache: "no-store"});
-        if (!res.ok) throw new Error("Bad status");
+        const ok = await checkChatbotHealth();
 
-        dot.classList.add("status-dot--ok");
-        text.textContent = "Online";
-    } catch (e) {
+        dot.classList.toggle("status-dot--ok", ok);
+        dot.classList.toggle("status-dot--down", !ok);
+        text.textContent = ok ? "Online" : "Offline";
+    } catch {
         dot.classList.add("status-dot--down");
         text.textContent = "Offline";
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     updateStatus();
