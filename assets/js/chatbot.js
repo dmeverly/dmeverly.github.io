@@ -1,5 +1,6 @@
 (() => {
     const CHATBOT_MOCK_MODE = false;
+    const API_URL = window.CHATBOT_API_URL || "/api/chat";
 
     function ready(fn) {
         if (document.readyState === "loading") {
@@ -9,15 +10,6 @@
         }
     }
 
-    function escapeHtml(str = "") {
-        return String(str)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
-    }
-
     ready(() => {
         const root = document.getElementById("chatbot");
         const fab = document.getElementById("chatbot-fab");
@@ -25,7 +17,7 @@
         const form = document.getElementById("chatbot-form");
         const input = document.getElementById("chatbot-input");
         const messages = document.getElementById("chatbot-messages");
-        const statusEl = document.getElementById("chatbot-status"); // optional
+        const statusEl = document.getElementById("chatbot-status");
 
         if (!root || !fab || !closeBtn || !form || !input || !messages) {
             console.error("[chatbot] Missing required DOM elements", {
@@ -40,6 +32,15 @@
         }
 
         let isOpen = false;
+
+        function escapeHtml(str = "") {
+            return String(str)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
 
         function scrollToBottom() {
             messages.scrollTop = messages.scrollHeight;
@@ -76,21 +77,29 @@
 
         async function send(userText) {
             if (CHATBOT_MOCK_MODE) {
-                setStatus("Online");
                 await new Promise((r) => setTimeout(r, 200));
                 addMessage("bot", `Mock reply: "${userText}"\n\n(Backend not connected yet.)`);
                 return;
             }
 
             try {
-                setStatus("Thinking…");
-                const result = await sendChatRequest(userText); // from site.js (global)
-                addMessage("bot", result?.response ?? "(empty response)");
-                setStatus("Online");
+                const res = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userQuery: userText }),
+                });
+                if (!res.ok) throw new Error("Bad response");
+                const json = await res.json();
+                const reply =
+                    (json && typeof json.response === "string" && json.response) ||
+                    (json && typeof json.reply === "string" && json.reply) ||
+                    (json && typeof json.message === "string" && json.message) ||
+                    (json && typeof json.output === "string" && json.output) ||
+                    "No response field returned.";
+                addMessage("bot", reply);
             } catch (e) {
                 addMessage("bot", "Chatbot is currently offline.");
                 setStatus("Offline");
-                console.error(e);
             }
         }
 
