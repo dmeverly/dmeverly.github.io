@@ -83,7 +83,7 @@ const PROJECTS = [
     }
     ,
     {
-        title: "Portfolio Chatbot",
+        title: "Everlybot",
         summary: "A reference implementation demonstrating controlled, policy-gated LLM interaction using SynapSys. Incorporates retrieval-augmented prompting, pre-LLM short-circuit guards, and post-LLM output validation to enforce explicit trust boundaries in a user-facing system.",
         tags: [
             "Java",
@@ -95,7 +95,7 @@ const PROJECTS = [
         ],
         span: "span-4",
         spotlight: true,
-        github: "https://github.com/dmeverly/portfolio-chatbot"
+        github: "https://github.com/dmeverly/everlybot"
     }
     ,
 ];
