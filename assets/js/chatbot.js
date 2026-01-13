@@ -1,7 +1,12 @@
 (() => {
     const CHATBOT_MOCK_MODE = false;
 
-    const API_URL = window.CHATBOT_API_URL;
+    // Pick API URL based on environment (no dependence on site.js load order)
+    const API_URL =
+        window.CHATBOT_API_URL ||
+        ((location.hostname === "localhost" || location.hostname === "127.0.0.1")
+            ? "http://localhost:3000/api/chat"
+            : "https://everlybot.dev/api/chat");
 
     function ready(fn) {
         if (document.readyState === "loading") {
@@ -21,7 +26,14 @@
         const statusEl = document.getElementById("chatbot-status");
 
         if (!root || !fab || !closeBtn || !form || !input || !messages) {
-            console.error("[chatbot] Missing required DOM elements");
+            console.error("[chatbot] Missing required DOM elements", {
+                root: !!root,
+                fab: !!fab,
+                closeBtn: !!closeBtn,
+                form: !!form,
+                input: !!input,
+                messages: !!messages,
+            });
             return;
         }
 
@@ -48,6 +60,7 @@
             isOpen = open;
             root.classList.toggle("chatbot--open", open);
             fab.setAttribute("aria-expanded", String(open));
+
             if (open) {
                 setTimeout(() => input.focus(), 0);
                 scrollToBottom();
@@ -70,8 +83,8 @@
 
         async function send(userText) {
             if (CHATBOT_MOCK_MODE) {
-                await new Promise(r => setTimeout(r, 200));
-                addMessage("bot", `Mock reply: "${userText}"`);
+                await new Promise((r) => setTimeout(r, 200));
+                addMessage("bot", `Mock reply: "${userText}"\n\n(Backend not connected yet.)`);
                 return;
             }
 
@@ -79,20 +92,28 @@
                 const res = await fetch(API_URL, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: String(userText) })
+                    body: JSON.stringify({ message: String(userText) }),
                 });
 
-                if (!res.ok) throw new Error("Bad response");
+                const json = await res.json().catch(() => ({}));
 
-                const json = await res.json();
+                if (!res.ok) {
+                    const errMsg =
+                        (json && typeof json.error === "string" && json.error) ||
+                        `Request failed (${res.status}).`;
+                    addMessage("bot", errMsg);
+                    setStatus("Offline");
+                    return;
+                }
 
                 const reply =
-                    (typeof json.content === "string" && json.content) ||
-                    (typeof json.error === "string" && json.error) ||
-                    "No response returned.";
+                    (json && typeof json.content === "string" && json.content) ||
+                    (json && typeof json.error === "string" && json.error) ||
+                    "No content returned.";
 
                 addMessage("bot", reply);
-            } catch {
+                setStatus("Online");
+            } catch (e) {
                 addMessage("bot", "Chatbot is currently offline.");
                 setStatus("Offline");
             }
@@ -100,27 +121,29 @@
 
         setStatus(CHATBOT_MOCK_MODE ? "Online" : "Offline");
 
-        fab.addEventListener("click", e => {
+        fab.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
             setOpen(!isOpen);
         });
 
-        closeBtn.addEventListener("click", e => {
+        closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
             setOpen(false);
         });
 
-        document.addEventListener("keydown", e => {
-            if (isOpen && e.key === "Escape") setOpen(false);
+        document.addEventListener("keydown", (e) => {
+            if (!isOpen) return;
+            if (e.key === "Escape") setOpen(false);
         });
 
-        document.addEventListener("click", e => {
-            if (isOpen && !root.contains(e.target)) setOpen(false);
+        document.addEventListener("click", (e) => {
+            if (!isOpen) return;
+            if (!root.contains(e.target)) setOpen(false);
         });
 
-        form.addEventListener("submit", async e => {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
             const text = input.value.trim();
             if (!text) return;
@@ -129,6 +152,6 @@
             await send(text);
         });
 
-        console.log("[chatbot] initialized");
+        console.log("[chatbot] initialized", { API_URL });
     });
 })();
