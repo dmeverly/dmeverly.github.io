@@ -1,3 +1,4 @@
+cat > .github/workflows/pages.yml <<'YAML'
 name: Deploy static site to GitHub Pages
 
 on:
@@ -21,9 +22,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - id: deployment
+
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
+YAML
+
+git add .github/workflows/pages.yml
+git commit -m "ci: enforce Pages concurrency"
+git push
