@@ -85,18 +85,15 @@
             try {
                 const res = await fetch(API_URL, {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: userText }),
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({message: userText}),
                 });
                 if (!res.ok) throw new Error("Bad response");
                 const json = await res.json();
                 const reply =
                     (json && typeof json.content === "string" && json.content) ||
-                    (json && typeof json.response === "string" && json.response) ||
-                    (json && typeof json.reply === "string" && json.reply) ||
-                    (json && typeof json.message === "string" && json.message) ||
-                    (json && typeof json.output === "string" && json.output) ||
-                    "No response field returned.";
+                    (json && typeof json.error === "string" && json.error) ||
+                    "No content returned.";
                 addMessage("bot", reply);
             } catch (e) {
                 addMessage("bot", "Chatbot is currently offline.");
