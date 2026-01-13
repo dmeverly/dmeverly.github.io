@@ -1,0 +1,7 @@
+_site/
+.jekyll-cache/
+vendor/
+node_modules/
+.DS_Store
+.idea/
+style.json
