@@ -6,10 +6,6 @@ const CHATBOT_API_BASE =
 const CHATBOT_CHAT_URL = `${CHATBOT_API_BASE}/api/chat`;
 const CHATBOT_HEALTH_URL = `${CHATBOT_API_BASE}/health`;
 
-
-const CHATBOT_CHAT_URL = `${CHATBOT_API_BASE}/api/chat`;
-const CHATBOT_HEALTH_URL = `${CHATBOT_API_BASE}/health`;
-
 async function sendChatRequest(userQuery) {
     const r = await fetch(CHATBOT_CHAT_URL, {
         method: "POST",
