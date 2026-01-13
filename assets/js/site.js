@@ -1,7 +1,11 @@
 const CHATBOT_API_BASE =
     (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-        ? "http://localhost:8080"
-        : "";
+        ? "http://localhost:3000"
+        : "https://everlybot.dev";
+
+const CHATBOT_CHAT_URL = `${CHATBOT_API_BASE}/api/chat`;
+const CHATBOT_HEALTH_URL = `${CHATBOT_API_BASE}/health`;
+
 
 const CHATBOT_CHAT_URL = `${CHATBOT_API_BASE}/api/chat`;
 const CHATBOT_HEALTH_URL = `${CHATBOT_API_BASE}/health`;
@@ -17,7 +21,7 @@ async function sendChatRequest(userQuery) {
         throw new Error(`Chat request failed: ${r.status}`);
     }
 
-    return await r.json(); // { response: "..." }
+    return await r.json();
 }
 
 async function checkChatbotHealth() {
