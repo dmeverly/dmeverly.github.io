@@ -1,7 +1,6 @@
 (() => {
     const CHATBOT_MOCK_MODE = false;
 
-    // Pick API URL based on environment (no dependence on site.js load order)
     const API_URL =
         window.CHATBOT_API_URL ||
         ((location.hostname === "localhost" || location.hostname === "127.0.0.1")
@@ -24,6 +23,8 @@
         const input = document.getElementById("chatbot-input");
         const messages = document.getElementById("chatbot-messages");
         const statusEl = document.getElementById("chatbot-status");
+        const nudge = document.getElementById("chatbot-nudge");
+
 
         if (!root || !fab || !closeBtn || !form || !input || !messages) {
             console.error("[chatbot] Missing required DOM elements", {
@@ -56,21 +57,204 @@
             if (statusEl) statusEl.textContent = text;
         }
 
+        function snapFabHome() {
+            root.style.transition = "transform 120ms ease";
+            root.style.transform = "scale(0.96)";
+
+            root.style.left = "auto";
+            root.style.top = "auto";
+            root.style.right = "20px";
+            root.style.bottom = "20px";
+
+            setTimeout(() => {
+                root.style.transform = "";
+            }, 120);
+        }
+
+
+        function clampPanelIntoViewport() {
+            const panel = document.getElementById("chatbot-panel");
+            if (!panel) return;
+
+            const wasHidden = panel.style.display === "none" || getComputedStyle(panel).display === "none";
+            if (wasHidden) panel.style.display = "flex";
+
+            const rectRoot = root.getBoundingClientRect();
+            const rectPanel = panel.getBoundingClientRect();
+
+            const padding = 8;
+
+            let left = rectRoot.left;
+            let top = rectRoot.top;
+
+            const panelLeft = rectPanel.left;
+            const panelRight = rectPanel.right;
+            const panelTop = rectPanel.top;
+            const panelBottom = rectPanel.bottom;
+
+            if (panelLeft < padding) {
+                left += (padding - panelLeft);
+            }
+            if (panelRight > window.innerWidth - padding) {
+                left -= (panelRight - (window.innerWidth - padding));
+            }
+
+            if (panelTop < padding) {
+                top += (padding - panelTop);
+            }
+            if (panelBottom > window.innerHeight - padding) {
+                top -= (panelBottom - (window.innerHeight - padding));
+            }
+
+            const maxLeft = window.innerWidth - root.offsetWidth - padding;
+            const maxTop = window.innerHeight - root.offsetHeight - padding;
+
+            left = Math.max(padding, Math.min(maxLeft, left));
+            top = Math.max(padding, Math.min(maxTop, top));
+
+            root.style.left = `${left}px`;
+            root.style.top = `${top}px`;
+            root.style.right = "auto";
+            root.style.bottom = "auto";
+
+            if (wasHidden) panel.style.display = "none";
+        }
+
+
         function setOpen(open) {
             isOpen = open;
             root.classList.toggle("chatbot--open", open);
             fab.setAttribute("aria-expanded", String(open));
 
             if (open) {
+                clampPanelIntoViewport();
                 setTimeout(() => input.focus(), 0);
                 scrollToBottom();
             }
+
+            if (open && nudge) {
+                nudge.classList.remove("is-visible");
+            }
         }
 
+        function initDraggableFab() {
+            fab.classList.add("is-draggable");
+
+            let dragging = false;
+            let didDrag = false;
+
+            let offsetX = 0;
+            let offsetY = 0;
+
+            let downX = 0;
+            let downY = 0;
+
+            const DRAG_THRESHOLD = 6; // px
+
+            function ensureLeftTopAnchoring() {
+                const rect = root.getBoundingClientRect();
+                root.style.left = `${rect.left}px`;
+                root.style.top = `${rect.top}px`;
+                root.style.right = "auto";
+                root.style.bottom = "auto";
+            }
+
+            function clamp(v, min, max) {
+                return Math.max(min, Math.min(max, v));
+            }
+
+            function onPointerDown(e) {
+                if (e.button !== undefined && e.button !== 0) return;
+
+                ensureLeftTopAnchoring();
+
+                const rect = root.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+
+                downX = e.clientX;
+                downY = e.clientY;
+
+                dragging = true;
+                didDrag = false;
+
+                fab.setPointerCapture(e.pointerId);
+
+                e.stopPropagation();
+            }
+
+
+            function onPointerMove(e) {
+                if (!dragging) return;
+
+                const dx = Math.abs(e.clientX - downX);
+                const dy = Math.abs(e.clientY - downY);
+
+                if (!didDrag && (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD)) {
+                    didDrag = true;
+                }
+                if (!didDrag) return;
+
+                const nextLeft = e.clientX - offsetX;
+                const nextTop = e.clientY - offsetY;
+
+                const pad = 8;
+                const maxLeft = window.innerWidth - root.offsetWidth - pad;
+                const maxTop = window.innerHeight - root.offsetHeight - pad;
+
+                root.style.left = `${clamp(nextLeft, pad, maxLeft)}px`;
+                root.style.top = `${clamp(nextTop, pad, maxTop)}px`;
+
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function onPointerUp(e) {
+                dragging = false;
+
+                if (didDrag) {
+                    fab.dataset.suppressClick = "1";
+                    setTimeout(() => delete fab.dataset.suppressClick, 250);
+                }
+
+                e.stopPropagation();
+            }
+
+            fab.addEventListener("pointerdown", onPointerDown);
+            fab.addEventListener("pointermove", onPointerMove);
+            fab.addEventListener("pointerup", onPointerUp);
+            fab.addEventListener("pointercancel", onPointerUp);
+        }
+
+
+        function initNudge() {
+            if (!nudge) return;
+            if (sessionStorage.getItem("chatbotNudgeSeen") === "1") return;
+
+            const SHOW_DELAY = 6000;
+            const HIDE_AFTER = 12000;
+
+            setTimeout(() => {
+                if (isOpen) return;
+                nudge.classList.add("is-visible");
+                sessionStorage.setItem("chatbotNudgeSeen", "1");
+
+                setTimeout(() => {
+                    nudge.classList.remove("is-visible");
+                }, HIDE_AFTER);
+            }, SHOW_DELAY);
+        }
+
+
         function addMessage(role, text) {
+            const normalized =
+                role === "user" ? "user" :
+                    "bot";
+
             const wrapper = document.createElement("div");
-            wrapper.className =
-                "chatbot__msg " + (role === "user" ? "chatbot__msg--user" : "chatbot__msg--bot");
+            wrapper.className = "chatbot__msg " + (normalized === "user"
+                ? "chatbot__msg--user"
+                : "chatbot__msg--bot");
 
             const bubble = document.createElement("div");
             bubble.className = "chatbot__bubble";
@@ -80,6 +264,7 @@
             messages.appendChild(wrapper);
             scrollToBottom();
         }
+
 
         async function send(userText) {
             if (CHATBOT_MOCK_MODE) {
@@ -91,8 +276,8 @@
             try {
                 const res = await fetch(API_URL, {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: String(userText) }),
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({message: String(userText)}),
                 });
 
                 const json = await res.json().catch(() => ({}));
@@ -121,11 +306,34 @@
 
         setStatus(CHATBOT_MOCK_MODE ? "Online" : "Offline");
 
+        window.addEventListener("resize", () => {
+            snapFabHome();
+
+            if (isOpen) {
+                clampPanelIntoViewport();
+            }
+        });
+
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) clampPanelIntoViewport();
+        });
+
+        fab.addEventListener("dblclick", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            snapFabHome();
+            if (isOpen) clampPanelIntoViewport();
+        });
+
+
         fab.addEventListener("click", (e) => {
+            if (fab.dataset.suppressClick === "1") return;
             e.preventDefault();
             e.stopPropagation();
             setOpen(!isOpen);
         });
+
 
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -152,6 +360,8 @@
             await send(text);
         });
 
-        console.log("[chatbot] initialized", { API_URL });
+        initDraggableFab();
+        initNudge();
+        console.log("[chatbot] initialized", {API_URL});
     });
 })();
