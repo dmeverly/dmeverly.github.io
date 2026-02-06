@@ -149,7 +149,7 @@
             let downX = 0;
             let downY = 0;
 
-            const DRAG_THRESHOLD = 6; // px
+            const DRAG_THRESHOLD = 6;
 
             function ensureLeftTopAnchoring() {
                 const rect = root.getBoundingClientRect();
@@ -178,11 +178,15 @@
                 dragging = true;
                 didDrag = false;
 
-                fab.setPointerCapture(e.pointerId);
+                e.preventDefault();
+
+                try {
+                    fab.setPointerCapture(e.pointerId);
+                } catch (_) {
+                }
 
                 e.stopPropagation();
             }
-
 
             function onPointerMove(e) {
                 if (!dragging) return;
@@ -210,11 +214,14 @@
             }
 
             function onPointerUp(e) {
+                if (!dragging) return;
                 dragging = false;
 
-                if (didDrag) {
-                    fab.dataset.suppressClick = "1";
-                    setTimeout(() => delete fab.dataset.suppressClick, 250);
+                if (!didDrag) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setOpen(!isOpen);
+                    return;
                 }
 
                 e.stopPropagation();
@@ -325,15 +332,6 @@
             snapFabHome();
             if (isOpen) clampPanelIntoViewport();
         });
-
-
-        fab.addEventListener("click", (e) => {
-            if (fab.dataset.suppressClick === "1") return;
-            e.preventDefault();
-            e.stopPropagation();
-            setOpen(!isOpen);
-        });
-
 
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
