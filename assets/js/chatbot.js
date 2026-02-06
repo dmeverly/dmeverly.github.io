@@ -138,6 +138,9 @@
         }
 
         function initDraggableFab() {
+            const finePointer = window.matchMedia?.("(pointer: fine)").matches;
+            if (!finePointer) return;
+            
             fab.classList.add("is-draggable");
 
             let dragging = false;
