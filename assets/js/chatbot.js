@@ -140,7 +140,7 @@
         function initDraggableFab() {
             const finePointer = window.matchMedia?.("(pointer: fine)").matches;
             if (!finePointer) return;
-            
+
             fab.classList.add("is-draggable");
 
             let dragging = false;
@@ -220,11 +220,9 @@
                 if (!dragging) return;
                 dragging = false;
 
-                if (!didDrag) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setOpen(!isOpen);
-                    return;
+                if (didDrag) {
+                    fab.dataset.suppressClick = "1";
+                    setTimeout(() => delete fab.dataset.suppressClick, 250);
                 }
 
                 e.stopPropagation();
@@ -335,6 +333,22 @@
             snapFabHome();
             if (isOpen) clampPanelIntoViewport();
         });
+
+        function toggleChatbot(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            setOpen(!isOpen);
+        }
+
+        fab.addEventListener("pointerup", (e) => {
+            if (e.pointerType === "touch") toggleChatbot(e);
+        });
+
+        fab.addEventListener("click", (e) => {
+            if (fab.dataset.suppressClick === "1") return;
+            toggleChatbot(e);
+        });
+
 
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
