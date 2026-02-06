@@ -49,7 +49,8 @@ function renderProjects(projects, rootId) {
     root.innerHTML = projects.map(p => `
         <div class="card project-card ${escapeHtml(p.span || "")}">
             <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
-            <p class="project-card__summary">${escapeHtml(p.summary)}</p>
+            <p class="project-card__summary" data-audience="engineer">${escapeHtml(p.summary)}</p>
+            <p class="project-card__generalSummary" data-audience="general">${escapeHtml(p.generalSummary)}</p>
 
             <div class="project-card__tags">
                 ${renderTagPills(p.tags)}

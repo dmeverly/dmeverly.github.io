@@ -1,3 +1,15 @@
+[data-audience] {
+    display: none;
+}
+
+html.audience-engineer [data-audience="engineer"] {
+    display: block;
+}
+
+html.audience-general [data-audience="general"] {
+    display: block;
+}
+
 /* ===== Base / Reset ===== */
 
 * {
@@ -15,6 +27,21 @@ body {
     font-family: var(--font-sans);
     line-height: var(--lh-normal);
 }
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 
 /* Typography system */
 h1, h2, h3 {
@@ -387,6 +414,12 @@ button:focus-visible,
     padding-top: 80px;
 }
 
+.hero__title--lock .hero__line {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+
 .hero::before {
     content: "";
     position: absolute;
@@ -468,6 +501,13 @@ button:focus-visible,
 }
 
 .project-card__summary {
+    margin: 10px 0 14px;
+    color: var(--color-text-muted);
+    font-size: var(--text-md);
+    line-height: var(--lh-normal);
+}
+
+.project-card__generalSummary {
     margin: 10px 0 14px;
     color: var(--color-text-muted);
     font-size: var(--text-md);

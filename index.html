@@ -27,11 +27,12 @@
             <img alt="" class="brand__emblem" src="/assets/img/emblem-primary.svg"/>
 
             <span class="brand__name">David Everly</span>
+
+
         </div>
 
         <nav aria-label="Primary navigation" class="site-nav">
             <a href="#about">About</a>
-            <a href="#design-principles">Principles</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <a class="nav-cv" href="assets/David_Everly_Software_Engineer.pdf" rel="noopener"
@@ -52,22 +53,50 @@
                 <span>Critical Care Nurse Practitioner</span>
             </div>
 
-            <h1 class="hero__title">
-                Systems that behave <span class="text-highlight">predictably</span><br/>
-                when the world does <span class="text-highlight">not</span>
+            <h1 class="hero__title hero__title--lock">
+  <span class="hero__line">
+    <span class="text-highlight">Failure</span> is inevitable
+  </span><br/>
+                <span class="hero__line">
+    <span class="text-highlight">Learning</span> is optional
+  </span>
             </h1>
 
-            <p class="hero__lede muted">
-                I design and evaluate software systems for sensitive environments where ambiguity,
-                partial observability, misuse, and downstream risk are the norm. I prioritize controlled behavior,
-                interpretability, and operational resilience over novelty.
+
+            <p class="hero__lede muted" data-audience="engineer">
+                I design systems that assume failure and provide well-defined, deterministic pathways
+                for safer handling. I prioritize controlled behavior, interpretability, and operational
+                resilience—especially in sensitive environments where loss of confidence, integrity,
+                or availability is likely to result in harm.
+            </p>
+
+            <p class="hero__lede muted" data-audience="general">
+                I design software systems to intentionally handle errors and cybersecurity threats.
+                AI systems are powerful tools, but their failures can introduce real organizational
+                risk—especially when error handling is treated as an afterthought. Much of my work
+                focuses on understanding these risks and designing systems that reduce the potential
+                for harm.
             </p>
 
 
             <div class="hero__cta">
-                <a class="btn btn-primary" href="#projects">View Projects</a>
-                <a class="btn btn-ghost" href="#about">How I think</a>
+                <button
+                        class="btn btn-primary"
+                        data-audience-btn="engineer"
+                        type="button"
+                >
+                    For Engineers
+                </button>
+
+                <button
+                        class="btn btn-ghost"
+                        data-audience-btn="general"
+                        type="button"
+                >
+                    For Clinicians
+                </button>
             </div>
+
         </div>
 
         <div class="reveal">
@@ -110,14 +139,26 @@
 <section class="section section--alt" id="about">
     <div class="container reveal">
         <h2>About</h2>
-        <p class="muted measure">
-            I’m a Software Engineer and practicing Critical Care Nurse Practitioner with over a decade of experience
-            in high-stakes clinical environments.
-            <br/><br/>
-            My work spans software and AI systems, orchestration frameworks, and security-adjacent domains where
-            correctness, trust boundaries, and failure containment matter.
-            <br/><br/>
-            I work best in roles that value real-world judgment alongside engineering rigor.
+        <p class="muted" data-audience="engineer">
+            I’m a Software Engineer and practicing Critical Care Nurse Practitioner with over a decade
+            of experience in sensitive clinical environments.
+        </p>
+
+        <p class="muted" data-audience="engineer">
+            My work spans software and AI systems, custom LLM orchestration frameworks, and
+            security-adjacent domains where correctness, trust boundaries, and failure containment matter.
+        </p>
+
+        <p class="muted" data-audience="general">
+            I’m a Software Engineer and practicing Critical Care Nurse Practitioner with over a decade
+            of clinical experience.
+        </p>
+
+        <p class="muted" data-audience="general">
+            I now work on complex software that addresses the trust and safety challenges that arise
+            when AI systems are used in real clinical and organizational settings. Much of my work
+            focuses on making customized AI systems easier to build, safer to use, and less likely
+            to fail in harmful ways.
         </p>
 
 
@@ -140,7 +181,7 @@
 </section>
 
 
-<section class="section" id="design-principles">
+<section class="section" data-audience="engineer" id="design-principles">
     <div class="container reveal">
         <h2>Design Principles</h2>
 
@@ -197,7 +238,7 @@
             </p>
         </div>
 
-        <div class="bento reveal" id="projects-grid"></div>
+        <div class="bento reveal" data-audience="engineer" id="projects-grid"></div>
     </div>
 </section>
 
@@ -313,6 +354,7 @@
 <script> window.CHATBOT_API_URL = "https://everlybot.dev/api/chat"; </script>
 <script src="/assets/js/data.js"></script>
 <script src="/assets/js/site.js"></script>
+<script src="/assets/js/audience.js"></script>
 <script src="/assets/js/chatbot.js"></script>
 </body>
 
