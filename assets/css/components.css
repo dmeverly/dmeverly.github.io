@@ -490,6 +490,14 @@ button:focus-visible,
     grid-column: span 12;
 }
 
+#projects-grid,
+#spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 18px;
+}
+
+
 /* ===== Project Cards ===== */
 
 .project-card {

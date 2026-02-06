@@ -3,22 +3,7 @@ const CHATBOT_API_BASE =
         ? "http://localhost:3000"
         : "https://everlybot.dev";
 
-const CHATBOT_CHAT_URL = `${CHATBOT_API_BASE}/api/chat`;
 const CHATBOT_HEALTH_URL = `${CHATBOT_API_BASE}/health`;
-
-async function sendChatRequest(userQuery) {
-    const r = await fetch(CHATBOT_CHAT_URL, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: String(userQuery)})
-    });
-
-    if (!r.ok) {
-        throw new Error(`Chat request failed: ${r.status}`);
-    }
-
-    return await r.json();
-}
 
 async function checkChatbotHealth() {
     try {
@@ -46,29 +31,34 @@ function renderProjects(projects, rootId) {
     const root = document.getElementById(rootId);
     if (!root) return;
 
-    root.innerHTML = projects.map(p => `
-        <div class="card project-card ${escapeHtml(p.span || "")}">
-            <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
-            <p class="project-card__summary" data-audience="engineer">${escapeHtml(p.summary)}</p>
-            <p class="project-card__generalSummary" data-audience="general">${escapeHtml(p.generalSummary)}</p>
+    root.innerHTML = projects.map(p => {
+        const spanClass = p.span ? p.span : "span-4";
+        return `
+      <div class="card project-card ${spanClass}">
+        <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
 
-            <div class="project-card__tags">
-                ${renderTagPills(p.tags)}
-            </div>
+        <p class="project-card__summary" data-audience="engineer">${escapeHtml(p.summary)}</p>
+        <p class="project-card__summary" data-audience="general">${escapeHtml(p.generalSummary)}</p>
 
-            ${p.github ? `
-                <div class="project-card__links">
-                    <a href="${escapeHtml(p.github)}"
-                       target="_blank"
-                       rel="noopener"
-                       class="project-card__link">
-                        View on GitHub →
-                    </a>
-                </div>
-            ` : ""}
+        <div class="project-card__tags" data-audience="engineer">
+          ${renderTagPills(p.tags)}
         </div>
-    `).join("");
+
+        ${p.github ? `
+          <div class="project-card__links">
+            <a href="${escapeHtml(p.github)}"
+               target="_blank"
+               rel="noopener"
+               class="project-card__link">
+              View on GitHub →
+            </a>
+          </div>
+        ` : ""}
+      </div>
+    `;
+    }).join("");
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll(".reveal");
@@ -83,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     items.forEach(el => obs.observe(el));
 
-    // NOTE: relies on global PROJECTS (as your original code did)
     const spotlight = PROJECTS.filter(p => p.spotlight);
     const rest = PROJECTS.filter(p => !p.spotlight);
 
