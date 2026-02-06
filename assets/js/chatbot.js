@@ -340,16 +340,23 @@
             setOpen(!isOpen);
         }
 
-        fab.addEventListener("pointerup", (e) => {
-            if (e.pointerType === "touch") toggleChatbot(e);
-        });
+        let ignoreNextClick = false;
 
-        fab.addEventListener("click", (e) => {
-            if (fab.dataset.suppressClick === "1") return;
+        fab.addEventListener("pointerup", (e) => {
+            if (e.pointerType !== "touch") return;
+            ignoreNextClick = true;
+            setTimeout(() => {
+                ignoreNextClick = false;
+            }, 350);
             toggleChatbot(e);
         });
 
-
+        fab.addEventListener("click", (e) => {
+            if (ignoreNextClick) return;
+            if (fab.dataset.suppressClick === "1") return;
+            toggleChatbot(e);
+        });
+        
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
