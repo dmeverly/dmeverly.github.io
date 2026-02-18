@@ -943,3 +943,11 @@ blockquote {
 .chatbot.chatbot--open .chatbot__nudge {
     display: none;
 }
+
+.cert-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
