@@ -42,15 +42,33 @@
     </header>
 
     <main class="section">
-        <div class="container">
-            <h1>Curriculum Vitae</h1>
-            <div style="margin-top: 1rem;">
-                <iframe src="https://drive.google.com/file/d/1Q4s_TuBzZRDf5luBxK5nvg1MUtejIhoo/preview"
-                    style="width:100%; height:85vh; border:0; border-radius:12px;"
-                    title="David Everly — Curriculum Vitae"></iframe>
+    <div class="container">
+        <h1>Curriculum Vitae</h1>
+        <div class="cv-frame" style="margin-top: 1rem;">
+            <div class="cv-loading" id="cvLoading">
+                <div class="cv-spinner"></div>
+                <span>Loading CV…</span>
             </div>
+            <iframe src="https://drive.google.com/file/d/1Q4s_TuBzZRDf5luBxK5nvg1MUtejIhoo/preview"
+                style="width:100%; height:85vh; border:0; border-radius:12px; position:relative; z-index:1;"
+                title="David Everly — Curriculum Vitae"
+                onload="document.getElementById('cvLoading').style.display='none';"></iframe>
         </div>
-    </main>
+    </div>
+</main>
+
+<script>
+    setTimeout(function () {
+        var loader = document.getElementById('cvLoading');
+        if (loader && loader.style.display !== 'none') {
+            loader.innerHTML = '<span>Having trouble loading? '
+                + '<a href="https://drive.google.com/file/d/1Q4s_TuBzZRDf5luBxK5nvg1MUtejIhoo/preview" '
+                + 'target="_blank" rel="noopener">Open the CV directly</a>.</span>';
+        }
+    }, 15000);
+</script>
+
 </body>
 
 </html>
+
