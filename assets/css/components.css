@@ -274,6 +274,7 @@ button:focus-visible,
 
 .status-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
     gap: 16px;
@@ -300,10 +301,62 @@ button:focus-visible,
 }
 
 .status-row {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(8rem, 42%) minmax(0, 1fr);
+    align-items: start;
+    gap: 8px 18px;
     padding: 10px 0;
     border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+.status-row > * {
+    min-width: 0;
+}
+
+.status-row .text-strong {
+    text-align: right;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.status-table[data-audience="engineer"] .status-row {
+    grid-template-columns: minmax(8rem, 36%) minmax(0, 1fr);
+}
+
+.status-row--multi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.status-row--multi > :first-child {
+    grid-column: 1 / -1;
+}
+
+.status-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.status-list.text-strong {
+    text-align: left;
+}
+
+@media (max-width: 760px) {
+    .status-row--multi {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .status-row,
+    .status-row--multi {
+        grid-template-columns: 1fr;
+    }
+
+    .status-row .text-strong {
+        text-align: left;
+    }
 }
 
 .status-row:last-child {
@@ -327,6 +380,7 @@ button:focus-visible,
 
 .status-pill {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     gap: 8px;
     padding: 6px 10px;

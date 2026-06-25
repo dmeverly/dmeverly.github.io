@@ -15,7 +15,7 @@ const PROJECTS = [
 
     ,
     {
-        title: "ECG Ischemia Prediction (MLP Study)",
+        title: "ECG Ischemia Prediction",
         summary: "Exploratory project on the limitations of shallow, deep, and residual MLP architectures for ECG ischemia classification across multiple clinical datasets. " +
             "Emphasized empirical comparison, convergence behavior, and identifying when model complexity is insufficient for improving performance.",
         generalSummary: "Built a system that reads cardiac rhythm from ECG tracing using simpler models to determine whether chaining of simpler models is sufficient to improve model performance. ",
@@ -36,8 +36,7 @@ const PROJECTS = [
         tags: [
             "Networking",
             "Protocols",
-            "Systems Design",
-            "Failure-Aware Design"
+            "Systems Design"
         ],
         span: "span-4",
         github: "https://github.com/dmeverly/QUIC-Protocol-Prototype"
@@ -53,8 +52,7 @@ const PROJECTS = [
             "Python",
             "Applied ML",
             "Optimization",
-            "Systems Design",
-            "Failure-Aware Design"
+            "Systems Design"
         ],
         span: "span-4",
         github: "https://github.com/dmeverly/ScheduleTemplater"
@@ -78,18 +76,16 @@ const PROJECTS = [
     ,
     {
         title: "SynapSys",
-        summary: "A failure-aware LLM orchestration framework that enforces structured execution, validation, and bounded local repair around probabilistic model output. " +
+        summary: "LLM orchestration framework that enforces structured execution, validation, and bounded local repair around probabilistic model output. " +
             "Designed to make parsing, validation, and recovery explicit system concerns rather than assumed happy paths.",
-        generalSummary: "Created a system that other applications can use to create customized LLM models (like ChatGPT or Gemini) easily and securely without the need to deeply understand the differences between the models.",
+        generalSummary: "Created a system that other applications can use to create customized LLM models (like ChatGPT or Gemini) easily and securely without the need to deeply understand the differences between the model provider's API.",
         tags: [
             "Java",
             "Spring Boot",
             "LLM Orchestration",
             "Systems Design",
-            "Failure-Aware Architecture",
             "Applied AI Systems",
-            "Trust Boundaries",
-            "Guardrails"
+            "Trust Boundaries"
         ],
         span: "span-8",
         spotlight: true,
@@ -102,7 +98,7 @@ const PROJECTS = [
             "pre-LLM short-circuit guards, and post-LLM output validation to enforce explicit trust boundaries in a user-facing system.",
         generalSummary: "Created a demo of a chatbot system that uses SynapSys to interact with users and present information about my portfolio.",
         tags: [
-            "Typescript",
+            "TypeScript",
             "RAG",
             "Guardrails",
             "Trust Boundaries",
