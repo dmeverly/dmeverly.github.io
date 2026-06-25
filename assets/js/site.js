@@ -90,10 +90,10 @@ async function updateStatus() {
 
         dot.classList.toggle("status-dot--ok", ok);
         dot.classList.toggle("status-dot--down", !ok);
-        text.textContent = ok ? "Online" : "Offline";
+        text.textContent = ok ? "Chat Online" : "Chat Offline";
     } catch {
         dot.classList.add("status-dot--down");
-        text.textContent = "Offline";
+        text.textContent = "Chat Offline";
     }
 }
 

@@ -1,6 +1,9 @@
 _site/
 .jekyll-cache/
 vendor/
+!assets/vendor/
+!assets/vendor/pdfjs/
+!assets/vendor/pdfjs/*.mjs
 node_modules/
 .DS_Store
 .idea/
