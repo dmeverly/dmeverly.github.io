@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <meta content="no-referrer" name="referrer" />
+    <title>Useful Tools | David Everly</title>
+
+    <link href="/assets/img/favicon.ico" rel="icon" sizes="any" />
+    <link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="assets/css/tokens.css" rel="stylesheet" />
+    <link href="assets/css/components.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="site-header glass">
+        <div class="container site-header__inner">
+            <a class="brand" href="/" aria-label="David Everly home">
+                <img alt="" class="brand__emblem" src="/assets/img/emblem-primary.svg" />
+                <span class="brand__name">David Everly</span>
+            </a>
+
+            <nav aria-label="Primary navigation" class="site-nav">
+                <a href="/">Home</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="useful-tools">
+            <div class="container">
+                <div class="section-head">
+                    <h1>Useful Tools</h1>
+                    <p class="muted measure">
+                        Small utilities designed to run locally and keep your data on your device.
+                    </p>
+                </div>
+
+                <section aria-labelledby="qr-title">
+                    <div class="section-head">
+                        <h2 id="qr-title">Private QR Code Generator</h2>
+                        <p class="muted measure">
+                            Enter text to render a QR code locally in this browser. Nothing is uploaded or retained by this page.
+                        </p>
+                    </div>
+
+                    <div class="qr-generator glass">
+                        <form autocomplete="off" class="qr-generator__form" id="qr-form">
+                            <label class="text-strong" for="qr-text">Text to encode</label>
+                            <textarea aria-describedby="qr-privacy qr-status" id="qr-text" maxlength="500"
+                                placeholder="Text to Encode" required rows="5"
+                                spellcheck="false"></textarea>
+                            <div class="qr-generator__actions">
+                                <button class="btn btn-primary" type="submit">Generate QR code</button>
+                                <button class="btn btn-ghost" disabled id="qr-save" type="button">Save SVG</button>
+                                <button class="btn btn-ghost" disabled id="qr-save-png" type="button">Save PNG</button>
+                                <button class="btn btn-ghost" id="qr-clear" type="button">Clear</button>
+                            </div>
+                            <p aria-live="polite" class="qr-generator__status muted" id="qr-status"></p>
+                        </form>
+
+                        <div class="qr-generator__preview" id="qr-preview">
+                            <p class="muted">Your QR code will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script src="/assets/vendor/qrcode.js"></script>
+    <script src="/assets/js/qr-generator.js"></script>
+</body>
+
+</html>

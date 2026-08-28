@@ -533,6 +533,85 @@ button:focus-visible,
     margin-top: 32px;
 }
 
+/* ===== QR Generator ===== */
+
+.qr-generator {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .75fr);
+    gap: 32px;
+    padding: 28px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+}
+
+.qr-generator__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.qr-generator textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 132px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--color-surface) 40%, transparent);
+}
+
+.qr-generator textarea:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--focus);
+}
+
+.qr-generator__privacy,
+.qr-generator__status {
+    font-size: var(--text-sm);
+}
+
+.qr-generator__status {
+    min-height: 1.5em;
+}
+
+.qr-generator__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.qr-generator__actions .btn:disabled {
+    cursor: not-allowed;
+    opacity: .45;
+}
+
+.qr-generator__preview {
+    display: grid;
+    place-items: center;
+    min-height: 320px;
+    padding: 20px;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, .025);
+    text-align: center;
+}
+
+.qr-generator__preview svg {
+    display: block;
+    width: min(100%, 320px);
+    height: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 760px) {
+    .qr-generator {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
 
 .bento {
     display: grid;
