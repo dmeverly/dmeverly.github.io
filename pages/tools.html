@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <meta content="no-referrer" name="referrer" />
+    <title>Useful Tools | David Everly</title>
+
+    <link href="../assets/img/favicon.ico" rel="icon" sizes="any" />
+    <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../assets/css/tokens.css" rel="stylesheet" />
+    <link href="../assets/css/components.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="site-header glass">
+        <div class="container site-header__inner">
+            <a class="brand" href="../index.html" aria-label="David Everly home">
+                <img alt="" class="brand__emblem" src="../assets/img/emblem-primary.svg" />
+                <span class="brand__name">David Everly</span>
+            </a>
+
+            <nav aria-label="Primary navigation" class="site-nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="useful-tools">
+            <div class="container">
+                <div class="section-head">
+                    <h1>Useful Tools</h1>
+                    <p class="muted measure">
+                        A few handy tools I've designed for personal use that may be useful to others.
+                    </p>
+                </div>
+
+                <section aria-labelledby="qr-title">
+                    <div class="section-head">
+                        <h2 id="qr-title">Quick QR Code Generator</h2>
+                        <p class="muted measure">
+                            Enter text to render a QR code on the fly
+                        </p>
+                    </div>
+
+                    <div class="qr-generator glass">
+                        <form autocomplete="off" class="qr-generator__form" id="qr-form">
+                            <label class="text-strong" for="qr-text">Text to encode</label>
+                            <textarea aria-describedby="qr-status" id="qr-text" maxlength="500"
+                                placeholder="Text to Encode" rows="5"
+                                spellcheck="false"></textarea>
+                            <div class="qr-generator__actions">
+                                <button class="btn btn-ghost" disabled id="qr-save" type="button">Save SVG</button>
+                                <button class="btn btn-ghost" disabled id="qr-save-png" type="button">Save PNG</button>
+                                <button class="btn btn-ghost" id="qr-clear" type="button">Clear</button>
+                            </div>
+                            <p aria-live="polite" class="qr-generator__status muted" id="qr-status"></p>
+                        </form>
+
+                        <div class="qr-generator__preview" id="qr-preview">
+                            <p class="muted">Your QR code will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="section section--alt" id="contact">
+        <div class="container footer">
+            <h2>Contact</h2>
+            <div class="footer__links">
+                <a href="mailto:contact@dmeverly.com">Email</a>
+                <a href="https://github.com/dmeverly" rel="noopener" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/david-everly" rel="noopener" target="_blank">LinkedIn</a>
+                <a download="David_Everly_SWE_CRNP.pdf" href="../assets/David_Everly_SWE_CRNP.pdf">Download CV</a>
+            </div>
+            <p class="footer__meta">© 2025 David Everly</p>
+            <div class="footer__disclaimer muted">
+                <p>
+                    All projects and systems presented on this site were developed independently on personal time and
+                    are not affiliated with, endorsed by, or representative of any current or past employer.
+                </p>
+                <p>
+                    Organizational names and professional titles are included solely for factual identification; no
+                    endorsement or ownership of intellectual property is implied.
+                </p>
+                <p>
+                    Content is provided for informational purposes only and does not constitute medical advice.
+                    AI system demonstrations are experimental and shown to illustrate design concepts; outputs may be
+                    incomplete or intentionally constrained.
+                </p>
+                <p>
+                    Site tools are provided for lawful purposes only and without warranties. Users are solely
+                    responsible for the content they create and may not use these tools to facilitate unlawful activity.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/vendor/qrcode.js"></script>
+    <script src="../assets/js/qr-generator.js"></script>
+</body>
+
+</html>

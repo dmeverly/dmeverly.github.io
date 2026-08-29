@@ -12,6 +12,8 @@
     if (!form || !input || !clearButton || !saveButton || !savePngButton || !preview || !status) return;
 
     const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
+    const RENDER_DELAY_MS = 150;
+    let renderTimer;
 
     function showPlaceholder() {
         const message = document.createElement("p");
@@ -61,6 +63,7 @@
     }
 
     function clearGenerator() {
+        window.clearTimeout(renderTimer);
         input.value = "";
         status.textContent = "";
         saveButton.disabled = true;
@@ -150,25 +153,37 @@
         }
     }
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
+    function updateQrCode() {
         const text = input.value;
-        if (!text) return;
+        status.textContent = "";
+
+        if (!text) {
+            saveButton.disabled = true;
+            savePngButton.disabled = true;
+            showPlaceholder();
+            return;
+        }
 
         try {
             renderQrCode(text);
-            status.textContent = "QR code generated locally. Nothing was uploaded or saved.";
         } catch (error) {
+            saveButton.disabled = true;
+            savePngButton.disabled = true;
             showPlaceholder();
-            status.textContent = "That text is too long to encode. Please shorten it and try again.";
+            status.textContent = "That text is too long to encode. Please shorten it.";
         }
+    }
+
+    input.addEventListener("input", function () {
+        window.clearTimeout(renderTimer);
+        renderTimer = window.setTimeout(updateQrCode, RENDER_DELAY_MS);
     });
 
     clearButton.addEventListener("click", clearGenerator);
     saveButton.addEventListener("click", saveQrCode);
     savePngButton.addEventListener("click", saveQrCodeAsPng);
     window.addEventListener("pagehide", function () {
+        window.clearTimeout(renderTimer);
         input.value = "";
         preview.replaceChildren();
         saveButton.disabled = true;
