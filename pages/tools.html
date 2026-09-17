@@ -68,6 +68,71 @@
                         </div>
                     </div>
                 </section>
+
+                <section aria-labelledby="schedule-title">
+                    <div class="section-head section-head--spaced">
+                        <h2 id="schedule-title">Shift Schedule Generator</h2>
+                        <p class="muted measure">
+                            Upload a shift-rotation template (.xlsx) to generate a 12-month schedule plus an
+                            individual schedule for each employee. The file is read and processed entirely in
+                            your browser — nothing is uploaded to a server.
+                        </p>
+                    </div>
+
+                    <div class="schedule-generator glass">
+                        <p class="muted schedule-generator__template-note">
+                            Need a starting point? Download a blank template, fill in employee names per week, then
+                            upload it above. You can add more shift columns (label + Mon-Sun) or more week rows
+                            later — the tool re-reads the layout from the file each time.
+                        </p>
+                        <div class="schedule-generator__template-actions">
+                            <div class="schedule-generator__field">
+                                <label class="text-strong" for="sched-template-weeks">Template weeks</label>
+                                <input id="sched-template-weeks" max="520" min="1" placeholder="12" step="1"
+                                    type="number" value="12" />
+                            </div>
+                            <button class="btn btn-ghost" id="sched-download-template" type="button">Download Blank
+                                Template</button>
+                        </div>
+
+                        <form autocomplete="off" class="schedule-generator__form" id="schedule-form">
+                            <div class="schedule-generator__field">
+                                <label class="text-strong" for="sched-file">Shift rotation template (.xlsx)</label>
+                                <input accept=".xlsx" id="sched-file" type="file" />
+                                <p class="muted schedule-generator__filename" id="sched-filename">No file selected.</p>
+                                <p class="muted schedule-generator__summary" id="sched-summary"></p>
+                            </div>
+
+                            <div class="schedule-generator__grid">
+                                <div class="schedule-generator__field">
+                                    <label class="text-strong" for="sched-week">Starting template week</label>
+                                    <input id="sched-week" min="1" placeholder="1" step="1" type="number" />
+                                </div>
+                                <div class="schedule-generator__field">
+                                    <label class="text-strong" for="sched-month">Starting month (1-12)</label>
+                                    <input id="sched-month" max="12" min="1" placeholder="1" step="1" type="number" />
+                                </div>
+                                <div class="schedule-generator__field">
+                                    <label class="text-strong" for="sched-year">Starting year</label>
+                                    <input id="sched-year" max="2400" min="1900" placeholder="2026" step="1"
+                                        type="number" />
+                                </div>
+                            </div>
+
+                            <div class="schedule-generator__actions">
+                                <button class="btn btn-ghost" disabled id="sched-generate" type="button">Generate
+                                    Schedule</button>
+                                <button class="btn btn-ghost" id="sched-clear" type="button">Clear</button>
+                            </div>
+                            <p aria-live="polite" class="schedule-generator__status muted" id="sched-status"></p>
+                        </form>
+
+                        <div class="schedule-generator__preview-wrap">
+                            <p class="text-strong">Preview</p>
+                            <div class="schedule-preview" id="sched-preview"></div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
     </main>
@@ -106,6 +171,9 @@
 
     <script src="../assets/vendor/qrcode.js"></script>
     <script src="../assets/js/qr-generator.js"></script>
+    <script src="../assets/vendor/exceljs/exceljs.min.js"></script>
+    <script src="../assets/vendor/jszip/jszip.min.js"></script>
+    <script src="../assets/js/schedule-generator.js"></script>
 </body>
 
 </html>
