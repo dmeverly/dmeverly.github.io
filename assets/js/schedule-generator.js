@@ -2,6 +2,8 @@
     "use strict";
 
     const fileInput = document.getElementById("sched-file");
+    const pasteInput = document.getElementById("sched-paste");
+    const pasteParseButton = document.getElementById("sched-paste-parse");
     const weekInput = document.getElementById("sched-week");
     const monthInput = document.getElementById("sched-month");
     const yearInput = document.getElementById("sched-year");
@@ -10,13 +12,14 @@
     const status = document.getElementById("sched-status");
     const fileNameLabel = document.getElementById("sched-filename");
     const summary = document.getElementById("sched-summary");
+    const groupsContainer = document.getElementById("sched-groups");
     const previewContainer = document.getElementById("sched-preview");
     const templateWeeksInput = document.getElementById("sched-template-weeks");
     const downloadTemplateButton = document.getElementById("sched-download-template");
 
     const requiredEls = [
-        fileInput, weekInput, monthInput, yearInput, generateButton, clearButton,
-        status, fileNameLabel, summary, previewContainer, templateWeeksInput, downloadTemplateButton
+        fileInput, pasteInput, pasteParseButton, weekInput, monthInput, yearInput, generateButton, clearButton,
+        status, fileNameLabel, summary, groupsContainer, previewContainer, templateWeeksInput, downloadTemplateButton
     ];
     if (requiredEls.some((el) => !el)) return;
 
@@ -44,12 +47,23 @@
     ];
 
     // ----- Input template detection (dynamic, so the template can grow) -----
-    const DAY_PATTERNS = [/^mon/i, /^tue/i, /^wed/i, /^thu/i, /^fri/i, /^sat/i, /^sun/i];
+    // Day names are matched by pattern, in any column order, so a Sunday-first or
+    // Monday-first header (and short "Su"/"Mo" or long "Sun"/"Mon" abbreviations) both work.
+    const DAY_NAME_PATTERNS = [
+        { index: 0, patterns: [/^mon/i, /^mo$/i] },
+        { index: 1, patterns: [/^tue/i, /^tu$/i] },
+        { index: 2, patterns: [/^wed/i, /^we$/i] },
+        { index: 3, patterns: [/^thu/i, /^th$/i] },
+        { index: 4, patterns: [/^fri/i, /^fr$/i] },
+        { index: 5, patterns: [/^sat/i, /^sa$/i] },
+        { index: 6, patterns: [/^sun/i, /^su$/i] }
+    ];
     const MAX_HEADER_SEARCH_ROWS = 50;
     const MAX_DETECTED_GROUPS = 20;
     const MAX_DETECTED_WEEKS = 520;
     const MAX_READ_COLUMNS = 200;
     const MAX_PREVIEW_EMPLOYEES = 100;
+    const MAX_PASTE_LINES = 700;
 
     const BLANK_TEMPLATE_GROUPS = ["Day 1", "Day 2", "Nights"];
     const BLANK_TEMPLATE_DAY_HEADERS = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
@@ -70,7 +84,8 @@
     };
 
     let selectedFile = null;
-    let parsedModel = null; // { sourceWorksheet, shiftGroups, weekCount, employees }
+    // parsedModel: { source: {kind:"workbook", sourceWorksheet} | {kind:"pasted", grid}, shiftGroups, weekCount, employees }
+    let parsedModel = null;
     let busy = false;
 
     class UserFacingError extends Error {}
@@ -87,6 +102,10 @@
         void handleFileSelected();
     });
 
+    pasteParseButton.addEventListener("click", () => {
+        void handlePasteParse();
+    });
+
     [weekInput, monthInput, yearInput].forEach((el) => {
         el.addEventListener("input", () => {
             renderPreviewIfPossible();
@@ -95,17 +114,14 @@
 
     clearButton.addEventListener("click", () => {
         fileInput.value = "";
+        pasteInput.value = "";
         selectedFile = null;
-        parsedModel = null;
+        resetParsedState();
         fileNameLabel.textContent = "No file selected.";
-        summary.textContent = "";
-        clearPreview();
         weekInput.value = "";
-        weekInput.removeAttribute("max");
         monthInput.value = "";
         yearInput.value = "";
         setStatus("");
-        updateGenerateAvailability();
     });
 
     generateButton.addEventListener("click", () => {
@@ -116,14 +132,51 @@
         void handleDownloadTemplate();
     });
 
-    async function handleFileSelected() {
-        const file = fileInput.files && fileInput.files[0];
-        selectedFile = file || null;
+    function resetParsedState() {
         parsedModel = null;
         summary.textContent = "";
         clearPreview();
+        clearGroupEditor();
         weekInput.removeAttribute("max");
         updateGenerateAvailability();
+    }
+
+    function buildParsedModelFromGrid(grid, source) {
+        const { shiftGroups, weekCount } = preProcessTemplate(grid);
+        const employees = extractEmployees(shiftGroups);
+        return { source, shiftGroups, weekCount, employees };
+    }
+
+    function applyParsedModel(model) {
+        parsedModel = model;
+
+        weekInput.max = String(model.weekCount);
+        if (!weekInput.value || Number(weekInput.value) > model.weekCount) {
+            weekInput.value = "1";
+        }
+        if (!monthInput.value) monthInput.value = String(new Date().getMonth() + 1);
+        if (!yearInput.value) yearInput.value = String(new Date().getFullYear());
+
+        renderGroupEditor(model.shiftGroups);
+
+        const employeeNote = model.employees.length
+            ? model.employees.slice(0, MAX_PREVIEW_EMPLOYEES).join(", ") +
+              (model.employees.length > MAX_PREVIEW_EMPLOYEES
+                  ? `, +${model.employees.length - MAX_PREVIEW_EMPLOYEES} more`
+                  : "")
+            : "none found";
+        summary.textContent =
+            `Detected ${model.shiftGroups.length} shift group(s) across ${model.weekCount} rotation week(s). ` +
+            `Employees: ${employeeNote}.`;
+
+        setStatus("Template parsed. Review the shift names below, adjust the starting week/month/year to preview, then generate.");
+        renderPreviewIfPossible();
+    }
+
+    async function handleFileSelected() {
+        const file = fileInput.files && fileInput.files[0];
+        selectedFile = file || null;
+        resetParsedState();
 
         if (!file) {
             fileNameLabel.textContent = "No file selected.";
@@ -132,6 +185,7 @@
         }
 
         fileNameLabel.textContent = file.name;
+        pasteInput.value = "";
         setStatus("Reading template...");
 
         try {
@@ -145,29 +199,8 @@
             }
 
             const grid = readGrid(sourceWorksheet);
-            const { shiftGroups, weekCount } = preProcessTemplate(grid);
-            const employees = extractEmployees(shiftGroups);
-
-            parsedModel = { sourceWorksheet, shiftGroups, weekCount, employees };
-
-            weekInput.max = String(weekCount);
-            if (!weekInput.value || Number(weekInput.value) > weekCount) {
-                weekInput.value = "1";
-            }
-            if (!monthInput.value) monthInput.value = String(new Date().getMonth() + 1);
-            if (!yearInput.value) yearInput.value = String(new Date().getFullYear());
-
-            const groupLabels = shiftGroups.map((g) => g.label).join(", ");
-            const employeeNote = employees.length
-                ? employees.slice(0, MAX_PREVIEW_EMPLOYEES).join(", ") +
-                  (employees.length > MAX_PREVIEW_EMPLOYEES ? `, +${employees.length - MAX_PREVIEW_EMPLOYEES} more` : "")
-                : "none found";
-            summary.textContent =
-                `Detected ${shiftGroups.length} shift group(s) [${groupLabels}] across ${weekCount} rotation week(s). ` +
-                `Employees: ${employeeNote}.`;
-
-            setStatus("Template parsed. Adjust the starting week/month/year to preview, then generate.");
-            renderPreviewIfPossible();
+            const model = buildParsedModelFromGrid(grid, { kind: "workbook", sourceWorksheet });
+            applyParsedModel(model);
         } catch (error) {
             parsedModel = null;
             if (error instanceof UserFacingError) {
@@ -175,6 +208,37 @@
             } else {
                 console.error(error);
                 setStatus("Could not read that file. Check that it matches the expected template layout.");
+            }
+        } finally {
+            updateGenerateAvailability();
+        }
+    }
+
+    async function handlePasteParse() {
+        const text = pasteInput.value;
+        selectedFile = null;
+        resetParsedState();
+
+        if (!text || !text.trim()) {
+            setStatus("Paste some tab-separated shift data first.");
+            return;
+        }
+
+        fileInput.value = "";
+        fileNameLabel.textContent = "No file selected.";
+        setStatus("Reading pasted data...");
+
+        try {
+            const grid = parsePastedGrid(text);
+            const model = buildParsedModelFromGrid(grid, { kind: "pasted", grid });
+            applyParsedModel(model);
+        } catch (error) {
+            parsedModel = null;
+            if (error instanceof UserFacingError) {
+                setStatus(error.message);
+            } else {
+                console.error(error);
+                setStatus("Could not read that pasted data. Check that it matches the expected template layout.");
             }
         } finally {
             updateGenerateAvailability();
@@ -208,10 +272,14 @@
         setStatus("Generating schedule...");
 
         try {
-            const { sourceWorksheet, shiftGroups, weekCount, employees } = parsedModel;
+            const { source, shiftGroups, weekCount, employees } = parsedModel;
 
             const mainWorkbook = new ExcelJS.Workbook();
-            addTemplateSheet(mainWorkbook, sourceWorksheet);
+            if (source.kind === "workbook") {
+                addTemplateSheet(mainWorkbook, source.sourceWorksheet);
+            } else {
+                addTemplateSheetFromGrid(mainWorkbook, source.grid);
+            }
 
             const employeeWorkbooks = new Map();
             employees.forEach((name) => employeeWorkbooks.set(name, new ExcelJS.Workbook()));
@@ -345,25 +413,61 @@
         return s || String(headerText).trim();
     }
 
+    function computeDefaultShiftLabel(label, index, total) {
+        if (label) return deriveShiftLabel(label);
+        return index === total - 1 ? "Night" : "Day";
+    }
+
+    function effectiveShiftLabel(group, index) {
+        const trimmed = group.shiftLabel ? String(group.shiftLabel).trim() : "";
+        return trimmed || `Shift ${index + 1}`;
+    }
+
+    function colLetter(n) {
+        let s = "";
+        let num = n;
+        while (num > 0) {
+            const rem = (num - 1) % 26;
+            s = String.fromCharCode(65 + rem) + s;
+            num = Math.floor((num - 1) / 26);
+        }
+        return s;
+    }
+
+    function matchDayIndex(value) {
+        const s = value === null || value === undefined ? "" : String(value).trim();
+        if (!s) return null;
+        for (const entry of DAY_NAME_PATTERNS) {
+            for (const pattern of entry.patterns) {
+                if (pattern.test(s)) return entry.index;
+            }
+        }
+        return null;
+    }
+
+    // A "group" is a label column (may be blank in the header; some templates only
+    // put a week number there in data rows) immediately followed by 7 columns whose
+    // header text names each day of the week, in any order.
     function detectGroups(headerRow) {
         const groups = [];
         let col = 0;
         while (col < headerRow.length && groups.length < MAX_DETECTED_GROUPS) {
-            const labelText = headerRow[col];
-            if (labelText === null || labelText === undefined || String(labelText).trim() === "") {
-                col += 1;
-                continue;
-            }
-            let looksLikeGroup = true;
+            const dayIndices = [];
+            let ok = true;
             for (let d = 0; d < 7; d += 1) {
-                const dayCell = headerRow[col + 1 + d];
-                if (dayCell === null || dayCell === undefined || !DAY_PATTERNS[d].test(String(dayCell).trim())) {
-                    looksLikeGroup = false;
+                const idx = matchDayIndex(headerRow[col + 1 + d]);
+                if (idx === null) {
+                    ok = false;
                     break;
                 }
+                dayIndices.push(idx);
             }
-            if (looksLikeGroup) {
-                groups.push({ labelCol: col, label: String(labelText).trim(), shiftLabel: deriveShiftLabel(labelText) });
+            if (ok && new Set(dayIndices).size === 7) {
+                const labelCell = headerRow[col];
+                const label = labelCell !== null && labelCell !== undefined && String(labelCell).trim() !== ""
+                    ? String(labelCell).trim()
+                    : null;
+                groups.push({ labelCol: col, label, dayOrder: dayIndices });
                 col += 8;
             } else {
                 col += 1;
@@ -381,8 +485,7 @@
         return null;
     }
 
-    function detectWeekCount(grid, headerRowIndex, groups) {
-        const firstLabelCol = groups[0].labelCol;
+    function detectWeekCount(grid, headerRowIndex) {
         let count = 0;
         let row = headerRowIndex + 1;
         while (row < grid.length && count < MAX_DETECTED_WEEKS) {
@@ -399,28 +502,60 @@
         const header = findHeaderRow(grid);
         if (!header) {
             throw new UserFacingError(
-                "Could not find a shift header row (a label such as \"Day 1\" followed by Mon..Sun columns). Check the template layout."
+                "Could not find a shift header row (7 columns naming Mon..Sun, in any order). Check the template layout."
             );
         }
         const { rowIndex: headerRowIndex, groups } = header;
-        const weekCount = detectWeekCount(grid, headerRowIndex, groups);
+        const weekCount = detectWeekCount(grid, headerRowIndex);
         if (weekCount === 0) {
             throw new UserFacingError("No shift-rotation weeks were found under the header row.");
         }
 
-        const shiftGroups = groups.map((g) => ({ label: g.label, shiftLabel: g.shiftLabel, weeks: [] }));
+        // All groups are assumed to share the same day order as the first one detected.
+        const filePositionForWeekday = new Array(7);
+        groups[0].dayOrder.forEach((weekdayIdx, filePos) => {
+            filePositionForWeekday[weekdayIdx] = filePos;
+        });
+
+        const shiftGroups = groups.map((g, gi) => ({
+            label: g.label,
+            labelCol: g.labelCol,
+            columnRange: `${colLetter(g.labelCol + 1)}–${colLetter(g.labelCol + 8)}`,
+            shiftLabel: computeDefaultShiftLabel(g.label, gi, groups.length),
+            weeks: []
+        }));
+
         for (let w = 0; w < weekCount; w += 1) {
             const row = grid[headerRowIndex + 1 + w] || [];
             groups.forEach((g, gi) => {
                 const days = [];
-                for (let day = 0; day < 7; day += 1) {
-                    days.push(row[g.labelCol + 1 + day] ?? null);
+                for (let weekday = 0; weekday < 7; weekday += 1) {
+                    const filePos = filePositionForWeekday[weekday];
+                    days.push(row[g.labelCol + 1 + filePos] ?? null);
                 }
                 shiftGroups[gi].weeks.push(days);
             });
         }
 
         return { shiftGroups, weekCount, headerRowIndex };
+    }
+
+    // ----- Free-text paste input (tab- or comma-separated, e.g. copied from Excel) -----
+
+    function parsePastedGrid(text) {
+        const normalized = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+        let lines = normalized.split("\n");
+        while (lines.length && lines[lines.length - 1].trim() === "") lines.pop();
+        if (lines.length === 0) {
+            throw new UserFacingError("No data found in the pasted text.");
+        }
+        if (lines.length > MAX_PASTE_LINES) lines = lines.slice(0, MAX_PASTE_LINES);
+
+        const delimiter = normalized.includes("\t") ? "\t" : ",";
+        return lines.map((line) => line.split(delimiter).map((cell) => {
+            const trimmed = cell.trim();
+            return trimmed === "" ? null : trimmed;
+        }));
     }
 
     function extractEmployees(shiftGroups) {
@@ -469,10 +604,10 @@
 
     function assignmentsFor(shiftGroups, weekIdx, day) {
         const assignments = [];
-        for (const group of shiftGroups) {
+        shiftGroups.forEach((group, gi) => {
             const emp = normalizeEmployee(group.weeks[weekIdx][day]);
-            if (emp) assignments.push({ emp, shiftLabel: group.shiftLabel });
-        }
+            if (emp) assignments.push({ emp, shiftLabel: effectiveShiftLabel(group, gi) });
+        });
         return assignments;
     }
 
@@ -686,6 +821,11 @@
         }
     }
 
+    function addTemplateSheetFromGrid(mainWorkbook, grid) {
+        const templateSheet = mainWorkbook.addWorksheet("Template");
+        grid.forEach((row) => templateSheet.addRow(row));
+    }
+
     // ----- Blank downloadable template -----
 
     function buildBlankTemplateWorkbook(weekCount) {
@@ -721,6 +861,45 @@
         }
 
         return workbook;
+    }
+
+    // ----- Shift group name editor (DOM; all content set via textContent) -----
+
+    function clearGroupEditor() {
+        groupsContainer.replaceChildren();
+        const placeholder = document.createElement("p");
+        placeholder.className = "muted";
+        placeholder.textContent = "Shift group names will appear here after you upload or paste a template.";
+        groupsContainer.appendChild(placeholder);
+    }
+
+    function renderGroupEditor(shiftGroups) {
+        groupsContainer.replaceChildren();
+
+        shiftGroups.forEach((group, gi) => {
+            const row = document.createElement("div");
+            row.className = "schedule-generator__group-row";
+
+            const meta = document.createElement("span");
+            meta.className = "muted schedule-generator__group-meta";
+            meta.textContent = group.label
+                ? `Columns ${group.columnRange} (found "${group.label}")`
+                : `Columns ${group.columnRange} (no label found)`;
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = group.shiftLabel;
+            input.maxLength = 40;
+            input.setAttribute("aria-label", `Shift name for columns ${group.columnRange}`);
+            input.addEventListener("input", () => {
+                group.shiftLabel = input.value;
+                renderPreviewIfPossible();
+            });
+
+            row.appendChild(meta);
+            row.appendChild(input);
+            groupsContainer.appendChild(row);
+        });
     }
 
     // ----- Preview rendering (DOM; all content set via textContent) -----
@@ -797,6 +976,7 @@
     }
 
     fileNameLabel.textContent = "No file selected.";
+    clearGroupEditor();
     clearPreview();
     updateGenerateAvailability();
 })();

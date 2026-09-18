@@ -73,17 +73,19 @@
                     <div class="section-head section-head--spaced">
                         <h2 id="schedule-title">Shift Schedule Generator</h2>
                         <p class="muted measure">
-                            Upload a shift-rotation template (.xlsx) to generate a 12-month schedule plus an
-                            individual schedule for each employee. The file is read and processed entirely in
-                            your browser — nothing is uploaded to a server.
+                            Upload or paste a shift-rotation template to generate a 12-month schedule plus an
+                            individual schedule for each employee. The data is read and processed entirely in
+                            your browser — nothing is uploaded to a server. The tool detects the header row, shift
+                            columns, and week count automatically, so small layout changes shouldn't need a site
+                            update.
                         </p>
                     </div>
 
                     <div class="schedule-generator glass">
                         <p class="muted schedule-generator__template-note">
                             Need a starting point? Download a blank template, fill in employee names per week, then
-                            upload it above. You can add more shift columns (label + Mon-Sun) or more week rows
-                            later — the tool re-reads the layout from the file each time.
+                            upload it above. You can add more shift columns (label + 7 day-of-week columns, any
+                            order) or more week rows later — the tool re-reads the layout from the file each time.
                         </p>
                         <div class="schedule-generator__template-actions">
                             <div class="schedule-generator__field">
@@ -100,7 +102,28 @@
                                 <label class="text-strong" for="sched-file">Shift rotation template (.xlsx)</label>
                                 <input accept=".xlsx" id="sched-file" type="file" />
                                 <p class="muted schedule-generator__filename" id="sched-filename">No file selected.</p>
-                                <p class="muted schedule-generator__summary" id="sched-summary"></p>
+                            </div>
+
+                            <div class="schedule-generator__field">
+                                <label class="text-strong" for="sched-paste">Or paste cells copied from Excel /
+                                    Sheets</label>
+                                <textarea id="sched-paste" placeholder="Paste tab-separated cells here" rows="4"
+                                    spellcheck="false"></textarea>
+                                <div class="schedule-generator__actions">
+                                    <button class="btn btn-ghost" id="sched-paste-parse" type="button">Use Pasted
+                                        Data</button>
+                                </div>
+                            </div>
+
+                            <p class="muted schedule-generator__summary" id="sched-summary"></p>
+
+                            <div class="schedule-generator__field">
+                                <p class="text-strong">Shift names</p>
+                                <p class="muted schedule-generator__hint">
+                                    Rename any of these if the guess below is wrong — it controls the "Name - Label"
+                                    text and cell color (day = yellow, night = gray) in the generated schedule.
+                                </p>
+                                <div id="sched-groups"></div>
                             </div>
 
                             <div class="schedule-generator__grid">
