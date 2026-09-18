@@ -6,6 +6,7 @@
     const pasteParseButton = document.getElementById("sched-paste-parse");
     const weekInput = document.getElementById("sched-week");
     const monthInput = document.getElementById("sched-month");
+    const weekStartInput = document.getElementById("sched-weekstart");
     const yearInput = document.getElementById("sched-year");
     const generateButton = document.getElementById("sched-generate");
     const clearButton = document.getElementById("sched-clear");
@@ -23,7 +24,7 @@
     const downloadTemplateButton = document.getElementById("sched-download-template");
 
     const requiredEls = [
-        fileInput, pasteInput, pasteParseButton, weekInput, monthInput, yearInput, generateButton, clearButton,
+        fileInput, pasteInput, pasteParseButton, weekInput, monthInput, yearInput, weekStartInput, generateButton, clearButton,
         status, loadStatus, form, configure, step1Card, weekHint, fileNameLabel, summary, groupsContainer, previewContainer, templateWeeksInput, downloadTemplateButton
     ];
     if (requiredEls.some((el) => !el)) return;
@@ -35,7 +36,7 @@
         return;
     }
 
-    // ----- Output calendar layout (fixed: a Mon-Sun printed calendar) -----
+    // ----- Output calendar layout (Sun-Sat or Mon-Sun, chosen by the user) -----
     const COLS_PER_WEEK = 14;
     const DATA_START_ROW = 4;
     const HEADER_ROW = 3;
@@ -45,7 +46,10 @@
     const ROW_HEIGHT_PER_LINE = 13;
     const NUM_MONTHS = 12;
 
+    // Weekdays are indexed Monday = 0 ... Sunday = 6 throughout.
     const DOW = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const SUNDAY = 6;
+    const MONDAY = 0;
     const MONTH_NAMES = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -169,7 +173,7 @@
         void handlePasteParse();
     });
 
-    [weekInput, monthInput, yearInput].forEach((el) => {
+    [weekInput, monthInput, yearInput, weekStartInput].forEach((el) => {
         el.addEventListener("input", () => {
             renderPreviewIfPossible();
         });
@@ -182,6 +186,7 @@
         resetParsedState();
         fileNameLabel.textContent = "No file selected.";
         weekInput.value = "";
+        weekStartInput.value = String(SUNDAY);
         setDefaultDate();
         setLoadStatus("");
         setStatus("");
@@ -209,14 +214,14 @@
     }
 
     function buildParsedModelFromGrid(grid, source) {
-        const { shiftGroups, weekCount } = preProcessTemplate(grid);
+        const { shiftGroups, weekCount, templateWeekStart } = preProcessTemplate(grid);
         const employees = extractEmployees(shiftGroups);
         if (employees.length > MAX_EMPLOYEES) {
             throw new UserFacingError(
                 `That template has more than ${MAX_EMPLOYEES} different names. Check that only employee names are in the day columns.`
             );
         }
-        return { source, shiftGroups, weekCount, employees };
+        return { source, shiftGroups, weekCount, templateWeekStart, employees };
     }
 
     function applyParsedModel(model) {
@@ -351,7 +356,10 @@
         if (!Number.isInteger(month) || month < 1 || month > 12) return;
         if (!Number.isInteger(year) || year < 1900 || year > 2400) return;
 
-        const grid = computeMainMonthGrid(parsedModel.shiftGroups, parsedModel.weekCount, week, month, year);
+        const grid = computeMainMonthGrid(
+            parsedModel.shiftGroups, parsedModel.weekCount, parsedModel.templateWeekStart,
+            week, month, year, calendarStartDay()
+        );
         renderPreview(grid);
     }
 
@@ -369,7 +377,8 @@
         setStatus("Building your schedules...");
 
         try {
-            const { source, shiftGroups, weekCount, employees } = parsedModel;
+            const { source, shiftGroups, weekCount, templateWeekStart, employees } = parsedModel;
+            const calStart = params.calStart;
 
             const mainWorkbook = new ExcelJS.Workbook();
             if (source.kind === "workbook") {
@@ -389,7 +398,9 @@
                     month = 1;
                     year += 1;
                 }
-                week = createMonthSheets(mainWorkbook, employeeWorkbooks, shiftGroups, weekCount, week, month, year);
+                week = createMonthSheets(
+                    mainWorkbook, employeeWorkbooks, shiftGroups, weekCount, templateWeekStart, calStart, week, month, year
+                );
                 month += 1;
             }
 
@@ -454,6 +465,10 @@
         }
     }
 
+    function calendarStartDay() {
+        return Number.parseInt(weekStartInput.value, 10) === MONDAY ? MONDAY : SUNDAY;
+    }
+
     function readInputs(weekCount) {
         const week = Number.parseInt(weekInput.value, 10);
         const month = Number.parseInt(monthInput.value, 10);
@@ -469,7 +484,7 @@
             return { valid: false, message: "Enter a year between 1900 and 2400 in step 3." };
         }
 
-        return { valid: true, week, month, year };
+        return { valid: true, week, month, year, calStart: calendarStartDay() };
     }
 
     // ----- Cell value helpers -----
@@ -655,7 +670,8 @@
             });
         }
 
-        return { shiftGroups, weekCount, headerRowIndex };
+        // A template row is one week, starting on whichever day its first column is (Sun-Sat or Mon-Sun).
+        return { shiftGroups, weekCount, headerRowIndex, templateWeekStart: groups[0].dayOrder[0] };
     }
 
     // ----- Free-text paste input (tab- or comma-separated, e.g. copied from Excel) -----
@@ -694,7 +710,7 @@
 
     // ----- Shift text formatting -----
 
-    function buildMainShiftLines(date, assignments, isSunday, weekNumber) {
+    function buildMainShiftLines(date, assignments, showWeekLabel, weekNumber) {
         const line = (a) => ({ text: `${a.emp} - ${a.shiftLabel}`, color: a.color });
         const dayAssignments = assignments.filter((a) => a.shiftLabel.toLowerCase() === "day");
         const nightAssignments = assignments.filter((a) => a.shiftLabel.toLowerCase() === "night");
@@ -706,22 +722,22 @@
             assignments.forEach((a) => lines.push(line(a)));
         }
 
-        if (isSunday) lines.push({ text: `Template Week ${weekNumber}`, color: null });
+        if (showWeekLabel) lines.push({ text: `Template Week ${weekNumber}`, color: null });
         return lines;
     }
 
-    function buildMainShiftText(date, assignments, isSunday, weekNumber) {
-        return buildMainShiftLines(date, assignments, isSunday, weekNumber).map((l) => l.text).join("\n");
+    function buildMainShiftText(date, assignments, showWeekLabel, weekNumber) {
+        return buildMainShiftLines(date, assignments, showWeekLabel, weekNumber).map((l) => l.text).join("\n");
     }
 
-    function buildEmployeeShiftText(date, assignments, isSunday, weekNumber, targetEmp) {
+    function buildEmployeeShiftText(date, assignments, showWeekLabel, weekNumber, targetEmp) {
         const matches = assignments.filter((a) => a.emp === targetEmp);
         if (matches.length === 0) {
-            if (isSunday) return [`Template Week ${weekNumber}`, null];
+            if (showWeekLabel) return [`Template Week ${weekNumber}`, null];
             return [" ", null];
         }
         let text = `${date}\n${matches.map((a) => `${a.emp} - ${a.shiftLabel}`).join("\n")}`;
-        if (isSunday) text += `\nTemplate Week ${weekNumber}`;
+        if (showWeekLabel) text += `\nTemplate Week ${weekNumber}`;
         return [text, matches[matches.length - 1].color];
     }
 
@@ -751,37 +767,57 @@
         return (jsDay + 6) % 7;
     }
 
-    function computeMainMonthGrid(shiftGroups, weekCount, weekNumberIn, month, year) {
+    function orderedDays(calStart) {
+        return DOW.map((_, i) => (calStart + i) % 7);
+    }
+
+    // Where a month sits on the printed calendar: its first weekday, the column that falls in,
+    // and how many calendar rows it needs.
+    function monthLayout(year, month, calStart) {
+        const firstWeekday = firstWeekdayMondayBased(year, month);
+        const startCol = (firstWeekday - calStart + 7) % 7;
+        const length = daysInMonth(year, month);
+        return { firstWeekday, startCol, length, weeksInMonth: Math.ceil((startCol + length) / 7) };
+    }
+
+    // Walks every date in the month, giving its calendar row/column and template weekday.
+    // The template week advances after the last day of a template week, which is not
+    // necessarily the last column of the calendar row. Returns the template week to use next.
+    function forEachDate(layout, templateWeekStart, weekCount, weekNumberIn, visit) {
+        const templateWeekEnd = (templateWeekStart + 6) % 7;
         let weekNumber = weekNumberIn;
-        const title = `${MONTH_NAMES[month - 1]} ${year}`;
-        const monthStartDay = firstWeekdayMondayBased(year, month);
-        const monthLength = daysInMonth(year, month);
-        const weeksInMonth = Math.ceil((monthStartDay + monthLength) / 7);
-
-        const cells = [];
-        for (let w = 0; w < weeksInMonth; w += 1) cells.push(new Array(7).fill(null));
-
-        let date = 1;
-        let templateDay = monthStartDay;
-        for (let week = 0; week < weeksInMonth; week += 1) {
-            for (let day = 0; day < 7; day += 1) {
-                if (week === 0 && day < monthStartDay) continue;
-                if (date > monthLength) break;
-
-                const assignments = assignmentsFor(shiftGroups, weekNumber - 1, templateDay);
-                cells[week][day] = buildMainShiftLines(date, assignments, day === 6, weekNumber);
-
-                date += 1;
-                templateDay += 1;
-                if (templateDay > 6) {
-                    templateDay = 0;
-                    weekNumber += 1;
-                    if (weekNumber > weekCount) weekNumber = 1;
-                }
+        for (let date = 1; date <= layout.length; date += 1) {
+            const offset = layout.startCol + date - 1;
+            const weekday = (layout.firstWeekday + date - 1) % 7;
+            visit({
+                date,
+                week: Math.floor(offset / 7),
+                day: offset % 7,
+                weekday,
+                weekNumber,
+                startsTemplateWeek: weekday === templateWeekStart
+            });
+            if (weekday === templateWeekEnd) {
+                weekNumber += 1;
+                if (weekNumber > weekCount) weekNumber = 1;
             }
         }
+        return weekNumber;
+    }
 
-        return { title, weeksInMonth, monthStartDay, cells };
+    function computeMainMonthGrid(shiftGroups, weekCount, templateWeekStart, weekNumberIn, month, year, calStart) {
+        const title = `${MONTH_NAMES[month - 1]} ${year}`;
+        const layout = monthLayout(year, month, calStart);
+
+        const cells = [];
+        for (let w = 0; w < layout.weeksInMonth; w += 1) cells.push(new Array(7).fill(null));
+
+        forEachDate(layout, templateWeekStart, weekCount, weekNumberIn, (d) => {
+            const assignments = assignmentsFor(shiftGroups, d.weekNumber - 1, d.weekday);
+            cells[d.week][d.day] = buildMainShiftLines(d.date, assignments, d.startsTemplateWeek, d.weekNumber);
+        });
+
+        return { title, weeksInMonth: layout.weeksInMonth, calStart, cells };
     }
 
     // ----- Worksheet writing -----
@@ -795,8 +831,9 @@
         cell.border = STYLES.thinBorder;
     }
 
-    function applyHeaders(sheet) {
-        DOW.forEach((day, i) => {
+    function applyHeaders(sheet, calStart) {
+        orderedDays(calStart).forEach((weekday, i) => {
+            const day = DOW[weekday];
             const col = i * 2 + 1;
             sheet.mergeCells(HEADER_ROW, col, HEADER_ROW, col + 1);
             const cell = sheet.getCell(HEADER_ROW, col);
@@ -857,8 +894,9 @@
         setPageSetup(sheet);
     }
 
-    function createMonthSheets(mainWorkbook, employeeWorkbooks, shiftGroups, weekCount, weekNumberIn, month, year) {
-        let weekNumber = weekNumberIn;
+    function createMonthSheets(
+        mainWorkbook, employeeWorkbooks, shiftGroups, weekCount, templateWeekStart, calStart, weekNumberIn, month, year
+    ) {
         const title = `${MONTH_NAMES[month - 1]} ${year}`;
         const mainSheet = mainWorkbook.addWorksheet(title);
 
@@ -867,51 +905,36 @@
             employeeSheets.set(name, wb.addWorksheet(title));
         }
 
-        const monthStartDay = firstWeekdayMondayBased(year, month);
-        const monthLength = daysInMonth(year, month);
-        const weeksInMonth = Math.ceil((monthStartDay + monthLength) / 7);
+        const layout = monthLayout(year, month, calStart);
 
         applyTitle(mainSheet, title);
-        applyHeaders(mainSheet);
+        applyHeaders(mainSheet, calStart);
         for (const sheet of employeeSheets.values()) {
             applyTitle(sheet, title);
-            applyHeaders(sheet);
+            applyHeaders(sheet, calStart);
         }
 
-        let date = 1;
-        let templateDay = monthStartDay;
+        const nextWeekNumber = forEachDate(layout, templateWeekStart, weekCount, weekNumberIn, (d) => {
+            const col = d.day * 2 + 1;
+            const row = DATA_START_ROW + d.week;
+            const assignments = assignmentsFor(shiftGroups, d.weekNumber - 1, d.weekday);
+            const mainText = buildMainShiftText(d.date, assignments, d.startsTemplateWeek, d.weekNumber);
+            writeShiftCell(mainSheet, row, col, mainText);
 
-        for (let week = 0; week < weeksInMonth; week += 1) {
-            for (let day = 0; day < 7; day += 1) {
-                const col = day * 2 + 1;
-                if (week === 0 && day < monthStartDay) continue;
-                if (date > monthLength) break;
-
-                const assignments = assignmentsFor(shiftGroups, weekNumber - 1, templateDay);
-                const mainText = buildMainShiftText(date, assignments, day === 6, weekNumber);
-                writeShiftCell(mainSheet, DATA_START_ROW + week, col, mainText);
-
-                for (const [name, sheet] of employeeSheets.entries()) {
-                    const [empText, colorKey] = buildEmployeeShiftText(date, assignments, day === 6, weekNumber, name);
-                    writeShiftCell(sheet, DATA_START_ROW + week, col, empText, colorKey);
-                }
-
-                date += 1;
-                templateDay += 1;
-                if (templateDay > 6) {
-                    templateDay = 0;
-                    weekNumber += 1;
-                    if (weekNumber > weekCount) weekNumber = 1;
-                }
+            for (const [name, sheet] of employeeSheets.entries()) {
+                const [empText, colorKey] = buildEmployeeShiftText(
+                    d.date, assignments, d.startsTemplateWeek, d.weekNumber, name
+                );
+                writeShiftCell(sheet, row, col, empText, colorKey);
             }
-        }
+        });
 
-        formatSheet(mainSheet, weeksInMonth);
+        formatSheet(mainSheet, layout.weeksInMonth);
         for (const sheet of employeeSheets.values()) {
-            formatSheet(sheet, weeksInMonth);
+            formatSheet(sheet, layout.weeksInMonth);
         }
 
-        return weekNumber;
+        return nextWeekNumber;
     }
 
     function templateCellValue(value) {
@@ -1113,9 +1136,9 @@
 
         const thead = document.createElement("thead");
         const headRow = document.createElement("tr");
-        DOW.forEach((day) => {
+        orderedDays(monthGrid.calStart).forEach((weekday) => {
             const th = document.createElement("th");
-            th.textContent = day.slice(0, 3);
+            th.textContent = DOW[weekday].slice(0, 3);
             headRow.appendChild(th);
         });
         thead.appendChild(headRow);
