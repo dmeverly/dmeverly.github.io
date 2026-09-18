@@ -11,6 +11,7 @@
 
     <link href="../assets/img/favicon.ico" rel="icon" sizes="any" />
     <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="../assets/css/fonts.css" rel="stylesheet" />
     <link href="../assets/css/tokens.css" rel="stylesheet" />
     <link href="../assets/css/components.css" rel="stylesheet" />
 </head>
@@ -45,115 +46,223 @@
                     <div class="section-head">
                         <h2 id="qr-title">Quick QR Code Generator</h2>
                         <p class="muted measure">
-                            Enter text to render a QR code on the fly
+                            Type a web address or any text and get a QR code that phones can scan with their camera.
+                            The code updates as you type. Nothing you enter leaves your device.
                         </p>
                     </div>
 
                     <div class="qr-generator glass">
                         <form autocomplete="off" class="qr-generator__form" id="qr-form">
-                            <label class="text-strong" for="qr-text">Text to encode</label>
-                            <textarea aria-describedby="qr-status" id="qr-text" maxlength="500"
-                                placeholder="Text to Encode" rows="5"
-                                spellcheck="false"></textarea>
+                            <label class="text-strong" for="qr-text">Web address or text</label>
+                            <textarea aria-describedby="qr-count qr-status" id="qr-text" maxlength="500"
+                                placeholder="https://example.com" rows="5" spellcheck="false"></textarea>
+                            <p class="muted qr-generator__hint" id="qr-count">0 of 500 characters</p>
                             <div class="qr-generator__actions">
-                                <button class="btn btn-ghost" disabled id="qr-save" type="button">Save SVG</button>
-                                <button class="btn btn-ghost" disabled id="qr-save-png" type="button">Save PNG</button>
+                                <button class="btn btn-primary" disabled id="qr-save-png" type="button">Download PNG</button>
+                                <button class="btn btn-ghost" disabled id="qr-save" type="button">Download SVG</button>
                                 <button class="btn btn-ghost" id="qr-clear" type="button">Clear</button>
                             </div>
-                            <p aria-live="polite" class="qr-generator__status muted" id="qr-status"></p>
+                            <p class="muted qr-generator__hint">
+                                PNG works almost everywhere. SVG stays sharp at any size, which is best for printing.
+                                Test the code with your phone before you share it.
+                            </p>
+                            <p aria-live="polite" class="form-status qr-generator__status" id="qr-status"></p>
                         </form>
 
                         <div class="qr-generator__preview" id="qr-preview">
-                            <p class="muted">Your QR code will appear here.</p>
+                            <p class="muted">Your QR code will appear here as you type.</p>
                         </div>
                     </div>
                 </section>
 
                 <section aria-labelledby="schedule-title">
                     <div class="section-head section-head--spaced">
-                        <h2 id="schedule-title">Shift Schedule Generator</h2>
+                        <h2 id="schedule-title">Templated Schedule Mapper</h2>
                         <p class="muted measure">
-                            Upload or paste a shift-rotation template to generate a 12-month schedule plus an
-                            individual schedule for each employee. The data is read and processed entirely in
-                            your browser — nothing is uploaded to a server. The tool detects the header row, shift
-                            columns, and week count automatically, so small layout changes shouldn't need a site
-                            update.
+                            Do you write employee schedules from a repeating template, then retype the names into a
+                            calendar every month? This tool does that part for you. Give it your rotation template and
+                            it builds a full 12-month calendar, plus a separate calendar for each employee, in seconds.
+                        </p>
+                        <p class="muted measure schedule-generator__privacy">
+                            Your file stays on your device. Everything is processed in your browser and nothing is uploaded.
                         </p>
                     </div>
 
                     <div class="schedule-generator glass">
-                        <p class="muted schedule-generator__template-note">
-                            Need a starting point? Download a blank template, fill in employee names per week, then
-                            upload it above. You can add more shift columns (label + 7 day-of-week columns, any
-                            order) or more week rows later — the tool re-reads the layout from the file each time.
-                        </p>
-                        <div class="schedule-generator__template-actions">
-                            <div class="schedule-generator__field">
-                                <label class="text-strong" for="sched-template-weeks">Template weeks</label>
-                                <input id="sched-template-weeks" max="520" min="1" placeholder="12" step="1"
-                                    type="number" value="12" />
-                            </div>
-                            <button class="btn btn-ghost" id="sched-download-template" type="button">Download Blank
-                                Template</button>
-                        </div>
+                        <ol aria-label="How it works" class="sched-flow">
+                            <li><span class="tool-step__num">1</span>Add your template</li>
+                            <li><span class="tool-step__num">2</span>Name your shifts</li>
+                            <li><span class="tool-step__num">3</span>Pick a start date</li>
+                            <li><span class="tool-step__num">4</span>Download</li>
+                        </ol>
 
                         <form autocomplete="off" class="schedule-generator__form" id="schedule-form">
-                            <div class="schedule-generator__field">
-                                <label class="text-strong" for="sched-file">Shift rotation template (.xlsx)</label>
-                                <input accept=".xlsx" id="sched-file" type="file" />
-                                <p class="muted schedule-generator__filename" id="sched-filename">No file selected.</p>
-                            </div>
+                            <section aria-labelledby="sched-step-1" class="tool-step" id="sched-step-1-card">
+                                <h3 class="tool-step__title" id="sched-step-1">
+                                    <span class="tool-step__num">1</span>
+                                    Add your template
+                                </h3>
 
-                            <div class="schedule-generator__field">
-                                <label class="text-strong" for="sched-paste">Or paste cells copied from Excel /
-                                    Sheets</label>
-                                <textarea id="sched-paste" placeholder="Paste tab-separated cells here" rows="4"
-                                    spellcheck="false"></textarea>
-                                <div class="schedule-generator__actions">
-                                    <button class="btn btn-ghost" id="sched-paste-parse" type="button">Use Pasted
-                                        Data</button>
+                                <div class="sched-choice">
+                                    <div class="sched-choice__option schedule-generator__field">
+                                        <label class="sched-choice__label" for="sched-file">Upload a spreadsheet</label>
+                                        <input accept=".xlsx" id="sched-file" type="file" />
+                                        <p class="muted schedule-generator__filename" id="sched-filename">No file selected.</p>
+                                    </div>
+
+                                    <p class="sched-choice__or" aria-hidden="true">or</p>
+
+                                    <div class="sched-choice__option schedule-generator__field">
+                                        <label class="sched-choice__label" for="sched-paste">Paste copied cells</label>
+                                        <textarea id="sched-paste"
+                                            placeholder="Copy the cells in Excel or Google Sheets, including the Mon-Sun row, then paste here."
+                                            rows="3" spellcheck="false"></textarea>
+                                        <div class="schedule-generator__actions">
+                                            <button class="btn btn-ghost" id="sched-paste-parse" type="button">Read pasted
+                                                cells</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <p class="muted schedule-generator__summary" id="sched-summary"></p>
+                                <p aria-live="polite" class="form-status schedule-generator__status"
+                                    id="sched-load-status"></p>
+                                <p class="muted schedule-generator__summary" id="sched-summary"></p>
 
-                            <div class="schedule-generator__field">
-                                <p class="text-strong">Shift names</p>
-                                <p class="muted schedule-generator__hint">
-                                    Rename any of these if the guess below is wrong — it controls the "Name - Label"
-                                    text and cell color (day = yellow, night = gray) in the generated schedule.
-                                </p>
-                                <div id="sched-groups"></div>
-                            </div>
+                                <details class="tool-step__details">
+                                    <summary>Don't have a template? See an example or get a blank one</summary>
+                                    <p class="muted tool-step__help">
+                                        Days of the week run across the top and each row is a week of your rotation.
+                                        Type names under the days people work. The top-left cell names the shift. For
+                                        more shifts, repeat the block to the right.
+                                    </p>
+                                    <div class="schedule-preview">
+                                        <table class="schedule-preview__table schedule-preview__table--example">
+                                            <caption>Example: a two-week rotation with one shift, "Day"</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Day</th>
+                                                    <th scope="col">Mon</th>
+                                                    <th scope="col">Tue</th>
+                                                    <th scope="col">Wed</th>
+                                                    <th scope="col">Thu</th>
+                                                    <th scope="col">Fri</th>
+                                                    <th scope="col">Sat</th>
+                                                    <th scope="col">Sun</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Alex</td>
+                                                    <td>Alex</td>
+                                                    <td>Alex</td>
+                                                    <td>Sam</td>
+                                                    <td>Sam</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Sam</td>
+                                                    <td>Sam</td>
+                                                    <td></td>
+                                                    <td>Alex</td>
+                                                    <td>Alex</td>
+                                                    <td>Alex</td>
+                                                    <td>Alex</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="schedule-generator__template-actions">
+                                        <div class="schedule-generator__field">
+                                            <label class="text-strong" for="sched-template-weeks">Weeks in your
+                                                rotation</label>
+                                            <input id="sched-template-weeks" max="520" min="1" placeholder="12" step="1"
+                                                type="number" value="12" />
+                                        </div>
+                                        <button class="btn btn-ghost" id="sched-download-template" type="button">Download
+                                            blank template</button>
+                                    </div>
+                                </details>
+                            </section>
 
-                            <div class="schedule-generator__grid">
-                                <div class="schedule-generator__field">
-                                    <label class="text-strong" for="sched-week">Starting template week</label>
-                                    <input id="sched-week" min="1" placeholder="1" step="1" type="number" />
-                                </div>
-                                <div class="schedule-generator__field">
-                                    <label class="text-strong" for="sched-month">Starting month (1-12)</label>
-                                    <input id="sched-month" max="12" min="1" placeholder="1" step="1" type="number" />
-                                </div>
-                                <div class="schedule-generator__field">
-                                    <label class="text-strong" for="sched-year">Starting year</label>
-                                    <input id="sched-year" max="2400" min="1900" placeholder="2026" step="1"
-                                        type="number" />
-                                </div>
-                            </div>
+                            <div class="schedule-generator__configure" hidden id="sched-configure">
+                                <section aria-labelledby="sched-step-2" class="tool-step">
+                                    <h3 class="tool-step__title" id="sched-step-2">
+                                        <span class="tool-step__num">2</span>
+                                        Name your shifts
+                                    </h3>
+                                    <p class="tool-step__help">
+                                        Name each shift, then pick its color. The name appears next to each person on the
+                                        calendar, like "Alex - Day".
+                                    </p>
+                                    <div id="sched-groups"></div>
+                                </section>
 
-                            <div class="schedule-generator__actions">
-                                <button class="btn btn-ghost" disabled id="sched-generate" type="button">Generate
-                                    Schedule</button>
-                                <button class="btn btn-ghost" id="sched-clear" type="button">Clear</button>
+                                <section aria-labelledby="sched-step-3" class="tool-step">
+                                    <h3 class="tool-step__title" id="sched-step-3">
+                                        <span class="tool-step__num">3</span>
+                                        Pick a start date
+                                    </h3>
+
+                                    <div class="schedule-generator__grid">
+                                        <div class="schedule-generator__field">
+                                            <label class="sched-choice__label" for="sched-month">First month</label>
+                                            <select id="sched-month">
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                        <div class="schedule-generator__field">
+                                            <label class="sched-choice__label" for="sched-year">Year</label>
+                                            <input id="sched-year" max="2400" min="1900" placeholder="2026" step="1"
+                                                type="number" />
+                                        </div>
+                                        <div class="schedule-generator__field">
+                                            <label class="sched-choice__label" for="sched-week">Start on template week</label>
+                                            <input aria-describedby="sched-week-hint" id="sched-week" min="1"
+                                                placeholder="1" step="1" type="number" />
+                                        </div>
+                                    </div>
+                                    <p class="muted schedule-generator__hint" id="sched-week-hint"></p>
+
+                                    <div class="schedule-generator__preview-wrap">
+                                        <p class="text-strong">Preview of the first month</p>
+                                        <p class="muted schedule-generator__hint">Shift colors are added to each employee's own calendar file.</p>
+                                        <div class="schedule-preview" id="sched-preview"></div>
+                                    </div>
+                                </section>
+
+                                <section aria-labelledby="sched-step-4" class="tool-step tool-step--final">
+                                    <h3 class="tool-step__title" id="sched-step-4">
+                                        <span class="tool-step__num">4</span>
+                                        Download
+                                    </h3>
+                                    <p class="tool-step__help">
+                                        You get one .zip: a 12-month calendar for everyone, plus a calendar file for each
+                                        employee.
+                                    </p>
+                                    <div class="schedule-generator__actions">
+                                        <button class="btn btn-primary btn-lg" disabled id="sched-generate" type="button">Download
+                                            schedules</button>
+                                        <button class="btn btn-ghost" id="sched-clear" type="button">Start over</button>
+                                    </div>
+                                    <p aria-live="polite" class="form-status schedule-generator__status"
+                                        id="sched-status"></p>
+                                </section>
                             </div>
-                            <p aria-live="polite" class="schedule-generator__status muted" id="sched-status"></p>
                         </form>
-
-                        <div class="schedule-generator__preview-wrap">
-                            <p class="text-strong">Preview</p>
-                            <div class="schedule-preview" id="sched-preview"></div>
-                        </div>
                     </div>
                 </section>
             </div>

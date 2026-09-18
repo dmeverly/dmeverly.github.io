@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://everlybot.dev; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
     <title>David Everly | Software Engineer | Nurse Practitioner</title>
 
     <link href="assets/img/favicon.ico" rel="icon" sizes="any">
@@ -12,10 +14,7 @@
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="assets/img/site.webmanifest" rel="manifest">
 
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="assets/css/fonts.css" rel="stylesheet" />
     <link href="assets/css/tokens.css" rel="stylesheet" />
     <link href="assets/css/components.css" rel="stylesheet" />
 </head>
@@ -362,7 +361,7 @@
             <footer class="chatbot__footer">
                 <form autocomplete="off" class="chatbot__form" id="chatbot-form">
                     <input class="chatbot__input" id="chatbot-input" minlength="1" name="message"
-                        placeholder="Ask a question…" required type="text" />
+                        maxlength="500" placeholder="Ask a question…" required type="text" />
                     <button class="btn btn-primary chatbot__send" type="submit">
                         Send
                     </button>
@@ -375,7 +374,6 @@
         </section>
     </div>
 
-    <script> window.CHATBOT_API_URL = "https://everlybot.dev/api/chat"; </script>
     <script src="assets/js/data.js"></script>
     <script src="assets/js/site.js"></script>
     <script src="assets/js/audience.js"></script>

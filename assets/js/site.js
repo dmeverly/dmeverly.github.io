@@ -14,49 +14,47 @@ async function checkChatbotHealth() {
     }
 }
 
-function escapeHtml(str = "") {
-    return String(str)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+const SPAN_CLASS_RE = /^span-(?:[1-9]|1[0-2])$/;
+const GITHUB_URL_RE = /^https:\/\/github\.com\/[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+\/?$/;
+
+function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = String(text);
+    return node;
 }
 
-function renderTagPills(tags = []) {
-    return tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("");
+function buildProjectCard(p) {
+    const card = el("div", `card project-card ${SPAN_CLASS_RE.test(p.span) ? p.span : "span-4"}`);
+    card.appendChild(el("h3", "project-card__title", p.title));
+
+    const summary = el("p", "project-card__summary", p.summary);
+    summary.dataset.audience = "engineer";
+    const generalSummary = el("p", "project-card__summary", p.generalSummary);
+    generalSummary.dataset.audience = "general";
+    card.append(summary, generalSummary);
+
+    const tags = el("div", "project-card__tags");
+    tags.dataset.audience = "engineer";
+    (p.tags || []).forEach((tag) => tags.appendChild(el("span", "tag", tag)));
+    card.appendChild(tags);
+
+    if (typeof p.github === "string" && GITHUB_URL_RE.test(p.github)) {
+        const links = el("div", "project-card__links");
+        const link = el("a", "project-card__link", "View on GitHub \u2192");
+        link.href = p.github;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        links.appendChild(link);
+        card.appendChild(links);
+    }
+    return card;
 }
 
 function renderProjects(projects, rootId) {
     const root = document.getElementById(rootId);
     if (!root) return;
-
-    root.innerHTML = projects.map(p => {
-        const spanClass = p.span ? p.span : "span-4";
-        return `
-      <div class="card project-card ${spanClass}">
-        <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
-
-        <p class="project-card__summary" data-audience="engineer">${escapeHtml(p.summary)}</p>
-        <p class="project-card__summary" data-audience="general">${escapeHtml(p.generalSummary)}</p>
-
-        <div class="project-card__tags" data-audience="engineer">
-          ${renderTagPills(p.tags)}
-        </div>
-
-        ${p.github ? `
-          <div class="project-card__links">
-            <a href="${escapeHtml(p.github)}"
-               target="_blank"
-               rel="noopener"
-               class="project-card__link">
-              View on GitHub →
-            </a>
-          </div>
-        ` : ""}
-      </div>
-    `;
-    }).join("");
+    root.replaceChildren(...projects.map(buildProjectCard));
 }
 
 

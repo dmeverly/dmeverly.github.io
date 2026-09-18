@@ -1,6 +1,7 @@
 (() => {
     const STORAGE_KEY = "audienceMode";
     const DEFAULT = "engineer";
+    const MODES = ["engineer", "general"];
 
     function apply(mode) {
         const html = document.documentElement;
@@ -16,7 +17,12 @@
     }
 
     function init() {
-        const saved = localStorage.getItem(STORAGE_KEY);
+        let saved = null;
+        try {
+            saved = localStorage.getItem(STORAGE_KEY);
+        } catch (_) {
+            // Storage can be blocked; fall back to the default.
+        }
         const mode = saved === "general" ? "general" : DEFAULT;
         apply(mode);
 
@@ -25,7 +31,12 @@
             if (!btn) return;
 
             const mode = btn.dataset.audienceBtn;
-            localStorage.setItem(STORAGE_KEY, mode);
+            if (!MODES.includes(mode)) return;
+            try {
+                localStorage.setItem(STORAGE_KEY, mode);
+            } catch (_) {
+                // Storage can be blocked; the choice still applies for this page view.
+            }
             apply(mode);
         });
     }

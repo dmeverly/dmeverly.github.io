@@ -2,10 +2,9 @@
     const CHATBOT_MOCK_MODE = false;
 
     const API_URL =
-        window.CHATBOT_API_URL ||
-        ((location.hostname === "localhost" || location.hostname === "127.0.0.1")
+        (location.hostname === "localhost" || location.hostname === "127.0.0.1")
             ? "http://localhost:3000/api/chat"
-            : "https://everlybot.dev/api/chat");
+            : "https://everlybot.dev/api/chat";
 
     function ready(fn) {
         if (document.readyState === "loading") {
@@ -39,15 +38,6 @@
         }
 
         let isOpen = false;
-
-        function escapeHtml(str = "") {
-            return String(str)
-                .replaceAll("&", "&amp;")
-                .replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;")
-                .replaceAll('"', "&quot;")
-                .replaceAll("'", "&#039;");
-        }
 
         function scrollToBottom() {
             messages.scrollTop = messages.scrollHeight;
@@ -266,7 +256,7 @@
 
             const bubble = document.createElement("div");
             bubble.className = "chatbot__bubble";
-            bubble.innerHTML = escapeHtml(text);
+            bubble.textContent = text;
 
             wrapper.appendChild(bubble);
             messages.appendChild(wrapper);

@@ -8,8 +8,9 @@
     const savePngButton = document.getElementById("qr-save-png");
     const preview = document.getElementById("qr-preview");
     const status = document.getElementById("qr-status");
+    const count = document.getElementById("qr-count");
 
-    if (!form || !input || !clearButton || !saveButton || !savePngButton || !preview || !status) return;
+    if (!form || !input || !clearButton || !saveButton || !savePngButton || !preview || !status || !count) return;
 
     const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
     const RENDER_DELAY_MS = 150;
@@ -18,8 +19,17 @@
     function showPlaceholder() {
         const message = document.createElement("p");
         message.className = "muted";
-        message.textContent = "Your QR code will appear here.";
+        message.textContent = "Your QR code will appear here as you type.";
         preview.replaceChildren(message);
+    }
+
+    function setStatus(message, kind) {
+        status.textContent = message;
+        status.dataset.kind = kind || "";
+    }
+
+    function updateCount() {
+        count.textContent = `${input.value.length} of ${input.maxLength} characters`;
     }
 
     function renderQrCode(text) {
@@ -65,7 +75,8 @@
     function clearGenerator() {
         window.clearTimeout(renderTimer);
         input.value = "";
-        status.textContent = "";
+        setStatus("");
+        updateCount();
         saveButton.disabled = true;
         savePngButton.disabled = true;
         showPlaceholder();
@@ -104,7 +115,7 @@
         if (!file) return;
 
         downloadBlob(file, "qrcode.svg");
-        status.textContent = "QR code saved locally as qrcode.svg.";
+        setStatus("Saved qrcode.svg to your downloads folder.", "success");
     }
 
     async function saveQrCodeAsPng() {
@@ -145,9 +156,9 @@
             });
 
             downloadBlob(pngFile, "qrcode.png");
-            status.textContent = "QR code saved locally as qrcode.png.";
+            setStatus("Saved qrcode.png to your downloads folder.", "success");
         } catch (error) {
-            status.textContent = "PNG export is not supported by this browser. You can still save the SVG.";
+            setStatus("Your browser can't create a PNG. Download the SVG instead.", "error");
         } finally {
             savePngButton.disabled = !preview.querySelector("svg");
         }
@@ -155,7 +166,7 @@
 
     function updateQrCode() {
         const text = input.value;
-        status.textContent = "";
+        setStatus("");
 
         if (!text) {
             saveButton.disabled = true;
@@ -170,11 +181,12 @@
             saveButton.disabled = true;
             savePngButton.disabled = true;
             showPlaceholder();
-            status.textContent = "That text is too long to encode. Please shorten it.";
+            setStatus("That is too much text to fit in one QR code. Please shorten it.", "error");
         }
     }
 
     input.addEventListener("input", function () {
+        updateCount();
         window.clearTimeout(renderTimer);
         renderTimer = window.setTimeout(updateQrCode, RENDER_DELAY_MS);
     });
@@ -185,6 +197,7 @@
     window.addEventListener("pagehide", function () {
         window.clearTimeout(renderTimer);
         input.value = "";
+        updateCount();
         preview.replaceChildren();
         saveButton.disabled = true;
         savePngButton.disabled = true;

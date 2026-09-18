@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; worker-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
     <title>David Everly | Curriculum Vitae</title>
 
     <link href="../assets/img/favicon.ico" rel="icon" sizes="any">
@@ -12,10 +14,7 @@
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="../assets/img/site.webmanifest" rel="manifest">
 
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="../assets/css/fonts.css" rel="stylesheet" />
     <link href="../assets/css/tokens.css" rel="stylesheet" />
     <link href="../assets/css/components.css" rel="stylesheet" />
 </head>
@@ -45,7 +44,7 @@
     <main class="section">
     <div class="container">
         <h1>Curriculum Vitae</h1>
-        <div class="cv-frame" style="margin-top: 1rem;">
+        <div class="cv-frame">
             <div class="cv-loading" id="cvLoading">
                 <div class="cv-spinner"></div>
                 <span>Loading CV…</span>
@@ -87,38 +86,7 @@
     </div>
 </footer>
 
-<script type="module">
-    import * as pdfjsLib from '../assets/vendor/pdfjs/pdf.min.mjs';
-
-    var pdfUrl = '../assets/David_Everly_SWE_CRNP.pdf';
-    var pdf = document.getElementById('cvPdf');
-    var loader = document.getElementById('cvLoading');
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc = '../assets/vendor/pdfjs/pdf.worker.min.mjs';
-
-    try {
-        var documentPdf = await pdfjsLib.getDocument(pdfUrl).promise;
-
-        for (var pageNumber = 1; pageNumber <= documentPdf.numPages; pageNumber += 1) {
-            var page = await documentPdf.getPage(pageNumber);
-            var viewport = page.getViewport({ scale: 1.5 });
-            var canvas = document.createElement('canvas');
-            var context = canvas.getContext('2d');
-
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            canvas.setAttribute('aria-label', 'CV page ' + pageNumber);
-            await page.render({ canvasContext: context, viewport: viewport }).promise;
-            pdf.appendChild(canvas);
-        }
-
-        loader.style.display = 'none';
-    } catch (error) {
-        loader.innerHTML = '<span>Unable to display the CV. '
-            + '<a href="../assets/David_Everly_SWE_CRNP.pdf" target="_blank" rel="noopener">Open the PDF directly</a>.</span>';
-        console.error('Unable to render the CV PDF:', error);
-    }
-</script>
+<script src="../assets/js/cv-viewer.js" type="module"></script>
 
 </body>
 
